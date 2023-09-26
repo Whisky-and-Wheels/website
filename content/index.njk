@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Whisky and wheels</title>
+        {# set up proper style files #}
+        {# proper image sizing and formatting, these are massive #}
+        {# probably doesn't belong on background, should be picture element with alt and everything #}
+            <style>
+article::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: var(--image);
+    background-position: center;
+    background-size: cover;
+}
+    </style>
+    </head>
+        <body>
+            <header>
+                <h1>
+            Whisky and wheels
+        </h1>
+        </header>
+            <main>
+                {%- for trip in collections.trip -%}
+                {# why is nunjucks formatting so weird? #}
+                    <a href="{{ trip.page.url }}"> <article style="--image: url('img/{{ trip.data.image }}.jpeg')">
+                        <h2>{{ trip.data.title }}</h2>
+                        <h3>{{ trip.data.subtitle }}</h3>
+                        <p>{{ trip.data.days }} Days</p>
+                        <p>{{ trip.data.kilometres }} Kilometres</p>
+                        <p>From {{ trip.data.start }} to {{ trip.data.end }}</p>
+                        <p>{{ trip.page.excerpt }}</p>
+                    </article>
+                </a>
+            {%- endfor -%}
+        </main>
+        <footer>
+            <a href="/whisky">More about whisky</a>
+            <a href="/wheels">More about wheels</a>
+        </footer>
+    </body>
+</html>

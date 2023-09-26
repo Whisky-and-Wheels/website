@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <h1>{{ title }}</h1>
+        </header>
+        <main>
+            <h2>Summary</h2>
+            <p>Short paragraph about overall trip stats</p>
+            <ol>
+                {# sort by date, earliest to latest #}
+                {%- for trip in collections[name] -%}
+                    <li>
+                        <a href="{{ trip.page.url }}">{{ trip.data.title }}</a>
+                    </li>
+                {%- endfor -%}
+            </ol>
+        </main>
+    </body>
+</html>

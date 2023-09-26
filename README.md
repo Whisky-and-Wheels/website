@@ -9,8 +9,7 @@
 
 ### Configuration
 
-- exclude files from build
-- set up image pipeline
+- set up image pipeline (better auto-optimization)
 
 ### Styling
 
