@@ -18,6 +18,8 @@
 
 ### Styling
 
+- reset
+- global styles (font, spacing tokens, colors, default link styles)
 - home (trip list)
 - single trip
 - trip collection landing
