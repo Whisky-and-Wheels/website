@@ -23,6 +23,15 @@ module.exports = function (eleventyConfig) {
   // Copy `img/` to `_site/img` (relative to site dir, not input dir)
   eleventyConfig.addPassthroughCopy("img");
 
+  // Copy font
+  eleventyConfig.addPassthroughCopy("font");
+
+  // Copy font
+  eleventyConfig.addPassthroughCopy("css");
+
+  // Include CSS in watch updates on dev
+  eleventyConfig.addWatchTarget("css");
+
   // use excerpt delimiter
   // https://www.11ty.dev/docs/data-frontmatter-customize/#example-parse-excerpts-from-content
   eleventyConfig.setFrontMatterParsingOptions({

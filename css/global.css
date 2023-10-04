@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Fraunces";
+  src: url("../font/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --font: "Fraunces", serif;
+}
+
+body {
+  font-family: var(--font);
+}
