@@ -25,9 +25,11 @@
             {%- for trip in collections.trip -%}
                 {# why is nunjucks formatting so weird? #}
                 <a href="{{ trip.page.url }}">
-                    <article style="--image: url('../img/{{ trip.data.image }}.jpeg')">
+                    <article>
                         <h2>{{ trip.data.title }}</h2>
                         <h3>{{ trip.data.subtitle }}</h3>
+                        {# todo: make picture element with jpeg fallback and sizes #}
+                        {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
                         <p>{{ trip.data.days }} Days</p>
                         <p>{{ trip.data.kilometres }} Kilometres</p>
                         <p>From {{ trip.data.start }} to {{ trip.data.end }}</p>

@@ -5,7 +5,8 @@ name: cairngorms
 subtitle: Our first long bike trip
 days: 14
 kilometres: 300
-image: cairngorms
+image_file: cairngorms
+image_alt: Looking over the edge of a rolling green hill into a small, distant village
 start: Pitlochry
 end: Pitlochry
 layout: trip-collection-layout.njk

@@ -4,7 +4,8 @@ title: Lindisfarne
 subtitle: The causeway that floods twice a day
 days: 2
 kilometres: 107
-image: lindisfarne
+image_file: lindisfarne
+image_alt: Red mountain bike with red bike bag on a causeway at low tide, sand rippling away from the paved road
 start: Berwick-upon-Tweed
 end: Alnmouth
 average_speed: 15.4

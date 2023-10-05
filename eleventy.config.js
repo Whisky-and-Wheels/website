@@ -1,3 +1,4 @@
+const path = require("path");
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
@@ -6,7 +7,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("image", async function (src, alt, sizes) {
     let metadata = await Image(src, {
       widths: [300, 600],
-      formats: ["webp", "jpeg"],
+      formats: ["avif", "jpeg"],
+      outputDir: "./_site/img",
+      urlPath: "/img/",
+      filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+
+        return `${name}-${width}w.${format}`;
+      },
     });
 
     let imageAttributes = {
@@ -20,7 +29,7 @@ module.exports = function (eleventyConfig) {
     return Image.generateHTML(metadata, imageAttributes);
   });
 
-  // Copy `img/` to `_site/img` (relative to site dir, not input dir)
+  // Copy jpegs
   eleventyConfig.addPassthroughCopy("img");
 
   // Copy font

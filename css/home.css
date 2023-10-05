@@ -1,14 +1,4 @@
 /* todo: organize and have some kind of naming system for goodness sake */
-article::after {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 100px;
-  background-image: var(--image);
-  background-position: center;
-  background-size: cover;
-}
-
 h1 {
   display: grid;
   grid-template-rows: auto 0 auto;
