@@ -24,23 +24,28 @@
         <main class="u-container u-grid">
             {%- for trip in collections.trip -%}
                 {# why is nunjucks formatting so weird? #}
-                <a href="{{ trip.page.url }}">
+                <a class="u-reset-link" href="{{ trip.page.url }}">
                     <article>
-                        <h2>{{ trip.data.title }}</h2>
-                        <h3>{{ trip.data.subtitle }}</h3>
-                        {# todo: make picture element with jpeg fallback and sizes #}
+                        <h2 class="title">{{ trip.data.title }}</h2>
+                        <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
                         {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
-                        <p>{{ trip.data.days }} Days</p>
-                        <p>{{ trip.data.kilometres }} Kilometres</p>
-                        <p>From {{ trip.data.start }} to {{ trip.data.end }}</p>
-                        <p>{{ trip.page.excerpt }}</p>
-                    </article>
-                </a>
-            {%- endfor -%}
-        </main>
-        <footer>
-            <a href="/whisky">More about whisky</a>
-            <a href="/wheels">More about wheels</a>
-        </footer>
+                        <p class="days">
+                            <strong>{{ trip.data.days }}</strong>
+                            days</p>
+                        <p class="kilometres">
+                            <strong>{{ trip.data.kilometres }}</strong>
+                            km</p>
+                        <p class="location">From
+                            <strong>{{ trip.data.start }}</strong>
+                            to
+                            <strong>{{ trip.data.end }}</strong>
+                        </p>
+                    </p>
+                    <p class="excerpt">{{ trip.page.excerpt }}</p>
+                </article>
+            </a>
+        {%- endfor -%}
     </body>
-</html>
+</html></main><footer>
+<a href="/whisky">More about whisky</a>
+<a href="/wheels">More about wheels</a></footer></body></html>
