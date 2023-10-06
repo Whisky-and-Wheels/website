@@ -52,7 +52,8 @@ h1 span:nth-of-type(2) {
   }
 
   main.u-grid {
-    --nb-columns: 6;
+    --nb-columns: 9;
+    align-items: start;
   }
 }
 
@@ -93,12 +94,18 @@ h1 span:nth-of-type(2) {
   }
 
   a:has(article) {
-    border: var(--space-3xs) solid black;
+    background-color: whitesmoke;
     padding: var(--space-m);
   }
 
+  /* glenfiddich inspired */
+  /* todo: add dotted border between columns */
+  /* todo: add thin solid border between day / distance */
   a:nth-of-type(odd):has(article) {
-    grid-column: span 4;
+    --grid-col-span: span 5;
+    --accent: green;
+    grid-column: var(--grid-column, var(--grid-col-span));
+    grid-row: span 2;
 
     article {
       grid-template-columns: minmax(0, 1fr) auto 1fr;
@@ -109,8 +116,10 @@ h1 span:nth-of-type(2) {
         "subtitle days kilometres";
 
       .subtitle {
-        text-transform: uppercase;
+        align-self: center;
         font-size: var(--font-small);
+        text-align: center;
+        text-transform: uppercase;
       }
 
       .location {
@@ -139,21 +148,133 @@ h1 span:nth-of-type(2) {
           font-weight: inherit;
         }
       }
+    }
+  }
 
-      .days {
-        /* fake column gap */
-        padding-inline-end: var(--space-m);
+  /* ardbeg inspired */
+  a:nth-of-type(even):has(article) {
+    --accent: yellow;
+    grid-column: span 3;
+    grid-row: span 3;
+
+    article {
+      grid-template-columns: auto 2rem auto;
+      grid-template-areas:
+        "title title title"
+        "subtitle subtitle subtitle"
+        "days . kilometres"
+        "location location location"
+        "excerpt excerpt excerpt"
+        "image image image";
+      row-gap: 0;
+      justify-items: center;
+      line-height: 1;
+
+      .subtitle,
+      .days,
+      .kilometres,
+      .location,
+      .excerpt {
+        margin-block-end: var(--space-m);
       }
 
-      .days::after {
-        content: "";
-        width: calc(var(--space-3xs) * 0.5);
+      .title {
+        font-size: var(--font-step-2);
+        font-weight: 600;
+        font-variation-settings: "SOFT" 100;
+        text-transform: uppercase;
+
+        &:first-letter {
+          font-size: var(--font-step-3);
+          font-weight: 500;
+          font-variation-settings: "SOFT" 50;
+          letter-spacing: -0.025em;
+        }
+      }
+
+      .subtitle {
+        font-family: var(--font-italic);
+        font-weight: 400;
+        font-size: var(--font-base);
+      }
+
+      /* todo: fill space in-between with trinity icon */
+      /* https://thenounproject.com/icon/trinity-5380405/ */
+      .days,
+      .kilometres {
+        display: flex;
+        align-items: center; /* todo: end? get the alignment fully matched */
+        font-weight: 700;
+        strong {
+          font-size: var(--font-step-2);
+          line-height: 1;
+        }
+        span {
+          writing-mode: vertical-lr;
+          font-variant-caps: all-small-caps;
+          font-variation-settings: "SOFT" 100;
+          font-size: var(--font-small);
+        }
+      }
+
+      .location {
+        text-transform: uppercase;
+        font-size: var(--font-small);
+        font-variation-settings: "SOFT" 100;
+        font-weight: 400;
+        strong {
+          font-weight: inherit;
+        }
       }
     }
   }
 
-  a:nth-of-type(even):has(article) {
-    grid-column: span 2;
-    grid-row: span 6;
+  /* glenlivet inspired */
+  a:nth-of-type(3n):has(article) {
+    --accent: red;
+    --grid-col-span: span 3;
+    grid-column: var(--grid-column, var(--grid-col-span));
+    grid-row: span 2;
+
+    article {
+      grid-template-columns: 1;
+      grid-template-areas:
+        "title"
+        "subtitle"
+        "days"
+        "kilometres"
+        "location"
+        "excerpt"
+        "image";
+    }
+  }
+
+  /* ben nevis inspired */
+  a:nth-of-type(4n):has(article) {
+    --accent: blue;
+    --grid-col-span: span 3;
+    grid-column: var(--grid-column, var(--grid-col-span));
+    grid-row: span 3;
+
+    article {
+      grid-template-columns: 1;
+      grid-template-areas:
+        "title"
+        "subtitle"
+        "days"
+        "kilometres"
+        "location"
+        "excerpt"
+        "image";
+    }
+  }
+
+  /* granular placement */
+  a:nth-child(1):has(article) {
+    --grid-column: 2 / var(--grid-col-span);
+  }
+
+  a:nth-child(7):has(article) {
+    --grid-column: 2 / var(--grid-col-span);
   }
 }
