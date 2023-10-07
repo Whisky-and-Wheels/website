@@ -1,11 +1,26 @@
 /* todo: organize and have some kind of naming system for goodness sake */
 /* todo: progressively enhance to grid */
+
+header {
+  margin-block: var(--space-s-m);
+}
+
+footer {
+  margin-block-start: var(--space-s-m);
+  padding-block: var(--space-s-m);
+  background-color: black;
+  color: white;
+
+  & a {
+    color: inherit;
+  }
+}
+
 h1 {
   display: grid;
   grid-template-rows: auto 0 auto;
   grid-template-columns: 1fr;
   width: min-content;
-  margin-block: var(--space-xs);
 }
 
 h1 span:nth-of-type(1) {
@@ -26,36 +41,9 @@ h1 span:nth-of-type(2) {
   font-size: 3em;
 }
 
-/* over 768px */
-@media screen and (width > 48rem) {
-  h1 {
-    grid-template-columns: repeat(3, min-content);
-    align-items: center;
-    justify-content: center;
-  }
-
-  h1 span:nth-of-type(1) {
-    grid-row-start: 1;
-  }
-
-  h1 span:nth-of-type(3) {
-    grid-row-start: 1;
-    grid-column-start: 3;
-  }
-
-  h1 span:nth-of-type(2) {
-    grid-column-start: 2;
-    grid-row-start: 1;
-    opacity: 1;
-    font-size: 1.5em;
-    font-weight: 100;
-  }
-
-  main.u-grid {
-    --nb-columns: 9;
-    align-items: start;
-  }
-}
+/* main.u-grid {
+  --nb-columns: 5;
+} */
 
 /* fun with article layouts */
 @supports (display: grid) {
@@ -161,7 +149,8 @@ h1 span:nth-of-type(2) {
 
   a[data-label="ardbeg"] {
     --accent: yellow;
-    grid-column: span 3;
+    --grid-col-span: span 3;
+    grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 3;
 
     & article {
@@ -458,12 +447,80 @@ h1 span:nth-of-type(2) {
     }
   }
 
-  /* granular placement */
-  a:nth-child(1):has(article) {
-    --grid-column: 2 / var(--grid-col-span);
+  @media screen and (width <= 35rem) {
+    main.u-grid {
+      --nb-columns: 1;
+    }
+
+    a[data-label] {
+      --grid-col-span: span 1;
+    }
+
+    a[data-label]:nth-of-type(even) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
   }
 
-  a:nth-child(7):has(article) {
-    --grid-column: 2 / var(--grid-col-span);
+  @media screen and (48rem >= width > 35rem) {
+    main.u-grid {
+      --nb-columns: 5;
+    }
+
+    a[data-label="ardbeg"],
+    a[data-label="glenlivet"],
+    a[data-label="ben-nevis"] {
+      --grid-col-span: span 4;
+    }
+
+    a[data-label]:nth-of-type(even) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
+  }
+
+  /* over 768px */
+  @media screen and (78rem >= width > 48rem) {
+    h1 {
+      grid-template-columns: repeat(3, min-content);
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 span:nth-of-type(1) {
+      grid-row-start: 1;
+    }
+
+    h1 span:nth-of-type(3) {
+      grid-row-start: 1;
+      grid-column-start: 3;
+    }
+
+    h1 span:nth-of-type(2) {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      opacity: 1;
+      font-size: 1.5em;
+      font-weight: 100;
+    }
+
+    main.u-grid {
+      --nb-columns: 6;
+      align-items: start;
+    }
+  }
+
+  /* over 1250-ish px */
+  @media screen and (width > 78rem) {
+    main.u-grid {
+      --nb-columns: 9;
+    }
+
+    /* granular placement */
+    a:nth-child(1):has(article) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
+
+    a:nth-child(7):has(article) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
   }
 }
