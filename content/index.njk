@@ -23,8 +23,17 @@
         </header>
         <main class="u-container u-grid">
             {%- for trip in collections.trip -%}
+                {% if loop.index % 4 == 0 %}
+                    {% set label = 'ben-nevis' %}
+                {% elif loop.index % 3 == 0 %}
+                    {% set label = 'glenlivet' %}
+                {% elif loop.index % 2 == 0 %}
+                    {% set label = 'ardbeg' %}
+                {% else %}
+                    {% set label = 'glenfiddich' %}
+                {% endif %}
                 {# why is nunjucks formatting so weird? #}
-                <a class="u-reset-link" href="{{ trip.page.url }}">
+                <a data-label="{{ label }}" class="u-reset-link" href="{{ trip.page.url }}">
                     <article>
                         <h2 class="title">{{ trip.data.title }}</h2>
                         <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
@@ -46,83 +55,10 @@
                     </article>
                 </a>
             {%- endfor -%}
-            {# todo: remove, I just need more trips to test #}
-            {%- for trip in collections.trip -%}
-                {# why is nunjucks formatting so weird? #}
-                <a class="u-reset-link" href="{{ trip.page.url }}">
-                    <article>
-                        <h2 class="title">{{ trip.data.title }}</h2>
-                        <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
-                        {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
-                        <p class="days">
-                            <strong>{{ trip.data.days }}</strong>
-                            <span>days</span>
-                        </p>
-                        <p class="kilometres">
-                            <strong>{{ trip.data.kilometres }}</strong>
-                            <span>km</span>
-                        </p>
-                        <p class="location">From
-                            <strong>{{ trip.data.start }}</strong>
-                            to
-                            <strong>{{ trip.data.end }}</strong>
-                        </p>
-                        <p class="excerpt">{{ trip.page.excerpt }}</p>
-                    </article>
-                </a>
-            {%- endfor -%}
-            {# todo: remove, I just need more trips to test #}
-            {%- for trip in collections.trip -%}
-                {# why is nunjucks formatting so weird? #}
-                <a class="u-reset-link" href="{{ trip.page.url }}">
-                    <article>
-                        <h2 class="title">{{ trip.data.title }}</h2>
-                        <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
-                        {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
-                        <p class="days">
-                            <strong>{{ trip.data.days }}</strong>
-                            <span>days</span>
-                        </p>
-                        <p class="kilometres">
-                            <strong>{{ trip.data.kilometres }}</strong>
-                            <span>km</span>
-                        </p>
-                        <p class="location">From
-                            <strong>{{ trip.data.start }}</strong>
-                            to
-                            <strong>{{ trip.data.end }}</strong>
-                        </p>
-                        <p class="excerpt">{{ trip.page.excerpt }}</p>
-                    </article>
-                </a>
-            {%- endfor -%}
-            {# todo: remove, I just need more trips to test #}
-            {%- for trip in collections.trip -%}
-                {# why is nunjucks formatting so weird? #}
-                <a class="u-reset-link" href="{{ trip.page.url }}">
-                    <article>
-                        <h2 class="title">{{ trip.data.title }}</h2>
-                        <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
-                        {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
-                        <p class="days">
-                            <strong>{{ trip.data.days }}</strong>
-                            <span>days</span>
-                        </p>
-                        <p class="kilometres">
-                            <strong>{{ trip.data.kilometres }}</strong>
-                            <span>km</span>
-                        </p>
-                        <p class="location">From
-                            <strong>{{ trip.data.start }}</strong>
-                            to
-                            <strong>{{ trip.data.end }}</strong>
-                        </p>
-                        <p class="excerpt">{{ trip.page.excerpt }}</p>
-                    </article>
-                </a>
-            {%- endfor -%}
-        </body>
+        </main>
+        <footer class="u-container">
+            <a href="/whisky">More about whisky</a>
+            <a href="/wheels">More about wheels</a>
+        </footer>
     </body>
-</html></main><footer class="u-container">
-<a href="/whisky">More about whisky</a>
-<a href="/wheels">More about wheels</a></footer></body></html>
+</html>
