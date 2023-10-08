@@ -73,10 +73,12 @@ img {
   margin-inline: auto;
 }
 
-.u-grid {
-  display: grid;
-  gap: var(--grid-gutter);
-  grid-template-columns: repeat(var(--nb-columns, 1), minmax(0, 1fr));
+@supports (display: grid) {
+  .u-grid {
+    display: grid;
+    gap: var(--grid-gutter);
+    grid-template-columns: repeat(var(--nb-columns, 1), minmax(0, 1fr));
+  }
 }
 
 /* needs other linkable indicator */
@@ -103,4 +105,5 @@ h2 {
 
 h3 {
   font-size: var(--font-step-2);
+  line-height: 1.2;
 }

@@ -32,7 +32,6 @@
                 {% else %}
                     {% set label = 'glenfiddich' %}
                 {% endif %}
-                {# why is nunjucks formatting so weird? #}
                 <a data-label="{{ label }}" class="u-reset-link" href="{{ trip.page.url }}">
                     <article>
                         <h2 class="title">{{ trip.data.title }}</h2>

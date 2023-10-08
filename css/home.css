@@ -1,8 +1,15 @@
 /* todo: organize and have some kind of naming system for goodness sake */
 /* todo: progressively enhance to grid */
 
+body {
+  min-height: 100vh;
+  display: grid;
+  /* ensure main always takes up full viewport */
+  grid-template-rows: auto 1fr auto;
+}
+
 header {
-  margin-block: var(--space-s-m);
+  padding-block: var(--space-m);
 }
 
 footer {
@@ -16,37 +23,182 @@ footer {
   }
 }
 
+main a {
+  transition: opacity 0.1s ease-in-out;
+}
+
+main a:hover,
+main a:focus {
+  outline: var(--space-2xs) solid black;
+  outline-offset: var(--space-3xs);
+  transition: outline 0.1s;
+}
+/* tried first with general sibling selector */
+/* that only works with subsequent siblings */
+main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
+  opacity: 0.1;
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* fallback for no grid support or custom properties (IE) */
 h1 {
-  display: grid;
-  grid-template-rows: auto 0 auto;
-  grid-template-columns: 1fr;
-  width: min-content;
+  text-align: center;
 }
 
 h1 span:nth-of-type(1) {
-  grid-column: 1 / span 1;
   font-weight: 400;
-}
-
-h1 span:nth-of-type(3) {
-  grid-column: 1 / span 1;
 }
 
 h1 span:nth-of-type(2) {
-  grid-column: 1 / span 1;
-  justify-self: center;
-  align-self: center;
-  opacity: 0.25;
-  font-weight: 400;
-  font-size: 3em;
+  font-weight: 100;
 }
 
-/* main.u-grid {
-  --nb-columns: 5;
-} */
+main > a {
+  display: block;
+  margin-top: 16px;
+}
 
-/* fun with article layouts */
+article {
+  padding: 16px;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+picture {
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media screen and (width > 35rem) {
+  main.u-container {
+    max-width: 70rem;
+    width: 100%;
+  }
+
+  article {
+    max-width: 35rem;
+  }
+
+  main a:nth-of-type(even) article {
+    margin-left: auto;
+  }
+
+  picture {
+    max-width: 30%;
+    float: right;
+    margin-right: 8px;
+  }
+}
+/* end fallback */
+
 @supports (display: grid) {
+  /* revert fallback styling */
+  main > a {
+    display: unset;
+    margin-top: unset;
+  }
+
+  article {
+    padding: unset;
+    background-color: unset;
+  }
+
+  .title {
+    font-size: var(--font-step-3);
+  }
+
+  .subtitle {
+    font-size: unset;
+    margin-bottom: unset;
+  }
+
+  picture {
+    display: unset;
+    margin-bottom: unset;
+  }
+
+  @media screen and (width > 35rem) {
+    main.u-container {
+      max-width: var(--grid-max-width);
+      width: unset;
+    }
+
+    article {
+      max-width: unset;
+    }
+
+    main a:nth-of-type(even) article {
+      margin-left: unset;
+    }
+
+    picture {
+      max-width: unset;
+      float: unset;
+      margin-right: unset;
+    }
+  }
+  /* end revert */
+
+  h1 {
+    display: grid;
+    grid-template-rows: auto 0 auto;
+    grid-template-columns: 1fr;
+    width: min-content;
+  }
+
+  h1 span:nth-of-type(1) {
+    grid-column: 1 / span 1;
+  }
+
+  h1 span:nth-of-type(3) {
+    grid-column: 1 / span 1;
+  }
+
+  h1 span:nth-of-type(2) {
+    grid-column: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+    opacity: 0.15;
+    font-size: 3em;
+    font-weight: 400;
+  }
+
+  @media screen and (width > 48rem) {
+    h1 {
+      grid-template-columns: repeat(3, min-content);
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 span:nth-of-type(1) {
+      grid-row-start: 1;
+    }
+
+    h1 span:nth-of-type(3) {
+      grid-row-start: 1;
+      grid-column-start: 3;
+    }
+
+    h1 span:nth-of-type(2) {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      opacity: 1;
+      font-size: 1.5em;
+      font-weight: 100;
+    }
+  }
+
+  main.u-grid {
+    align-items: start;
+  }
+
   article {
     display: grid;
     column-gap: var(--space-m);
@@ -82,17 +234,16 @@ h1 span:nth-of-type(2) {
   }
 
   a:has(article) {
-    /* placeholder for general sense of sizing */
-    background-color: whitesmoke;
-    /* might need to move this to article */
-    padding: var(--space-m);
+    article {
+      background-color: whitesmoke;
+      padding: var(--space-m);
+    }
   }
 
   /* todo: add dotted border between columns */
   /* todo: add thin solid border between day / distance */
   a[data-label="glenfiddich"] {
     --grid-col-span: span 5;
-    --accent: green;
     grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 2;
 
@@ -224,35 +375,35 @@ h1 span:nth-of-type(2) {
       }
 
       & img {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 16 / 9;
       }
     }
   }
 
   a[data-label="glenlivet"] {
-    --accent: red;
     --grid-col-span: span 3;
     grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 2;
 
     & article {
-      grid-template-columns: 1fr auto 1fr;
-      grid-template-rows: auto calc(var(--font-step-3) + var(--font-base)) auto auto auto;
+      grid-template-columns: 1fr;
       grid-template-areas:
-        "title title title"
-        "location kilometres excerpt"
-        "location days excerpt"
-        "subtitle subtitle subtitle"
-        "image image image";
+        "title"
+        "location"
+        "kilometres"
+        "days"
+        "excerpt"
+        "subtitle"
+        "image";
       row-gap: 0;
-      /* todo: add box shadow or something for diff weight borders */
-      border-top: var(--space-3xs) double black;
 
       .title {
         font-variant-caps: small-caps;
         font-variation-settings: "SOFT" 50;
         font-weight: 600;
         text-align: center;
+        /* todo: add box shadow or something for diff weight borders */
+        border-block-start: var(--space-3xs) double black;
 
         &::first-letter {
           vertical-align: middle;
@@ -260,7 +411,6 @@ h1 span:nth-of-type(2) {
       }
 
       .subtitle {
-        margin-block-start: var(--space-s);
         font-size: var(--font-base);
         font-weight: 400;
         letter-spacing: 0.025em;
@@ -274,10 +424,6 @@ h1 span:nth-of-type(2) {
       }
 
       .kilometres {
-        /* removes whitespace from width calculation */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         font-size: var(--font-small);
         font-weight: 600;
         text-transform: uppercase;
@@ -311,39 +457,20 @@ h1 span:nth-of-type(2) {
         & strong {
           font-weight: inherit;
         }
-
-        &::before,
-        &::after {
-          --width: calc(var(--space-3xs) * 0.3);
-          --bump: calc(-1 * var(--space-m) * 0.5 + (var(--width) * 0.5));
-          content: "";
-          width: var(--width);
-          height: calc(100% + var(--font-step-3));
-          position: absolute;
-          bottom: calc(var(--font-base) * 0.5);
-          background-color: black;
-        }
-
-        &::before {
-          left: var(--bump);
-        }
-
-        &::after {
-          right: var(--bump);
-        }
       }
 
       .location,
       .excerpt {
-        align-self: center;
         font-size: var(--font-small);
         line-height: 1.2;
       }
 
+      .excerpt {
+        text-balance: balance;
+      }
+
       .location {
-        text-align: right;
-        & strong {
-          display: block;
+        strong {
           font-family: var(--font-italic);
           font-weight: inherit;
         }
@@ -351,13 +478,12 @@ h1 span:nth-of-type(2) {
 
       /* todo: clip or mask image for wave shape */
       & img {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 9;
       }
     }
   }
 
   a[data-label="ben-nevis"] {
-    --accent: blue;
     --grid-col-span: span 3;
     grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 3;
@@ -367,6 +493,7 @@ h1 span:nth-of-type(2) {
 
     & article {
       grid-template-columns: repeat(3, auto);
+      grid-template-rows: repeat(3, auto) minmax(150px, auto) auto;
       grid-template-areas:
         "subtitle subtitle subtitle"
         "title title title"
@@ -423,18 +550,10 @@ h1 span:nth-of-type(2) {
         }
       }
 
-      .days {
-        left: var(--bump);
-      }
-
-      .kilometres {
-        right: var(--bump);
-      }
-
       /* todo: blurred border */
       & img {
         border-radius: 50%;
-        aspect-ratio: 4 / 3; /* should be more oval than circle*/
+        height: 100%;
       }
 
       .location {
@@ -456,19 +575,184 @@ h1 span:nth-of-type(2) {
       --grid-col-span: span 1;
     }
 
-    a[data-label]:nth-of-type(even) {
-      --grid-column: 2 / var(--grid-col-span);
+    a[data-label="glenfiddich"] {
+      article {
+        grid-template-columns: auto auto 1fr;
+        grid-template-areas:
+          "title title title"
+          "image image image"
+          "subtitle subtitle subtitle"
+          "excerpt excerpt excerpt"
+          "location location location"
+          "days kilometres .";
+        column-gap: var(--space-s);
+
+        .subtitle {
+          text-align: left;
+        }
+      }
+    }
+
+    a[data-label="glenlivet"] {
+      article {
+        --divider-thickness: calc(var(--space-3xs) * 0.3);
+        --divider-length: 8rem;
+        justify-items: center;
+      }
+
+      .title,
+      .excerpt {
+        margin-block-end: var(--space-s);
+      }
+
+      .location,
+      .days {
+        margin-block-end: var(--space-m);
+      }
+
+      .excerpt {
+        text-align: center;
+      }
+
+      .days {
+        &::before {
+          --height: var(--divider-thickness);
+          --bump: calc(-1 * var(--space-m) * 0.5 - (var(--height) * 0.5));
+          content: "";
+          width: var(--divider-length);
+          height: var(--height);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: black;
+        }
+
+        &::before {
+          bottom: var(--bump);
+        }
+      }
+
+      .kilometres {
+        position: relative;
+
+        &::after {
+          margin-inline-start: var(--space-3xs);
+          font-size: var(--font-step-2);
+        }
+        &::before {
+          --height: var(--divider-thickness);
+          --bump: calc(-1 * var(--space-m) * 0.5 + (var(--height) * 0.5));
+          content: "";
+          width: var(--divider-length);
+          height: var(--height);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: black;
+        }
+
+        &::before {
+          top: var(--bump);
+        }
+      }
+    }
+
+    a[data-label="ben-nevis"] {
+      & article {
+        column-gap: 0;
+      }
+    }
+  }
+
+  @media screen and (width > 35rem) {
+    a[data-label="glenlivet"] {
+      & article {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto calc(var(--font-step-3) + var(--font-base)) auto auto auto;
+        grid-template-areas:
+          "title title title"
+          "location kilometres excerpt"
+          "location days excerpt"
+          "subtitle subtitle subtitle"
+          "image image image";
+      }
+
+      .subtitle {
+        margin-block-start: var(--space-s);
+      }
+
+      .location,
+      .excerpt {
+        align-self: center;
+      }
+
+      .location {
+        text-align: right;
+        & strong {
+          display: block;
+        }
+      }
+
+      .excerpt {
+        max-width: 10ch;
+      }
+
+      .kilometres {
+        /* removes whitespace from width calculation */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* todo: refactor shared to main styles, use divider custom properties */
+      .days {
+        &::before,
+        &::after {
+          --width: calc(var(--space-3xs) * 0.3);
+          --bump: calc(-1 * var(--space-m) * 0.5 + (var(--width) * 0.5));
+          content: "";
+          width: var(--width);
+          height: calc(100% + var(--font-step-3));
+          position: absolute;
+          bottom: calc(var(--font-base) * 0.5);
+          background-color: black;
+        }
+
+        &::before {
+          left: var(--bump);
+        }
+
+        &::after {
+          right: var(--bump);
+        }
+      }
+    }
+
+    a[data-label="ben-nevis"] {
+      & article {
+        /* move days and kilo into the gap */
+        .days,
+        .kilometres {
+          position: relative;
+        }
+
+        .days {
+          left: var(--space-m);
+        }
+
+        .kilometres {
+          right: var(--space-m);
+        }
+      }
     }
   }
 
   @media screen and (48rem >= width > 35rem) {
     main.u-grid {
-      --nb-columns: 5;
+      --nb-columns: 4;
     }
 
-    a[data-label="ardbeg"],
-    a[data-label="glenlivet"],
-    a[data-label="ben-nevis"] {
+    a[data-label="glenfiddich"] {
       --grid-col-span: span 4;
     }
 
@@ -479,32 +763,8 @@ h1 span:nth-of-type(2) {
 
   /* over 768px */
   @media screen and (78rem >= width > 48rem) {
-    h1 {
-      grid-template-columns: repeat(3, min-content);
-      align-items: center;
-      justify-content: center;
-    }
-
-    h1 span:nth-of-type(1) {
-      grid-row-start: 1;
-    }
-
-    h1 span:nth-of-type(3) {
-      grid-row-start: 1;
-      grid-column-start: 3;
-    }
-
-    h1 span:nth-of-type(2) {
-      grid-column-start: 2;
-      grid-row-start: 1;
-      opacity: 1;
-      font-size: 1.5em;
-      font-weight: 100;
-    }
-
     main.u-grid {
       --nb-columns: 6;
-      align-items: start;
     }
   }
 
