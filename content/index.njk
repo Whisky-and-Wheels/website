@@ -35,7 +35,9 @@
                 <a data-label="{{ label }}" class="u-reset-link" href="{{ trip.page.url }}">
                     <article>
                         <h2 class="title">{{ trip.data.title }}</h2>
-                        <h3 class="subtitle">{{ trip.data.subtitle }}</h3>
+                        <h3 class="subtitle">
+                            <span>{{ trip.data.subtitle }}</span>
+                        </h3>
                         {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
                         <p class="days">
                             <strong>{{ trip.data.days }}</strong>

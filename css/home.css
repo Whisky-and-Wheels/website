@@ -35,9 +35,11 @@ main a:focus {
 }
 /* tried first with general sibling selector */
 /* that only works with subsequent siblings */
-main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
-  opacity: 0.1;
-  transition: opacity 0.1s ease-in-out;
+@media screen and (pointer: fine) {
+  main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
+    opacity: 0.1;
+    transition: opacity 0.1s ease-in-out;
+  }
 }
 
 /* fallback for no grid support or custom properties (IE) */
@@ -74,6 +76,10 @@ article {
 picture {
   display: block;
   margin-bottom: 8px;
+
+  & img {
+    object-fit: cover;
+  }
 }
 
 @media screen and (width > 35rem) {
@@ -203,6 +209,10 @@ picture {
     display: grid;
     column-gap: var(--space-m);
     row-gap: var(--space-s);
+
+    & h2 {
+      line-height: 1;
+    }
   }
 
   .title {
@@ -299,31 +309,23 @@ picture {
   }
 
   a[data-label="ardbeg"] {
-    --accent: yellow;
     --grid-col-span: span 3;
     grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 3;
 
     & article {
-      grid-template-columns: auto 2rem auto;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: repeat(3, min-content) minmax(0, 1fr) repeat(2, auto);
       grid-template-areas:
-        "title title title"
-        "subtitle subtitle subtitle"
-        "days . kilometres"
-        "location location location"
-        "excerpt excerpt excerpt"
-        "image image image";
+        "kilometres title"
+        "kilometres subtitle"
+        "kilometres location"
+        "kilometres excerpt"
+        "days excerpt"
+        "days image";
       row-gap: 0;
-      justify-items: center;
+      column-gap: var(--space-s);
       line-height: 1;
-
-      .subtitle,
-      .days,
-      .kilometres,
-      .location,
-      .excerpt {
-        margin-block-end: var(--space-m);
-      }
 
       .title {
         font-size: var(--font-step-2);
@@ -340,31 +342,52 @@ picture {
       }
 
       .subtitle {
+        margin-block-end: var(--space-s);
         font-family: var(--font-italic);
         font-weight: 400;
         font-size: var(--font-base);
+        line-height: 1; /* override H3 default */
       }
 
-      /* todo: fill space in-between with trinity icon */
+      /* todo: credit trinity icon */
       /* https://thenounproject.com/icon/trinity-5380405/ */
       .days,
       .kilometres {
         display: flex;
-        align-items: center; /* todo: end? get the alignment fully matched */
+        flex-direction: column;
+        align-items: center;
+        align-self: start;
         font-weight: 700;
         & strong {
+          writing-mode: vertical-lr;
           font-size: var(--font-step-2);
           line-height: 1;
         }
         & span {
-          writing-mode: vertical-lr;
           font-variant-caps: all-small-caps;
           font-variation-settings: "SOFT" 100;
           font-size: var(--font-small);
         }
       }
 
+      .kilometres {
+        &::before {
+          content: "";
+          display: block;
+          width: var(--font-step-3);
+          aspect-ratio: 1 / 1;
+          background-image: url("../img/icon-trinity.png");
+          background-size: contain;
+          margin-block-end: var(--space-s);
+        }
+      }
+
+      .days {
+        margin-block-start: var(--space-s);
+      }
+
       .location {
+        margin-block-end: var(--space-xs);
         text-transform: uppercase;
         font-size: var(--font-small);
         font-variation-settings: "SOFT" 100;
@@ -372,6 +395,10 @@ picture {
         & strong {
           font-weight: inherit;
         }
+      }
+
+      picture {
+        margin-block-end: var(--space-s);
       }
 
       & img {
@@ -610,6 +637,7 @@ picture {
         margin-block-end: var(--space-m);
       }
 
+      .location,
       .excerpt {
         text-align: center;
       }
