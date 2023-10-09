@@ -1,3 +1,5 @@
+/* todo: check color contrast ratios */
+
 @font-face {
   font-family: "Fraunces";
   src: url("../font/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
@@ -61,7 +63,7 @@ img {
   /* https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
   --grid-max-width: 85rem;
   --grid-gutter: var(
-    --space-s-l,
+    --space-m-l,
     clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
   );
 }
@@ -93,6 +95,10 @@ body {
   line-height: 1.5;
 }
 
+header {
+  padding-block: var(--space-m);
+}
+
 h1 {
   font-size: var(--font-step-5);
   line-height: 1;
@@ -106,4 +112,45 @@ h2 {
 h3 {
   font-size: var(--font-step-2);
   line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  box-shadow: inset 0rem var(--y-offset, -0.4em) var(--accent-color, thistle);
+  font-weight: 700;
+  transition: box-shadow 0.1s;
+
+  &:hover,
+  &:focus {
+    --y-offset: -1.2em;
+  }
+}
+
+blockquote {
+  font-size: var(--font-step-1);
+  font-weight: 700;
+
+  &::before {
+    /* assumes the quote is still open unless told there are no close quotes */
+    content: open-quote no-close-quote;
+    display: block;
+    margin-block-end: -0.3em; /* try to remove the blank space under quote */
+    font-size: var(--font-step-5);
+    line-height: 1;
+    color: color-mix(in lch, var(--color-accent) 90%, black);
+  }
+
+  @media screen and (width > 35rem) {
+    display: flex;
+    gap: var(--space-xs);
+  }
+}
+
+body {
+  --color-white: color-mix(in lch, var(--color-accent) 10%, white);
+  --color-black: color-mix(in lch, var(--color-accent) 10%, black);
+
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

@@ -4,7 +4,7 @@ const Image = require("@11ty/eleventy-img");
 module.exports = function (eleventyConfig) {
   // straight from the docs:
   // https://www.11ty.dev/docs/plugins/image/#nunjucks-liquid-javascript-(asynchronous-shortcodes)
-  eleventyConfig.addShortcode("image", async function (src, alt, sizes) {
+  eleventyConfig.addShortcode("image", async function (src, alt, classes = "") {
     let metadata = await Image(src, {
       widths: [300, 600],
       formats: ["avif", "jpeg"],
@@ -18,11 +18,13 @@ module.exports = function (eleventyConfig) {
       },
     });
 
+    // todo: loading argument, sometimes eager preferred
     let imageAttributes = {
       alt,
       sizes: "100vw",
       loading: "lazy",
       decoding: "async",
+      class: classes,
     };
 
     // You bet we throw an error on a missing alt (alt="" works okay)

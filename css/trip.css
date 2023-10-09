@@ -1,0 +1,87 @@
+body {
+  --color-accent: thistle;
+}
+
+main {
+  margin-block: var(--space-s-m);
+}
+
+main *:not(blockquote, figure) + h2 {
+  margin-block-start: var(--grid-gutter);
+}
+
+blockquote,
+figure {
+  margin-block: var(--grid-gutter);
+}
+
+main :is(h2, h3) {
+  line-height: 1;
+}
+
+main h3 {
+  font-size: var(--font-step-1);
+  font-variant-caps: all-petite-caps;
+}
+
+/* todo: refactor for main nesting */
+main > p:first-child {
+  font-size: var(--font-step-1);
+  line-height: 1.4;
+}
+
+main > p:first-child::first-line {
+  font-variant-caps: petite-caps;
+  font-weight: 700;
+}
+
+@media screen and (width > 37.5rem) {
+  main > p:first-child::first-letter {
+    float: left;
+    /* logical properties don't seem to work here */
+    margin-left: calc(-0.33 * var(--font-step-5));
+    margin-top: 0.125em;
+    font-size: var(--font-step-5);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+}
+
+@media screen and (width > 56rem) {
+  main > p:first-child {
+    line-height: unset;
+  }
+
+  main > p:first-child::first-letter {
+    margin-top: unset;
+  }
+}
+
+@supports (display: grid) {
+  .u-grid {
+    --grid-gutter: var(--space-xs);
+    grid-template-columns:
+      [full-width-start] minmax(0, 1fr) [content-start] fit-content(50ch)
+      [content-end] minmax(0, 1fr) [full-width-end];
+    column-gap: 0;
+
+    & > *:not(.u-full-width) {
+      grid-column: content;
+    }
+
+    /* panorama */
+    img.u-full-width {
+      object-fit: cover;
+    }
+
+    .u-float-left {
+      float: left;
+      margin-left: calc(var(--space-xl) * -1);
+    }
+
+    .u-full-width,
+    *:has(img.u-full-width) {
+      grid-column: full-width;
+    }
+  }
+}
