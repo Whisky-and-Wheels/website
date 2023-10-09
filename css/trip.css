@@ -57,7 +57,13 @@ main > p:first-child::first-line {
   }
 }
 
+[class^="mountain"] {
+  fill: var(--color-black);
+}
+
 @supports (display: grid) {
+  /* see demo here: https://codepen.io/CodeXYZ/pen/vExPNy */
+
   .u-grid {
     --grid-gutter: var(--space-xs);
     grid-template-columns:

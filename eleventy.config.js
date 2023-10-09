@@ -6,7 +6,7 @@ module.exports = function (eleventyConfig) {
   // https://www.11ty.dev/docs/plugins/image/#nunjucks-liquid-javascript-(asynchronous-shortcodes)
   eleventyConfig.addShortcode("image", async function (src, alt, classes = "") {
     let metadata = await Image(src, {
-      widths: [300, 600],
+      widths: [300, 600, 900, 1200, 1500],
       formats: ["avif", "jpeg"],
       outputDir: "./_site/img",
       urlPath: "/img/",
