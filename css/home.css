@@ -16,7 +16,6 @@ footer {
   color: white;
 
   & a {
-    color: inherit;
     --opacity: 0.4;
   }
 }

@@ -3,7 +3,7 @@ body {
 }
 
 main {
-  margin-block: var(--space-s-m);
+  padding-block: var(--space-s-m);
 }
 
 main *:not(blockquote, figure) + h2 {
@@ -57,15 +57,76 @@ main > p:first-child::first-line {
   }
 }
 
-[class^="mountain"] {
-  fill: var(--color-black);
+/* parallax */
+/* todo: progressively enhance for parallax */
+.parallax {
+  --title-stack-index: 1;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  perspective: 1px;
+  isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
 }
+
+header {
+  height: calc(25vh + var(--font-step-5));
+}
+
+h1 {
+  position: sticky;
+  top: var(--space-m); /* match block padding*/
+  z-index: var(--title-stack-index);
+}
+
+:where(svg[class^="mountain"]):last-of-type {
+  z-index: calc(var(--title-stack-index) + 1);
+}
+
+/* todo: manage heights better across screen sizes*/
+:where(svg[class^="mountain"]) {
+  fill: var(--color-accent);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+
+.mountain-background {
+  opacity: 0.4;
+  top: -300px;
+  transform: translateZ(-2px);
+  scale: 3;
+}
+
+.mountain-midground {
+  transform: translateZ(-1px);
+  scale: 2;
+  height: 100px;
+}
+
+.mountain-foreground {
+  fill: color-mix(in oklch, black 55%, var(--color-accent));
+  filter: saturate(300%);
+  top: 80px;
+  height: 250px; /* needs to cover bottom of mid and back svgs too */
+  transform: translateZ(0);
+}
+
+main {
+  padding-top: var(--space-l-xl);
+  position: relative;
+  /* go on top of title and last mountain svg */
+  z-index: calc(var(--title-stack-index) + 2);
+  background-color: var(--color-white);
+}
+/* end parallax effect */
 
 @supports (display: grid) {
   /* see demo here: https://codepen.io/CodeXYZ/pen/vExPNy */
 
   .u-grid {
     --grid-gutter: var(--space-xs);
+    --grid-max-width: 100%;
     grid-template-columns:
       [full-width-start] minmax(0, 1fr) [content-start] fit-content(50ch)
       [content-end] minmax(0, 1fr) [full-width-end];

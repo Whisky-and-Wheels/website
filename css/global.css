@@ -114,9 +114,9 @@ h3 {
   line-height: 1.2;
 }
 
-a {
+a:not([data-label]) {
   text-decoration: none;
-  color: black;
+  color: inherit;
   box-shadow: inset 0rem var(--y-offset, -0.4em) var(--accent-color, thistle);
   font-weight: 700;
   transition: box-shadow 0.1s;
