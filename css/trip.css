@@ -16,7 +16,7 @@ main {
   padding-block: var(--space-s-m);
 }
 
-main *:not(blockquote, figure) + h2 {
+main *:not(blockquote, figure, h2, h3) + :is(h2, h3) {
   margin-block-start: var(--space-s);
 }
 
@@ -26,7 +26,6 @@ blockquote {
   }
 }
 
-blockquote,
 figure {
   margin-block: var(--space-s);
 }
@@ -35,14 +34,19 @@ main :is(h2, h3) {
   line-height: 1;
 }
 
+main :is(h2, h3) a {
+  font-weight: inherit;
+}
+
 main h2 {
   font-size: var(--font-step-2);
 }
 
-main h3,
-main h3 a {
-  font-size: var(--font-step-1);
-  font-weight: 200;
+main h3 {
+  font-size: var(--font-base);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 /* todo: refactor for main nesting */
