@@ -7,12 +7,12 @@ main {
 }
 
 main *:not(blockquote, figure) + h2 {
-  margin-block-start: var(--grid-gutter);
+  margin-block-start: var(--space-s);
 }
 
 blockquote,
 figure {
-  margin-block: var(--grid-gutter);
+  margin-block: var(--space-s);
 }
 
 main :is(h2, h3) {
@@ -209,6 +209,7 @@ main {
       [full-width-start] minmax(0, 1fr) [content-start] fit-content(50ch)
       [content-end] minmax(0, 1fr) [full-width-end];
     column-gap: 0;
+    row-gap: var(--space-s);
 
     > *:not(.u-full-width) {
       grid-column: content;
