@@ -15,7 +15,9 @@
 }
 
 /* reset */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
 }
@@ -114,7 +116,7 @@ h3 {
   line-height: 1.2;
 }
 
-a:not([data-label]) {
+:where(a:not([data-label])) {
   text-decoration: none;
   color: inherit;
   box-shadow: inset 0rem var(--y-offset, -0.4em) var(--accent-color, thistle);
@@ -129,6 +131,7 @@ a:not([data-label]) {
 
 blockquote {
   font-size: var(--font-step-1);
+  line-height: 1.3;
   font-weight: 700;
 
   &::before {
@@ -138,12 +141,16 @@ blockquote {
     margin-block-end: -0.3em; /* try to remove the blank space under quote */
     font-size: var(--font-step-5);
     line-height: 1;
-    color: color-mix(in lch, var(--color-accent) 90%, black);
   }
 
   @media screen and (width > 35rem) {
     display: flex;
     gap: var(--space-xs);
+
+    &::before {
+      margin-block-end: -0.8em;
+      font-size: var(--font-step-4);
+    }
   }
 }
 

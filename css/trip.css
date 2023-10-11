@@ -1,5 +1,15 @@
 body {
   --color-accent: thistle;
+  /* thistle colors, since relative color syntax is not so well supported yet */
+  --thistle-light: oklch(83.33% 0.044 325.96 / 0.4);
+  @supports (oklch(from thistle, l c h / 0.8)) {
+    --color-accent-light: oklch(from var(--color-accent), l c h / 0.4);
+  }
+  --thistle-dark: oklch(28.53% 0.128 348.72);
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+  }
 }
 
 main {
@@ -8,6 +18,12 @@ main {
 
 main *:not(blockquote, figure) + h2 {
   margin-block-start: var(--space-s);
+}
+
+blockquote {
+  &::before {
+    color: var(--thistle-dark);
+  }
 }
 
 blockquote,
@@ -19,9 +35,14 @@ main :is(h2, h3) {
   line-height: 1;
 }
 
-main h3 {
+main h2 {
+  font-size: var(--font-step-2);
+}
+
+main h3,
+main h3 a {
   font-size: var(--font-step-1);
-  font-variant-caps: all-petite-caps;
+  font-weight: 200;
 }
 
 /* todo: refactor for main nesting */
@@ -77,27 +98,26 @@ h1 {
 
 /* todo: manage heights better across screen sizes*/
 :where(svg[class^="mountain"]) {
-  fill: var(--color-accent);
   position: absolute;
   inset: 0;
   width: 100%;
 }
 
 .mountain-background {
-  opacity: 0.4;
   top: calc(var(--font-step-5) * 0.6);
+  fill: var(--color-accent--light, var(--thistle-light));
 }
 
 .mountain-midground {
   height: 150px;
   top: calc(var(--font-step-5) * 1.2);
+  fill: var(--color-accent);
 }
 
 .mountain-foreground {
-  fill: color-mix(in oklch, black 55%, var(--color-accent));
-  filter: saturate(300%);
   top: calc(var(--font-step-5) * 0.8);
   height: 250px;
+  fill: var(--thistle-dark);
 }
 
 main {
@@ -211,13 +231,20 @@ main {
     column-gap: 0;
     row-gap: var(--space-s);
 
-    > *:not(.u-full-width) {
+    :where(*:not(.u-full-width)) {
       grid-column: content;
     }
 
     /* panorama */
     & img.u-full-width {
       object-fit: cover;
+    }
+
+    > section {
+      grid-column: full-width;
+      display: grid;
+      grid-template-columns: subgrid;
+      row-gap: var(--space-s);
     }
   }
 
