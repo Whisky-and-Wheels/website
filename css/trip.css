@@ -39,6 +39,7 @@ main > p:first-child::first-line {
   main > p:first-child::first-letter {
     float: left;
     /* logical properties don't seem to work here */
+    /* chrome not recognizing font step definition */
     margin-left: calc(-0.33 * var(--font-step-5));
     margin-top: 0.125em;
     font-size: var(--font-step-5);
@@ -57,16 +58,8 @@ main > p:first-child::first-line {
   }
 }
 
-/* parallax */
-/* todo: progressively enhance for parallax */
-.parallax {
+:root {
   --title-stack-index: 1;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  perspective: 1px;
-  isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
 }
 
 header {
@@ -74,13 +67,8 @@ header {
 }
 
 h1 {
-  position: sticky;
-  top: var(--space-m); /* match block padding*/
+  position: relative;
   z-index: var(--title-stack-index);
-}
-
-:where(svg[class^="mountain"]):last-of-type {
-  z-index: calc(var(--title-stack-index) + 1);
 }
 
 /* todo: manage heights better across screen sizes*/
@@ -93,37 +81,89 @@ h1 {
 
 .mountain-background {
   opacity: 0.4;
-  top: -300px;
-  transform: translateZ(-2px);
-  scale: 3;
+  top: 100px;
 }
 
 .mountain-midground {
-  transform: translateZ(-1px);
-  scale: 2;
-  height: 100px;
+  height: 150px;
+  top: 150px;
 }
 
 .mountain-foreground {
   fill: color-mix(in oklch, black 55%, var(--color-accent));
   filter: saturate(300%);
   top: 80px;
-  height: 250px; /* needs to cover bottom of mid and back svgs too */
-  transform: translateZ(0);
+  height: 250px;
 }
 
 main {
-  padding-top: var(--space-l-xl);
   position: relative;
-  /* go on top of title and last mountain svg */
-  z-index: calc(var(--title-stack-index) + 2);
+  /* go on top of mountains */
+  z-index: var(--title-stack-index);
+  padding-top: var(--space-l-xl);
   background-color: var(--color-white);
+}
+
+/* parallax */
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* support query and more on parallax technique: https://keithclark.co.uk/articles/practical-css-parallax/ */
+  @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+    .parallax {
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      perspective: 1px;
+      isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
+    }
+
+    h1 {
+      /*
+        I wanted to nest mountains inside header, but then sticky behaviour doesn't take
+        effect on Firefox. Seems related to spec implementation for perspective and further
+        descendents: https://bugzilla.mozilla.org/show_bug.cgi?id=716524
+        - tried with preserve-3d on header (maybe try with it on h1 too?)
+      */
+      position: sticky;
+      top: var(--space-m); /* match block padding*/
+    }
+
+    :where(svg[class^="mountain"]):last-of-type {
+      z-index: calc(var(--title-stack-index) + 1);
+    }
+
+    /* todo: manage heights better across screen sizes*/
+    :where(svg[class^="mountain"]) {
+      position: fixed;
+    }
+
+    .mountain-background {
+      top: -300px;
+      transform: translateZ(-2px);
+      scale: 3;
+    }
+
+    .mountain-midground {
+      top: 30px;
+      transform: translateZ(-1px);
+      scale: 2;
+    }
+
+    .mountain-foreground {
+      height: 250px; /* needs to cover bottom of mid and back svgs too */
+      top: 80px;
+      transform: translateZ(0);
+    }
+
+    main {
+      /* go on top of last mountain */
+      z-index: calc(var(--title-stack-index) + 2);
+    }
+  }
 }
 /* end parallax effect */
 
 @supports (display: grid) {
-  /* see demo here: https://codepen.io/CodeXYZ/pen/vExPNy */
-
   .u-grid {
     --grid-gutter: var(--space-xs);
     --grid-max-width: 100%;
@@ -132,23 +172,24 @@ main {
       [content-end] minmax(0, 1fr) [full-width-end];
     column-gap: 0;
 
-    & > *:not(.u-full-width) {
+    > *:not(.u-full-width) {
       grid-column: content;
     }
 
     /* panorama */
-    img.u-full-width {
+    & img.u-full-width {
       object-fit: cover;
     }
+  }
 
-    .u-float-left {
-      float: left;
-      margin-left: calc(var(--space-xl) * -1);
-    }
+  .u-float-left {
+    float: left;
+    margin-left: calc(var(--space-xl) * -1);
+  }
 
-    .u-full-width,
-    *:has(img.u-full-width) {
-      grid-column: full-width;
-    }
+  .u-full-width,
+  picture:has(img.u-full-width),
+  figure:has(img.u-full-width) {
+    grid-column: full-width;
   }
 }
