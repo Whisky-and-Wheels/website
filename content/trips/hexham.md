@@ -12,6 +12,7 @@ average_speed: 15.4
 total_duration: 5 hours
 total_elevation: 500m
 layout: trip-layout.njk
+permalink: "hexham/"
 ---
 
 We bike at night at the end of February. It was great.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
@@ -24,11 +25,11 @@ We bike at night at the end of February. It was great.<!-- excerpt --> No idea w
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus ut faucibus pulvinar elementum integer. Accumsan lacus vel facilisis volutpat est. Dolor purus non enim praesent elementum facilisis leo vel. [Sit amet venenatis](www.test.com) urna cursus eget nunc scelerisque viverra mauris. Mattis pellentesque id nibh tortor id aliquet lectus proin nibh. Posuere morbi leo urna molestie at. Velit ut tortor pretium viverra suspendisse potenti. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Lectus proin nibh nisl condimentum id venenatis a condimentum vitae
 
-> Morbi leo urna molestie at elementum eu facilisis sed odio.
+> I never knew I could be so bored and so stressed at the same time.
 
 Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor. Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
 
-> Enim tortor at auctor urna nunc id cursus metus. Vel pretium lectus quam id leo in vitae turpis massa. Pellentesque nec nam aliquam sem.
+> This is the best thing we've ever done.
 
 Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor. Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
 

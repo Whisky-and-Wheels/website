@@ -7,5 +7,7 @@ end: Braemar
 average_speed: 13.5
 total_duration: 4 hours
 total_elevation: 500m
-layout: trip-layout.njk
+permalink: false
 ---
+
+Braemar content. Laslkdasdkfjgh laksjhf glajhsf gljha sfkjgh alfjh glja fgkla
