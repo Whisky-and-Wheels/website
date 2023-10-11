@@ -63,7 +63,11 @@ main > p:first-child::first-line {
 }
 
 header {
-  height: calc(25vh + var(--font-step-5));
+  height: calc(3 * var(--font-step-5));
+
+  @media screen and (width > 64rem) {
+    height: calc(2.5 * var(--font-step-5));
+  }
 }
 
 h1 {
@@ -81,18 +85,18 @@ h1 {
 
 .mountain-background {
   opacity: 0.4;
-  top: 100px;
+  top: calc(var(--font-step-5) * 0.6);
 }
 
 .mountain-midground {
   height: 150px;
-  top: 150px;
+  top: calc(var(--font-step-5) * 1.2);
 }
 
 .mountain-foreground {
   fill: color-mix(in oklch, black 55%, var(--color-accent));
   filter: saturate(300%);
-  top: 80px;
+  top: calc(var(--font-step-5) * 0.8);
   height: 250px;
 }
 
@@ -106,58 +110,93 @@ main {
 
 /* parallax */
 @media screen and (prefers-reduced-motion: no-preference) {
-  /* support query and more on parallax technique: https://keithclark.co.uk/articles/practical-css-parallax/ */
-  @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
-    .parallax {
-      height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      perspective: 1px;
-      isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
-    }
+  /* figure out height responsiveness later */
+  @media screen and (height > 39rem) {
+    /* support query and more on parallax technique: https://keithclark.co.uk/articles/practical-css-parallax/ */
+    @supports (
+      (perspective: 1px) and (not (-webkit-overflow-scrolling: touch))
+    ) {
+      .parallax {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        perspective: 1px;
+        isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
+      }
 
-    h1 {
-      /*
+      h1 {
+        /*
         I wanted to nest mountains inside header, but then sticky behaviour doesn't take
         effect on Firefox. Seems related to spec implementation for perspective and further
         descendents: https://bugzilla.mozilla.org/show_bug.cgi?id=716524
         - tried with preserve-3d on header (maybe try with it on h1 too?)
       */
-      position: sticky;
-      top: var(--space-m); /* match block padding*/
-    }
+        position: sticky;
+        top: var(--space-m); /* match block padding*/
+      }
 
-    :where(svg[class^="mountain"]):last-of-type {
-      z-index: calc(var(--title-stack-index) + 1);
-    }
+      :where(svg[class^="mountain"]):last-of-type {
+        z-index: calc(var(--title-stack-index) + 1);
+      }
 
-    /* todo: manage heights better across screen sizes*/
-    :where(svg[class^="mountain"]) {
-      position: fixed;
-    }
+      /* todo: manage heights better across screen sizes*/
+      :where(svg[class^="mountain"]) {
+        position: fixed;
+      }
 
-    .mountain-background {
-      top: -300px;
-      transform: translateZ(-2px);
-      scale: 3;
-    }
+      .mountain-background {
+        height: 100px;
+        top: -550px;
+        transform: translateZ(-2px);
+        scale: 3;
+      }
 
-    .mountain-midground {
-      top: 30px;
-      transform: translateZ(-1px);
-      scale: 2;
-    }
+      .mountain-midground {
+        top: -150px;
+        transform: translateZ(-1px);
+        scale: 2;
+      }
 
-    .mountain-foreground {
-      height: 250px; /* needs to cover bottom of mid and back svgs too */
-      top: 80px;
-      transform: translateZ(0);
-    }
+      .mountain-foreground {
+        top: -20px;
+        transform: translateZ(0);
+      }
 
-    main {
-      /* go on top of last mountain */
-      z-index: calc(var(--title-stack-index) + 2);
+      main {
+        /* go on top of last mountain */
+        z-index: calc(var(--title-stack-index) + 2);
+      }
+
+      @media screen and (width > 38rem) {
+        .mountain-background {
+          top: -400px;
+          height: 200px;
+        }
+
+        .mountain-midground {
+          top: -70px;
+        }
+
+        .mountain-foreground {
+          top: 30px;
+        }
+      }
+
+      @media screen and (width > 75rem) {
+        .mountain-background {
+          top: -300px;
+          height: initial;
+        }
+
+        .mountain-midground {
+          top: 30px;
+        }
+
+        .mountain-foreground {
+          top: 100px;
+        }
+      }
     }
   }
 }
@@ -165,7 +204,6 @@ main {
 
 @supports (display: grid) {
   .u-grid {
-    --grid-gutter: var(--space-xs);
     --grid-max-width: 100%;
     grid-template-columns:
       [full-width-start] minmax(0, 1fr) [content-start] fit-content(50ch)
