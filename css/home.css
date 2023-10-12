@@ -21,7 +21,7 @@ footer {
 }
 
 main a {
-  transition: opacity 0.1s ease-in-out;
+  transition: opacity 1s;
 
   & img {
     filter: grayscale(50) contrast(500%);
@@ -32,10 +32,11 @@ main a {
 main a:hover,
 main a:focus {
   outline: var(--space-3xs) solid var(--accent-color);
-  transition: outline 0.1s;
+  transition: outline 0.2s;
 
   & img {
-    filter: contrast(150%);
+    filter: grayscale(0) contrast(150%);
+    transition: filter 0.2s;
   }
 }
 /* tried first with general sibling selector */
