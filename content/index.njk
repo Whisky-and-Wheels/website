@@ -52,7 +52,13 @@
                             to
                             <strong>{{ trip.data.end }}</strong>
                         </p>
-                        <p class="excerpt">{{ trip.page.excerpt | truncate(55) }}</p>
+                        <p class="excerpt">
+                            {% if trip.data.label == 'glenlivet' %}
+                                {{ trip.page.excerpt | truncate(50) }}
+                            {% else %}
+                                {{ trip.page.excerpt }}
+                            {% endif %}
+                        </p>
                     </article>
                 </a>
             {%- endfor -%}

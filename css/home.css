@@ -319,9 +319,12 @@ picture {
     --grid-col-span: span 3;
     grid-column: var(--grid-column, var(--grid-col-span));
     grid-row: span 3;
+    align-self: stretch;
 
     & article {
+      height: 100%; /* match stretched parent */
       grid-template-columns: auto 1fr;
+      grid-template-rows: repeat(6, auto) 1fr;
       grid-template-areas:
         "kilometres title"
         "kilometres subtitle"
@@ -402,7 +405,7 @@ picture {
       }
 
       & img {
-        aspect-ratio: 16 / 9;
+        height: 100%;
       }
     }
   }
@@ -497,7 +500,7 @@ picture {
       }
 
       .location {
-        strong {
+        & strong {
           font-family: var(--font-italic);
           font-weight: inherit;
         }
