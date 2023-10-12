@@ -11,6 +11,10 @@ image_alt: Looking over the edge of a rolling green hill into a small, distant v
 start: Pitlochry
 end: Pitlochry
 layout: trip-layout.njk
+average_speed: 12.5
+total_duration: 29:48
+ascent: 1510
+descent: 1320
 permalink: "cairngorms/"
 ---
 

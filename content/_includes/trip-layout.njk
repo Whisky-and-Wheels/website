@@ -91,11 +91,24 @@
             </header>
             <main class="u-container u-grid">
                 {{ content | safe }}
+                {# todo: move to includes as partial template #}
                 {% if name %}
                     {% for day in collections[name] %}
                         <section data-day="{{ day.data.title }}">
                             <h2>{{ day.data.title }}</h2>
-                            <h3>Statistics</h3>
+                            <div style="aspect-ratio: 4/3; background-color: var(--thistle-dark);"></div>
+                            <dl class="u-grid">
+                                <dt>Distance</dt>
+                                <dd>{{ day.data.kilometres }}</dd>
+                                <dt>Average Speed</dt>
+                                <dd>{{ day.data.average_speed }}</dd>
+                                <dt>Total time</dt>
+                                <dd>{{ day.data.total_duration }}</dd>
+                                <dt>Ascent</dt>
+                                <dd>{{ day.data.ascent }}m</dd>
+                                <dt>Descent</dt>
+                                <dd>{{ day.data.descent }}m</dd>
+                            </dl>
                             {{ day.content | safe }}
                         </section>
                     {% endfor %}
