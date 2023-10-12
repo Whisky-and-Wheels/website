@@ -18,4 +18,10 @@ permalink: "lindisfarne/"
 
 This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
 
+<!-- todo: make a shortcode for the map & stats component -->
+
 {% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
+
+This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+
+This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.

@@ -12,10 +12,16 @@ start: Pitlochry
 end: Pitlochry
 layout: trip-layout.njk
 average_speed: 12.5
-total_duration: 29:48
+total_duration: "29:48:13"
 ascent: 1510
 descent: 1320
 permalink: "cairngorms/"
 ---
 
 Testing testing testing part 2.<!-- excerpt --> This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+
+Testing testing testing part 2. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+
+Testing testing testing part 2. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+
+Testing testing testing part 2. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.

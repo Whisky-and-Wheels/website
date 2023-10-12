@@ -91,17 +91,37 @@
             </header>
             <main class="u-container u-grid">
                 {{ content | safe }}
+                <div>
+                    <div class="trip-map" style="background-color: var(--thistle-dark);"></div>
+                    {# todo: make table with flex rows #}
+                    <dl class="trip-stats | u-grid">
+                        <dt>Distance</dt>
+                        <dd>{{ kilometres }}km</dd>
+                        <dt>Avg. Speed</dt>
+                        <dd>{{ average_speed }}km/h</dd>
+                        <dt>Total time</dt>
+                        <dd>{{ total_duration }}</dd>
+                        <dt>Ascent</dt>
+                        <dd>{{ ascent }}m</dd>
+                        <dt>Descent</dt>
+                        <dd>{{ descent }}m</dd>
+                    </dl>
+                </div>
                 {# todo: move to includes as partial template #}
                 {% if name %}
                     {% for day in collections[name] %}
                         <section data-day="{{ day.data.title }}">
-                            <h2>{{ day.data.title }}</h2>
-                            <div style="aspect-ratio: 4/3; background-color: var(--thistle-dark);"></div>
-                            <dl class="u-grid">
+                            <hgroup>
+                                <h2>{{ day.data.title }}</h2>
+                                <h3>Day {{ loop.index }}</h2>
+                            </hgroup>
+                            <div class="trip-map" style="background-color: var(--thistle-dark);"></div>
+                            {# todo: make table with flex rows #}
+                            <dl class="trip-stats | u-grid">
                                 <dt>Distance</dt>
-                                <dd>{{ day.data.kilometres }}</dd>
-                                <dt>Average Speed</dt>
-                                <dd>{{ day.data.average_speed }}</dd>
+                                <dd>{{ day.data.kilometres }}km</dd>
+                                <dt>Avg. Speed</dt>
+                                <dd>{{ day.data.average_speed }}km/h</dd>
                                 <dt>Total time</dt>
                                 <dd>{{ day.data.total_duration }}</dd>
                                 <dt>Ascent</dt>
@@ -109,7 +129,10 @@
                                 <dt>Descent</dt>
                                 <dd>{{ day.data.descent }}m</dd>
                             </dl>
-                            {{ day.content | safe }}
+                            <div class="content">
+                                {{ day.content | safe }}
+                            </div>
+                            <!-- create single grid cell -->
                         </section>
                     {% endfor %}
                 {% endif %}
