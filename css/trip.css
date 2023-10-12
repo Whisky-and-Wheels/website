@@ -245,7 +245,6 @@ main {
       object-fit: cover;
     }
 
-    .trip-summary,
     [data-day] {
       grid-column: full-width;
       display: grid;
@@ -266,7 +265,15 @@ main {
     grid-column: full-width;
   }
 
+  /* not always here? */
   [data-day] {
+    &:first-of-type {
+      margin-block-start: var(--space-l);
+    }
+    &:not(:last-of-type) {
+      margin-block-end: var(--space-s);
+    }
+
     h2 {
       margin-block-end: var(--space-3xs);
     }
@@ -280,12 +287,12 @@ main {
 
   .trip-map {
     aspect-ratio: 4/3;
+    background-color: gainsboro;
   }
 
-  dl.u-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-flow: row dense;
-    row-gap: 0;
+  .trip-stats.u-grid {
+    grid-template-columns: repeat(3, auto);
+    row-gap: var(--space-xs);
     padding-block: var(--space-s);
     padding-inline: var(--space-m);
     background-color: var(--color-accent);
@@ -295,34 +302,22 @@ main {
     }
 
     > * {
-      --grid-column-start: 1;
-      grid-column: var(--grid-column-start, 1) / span 1;
-    }
-
-    > *:nth-child(n + 5) {
-      --grid-column-start: 2;
-    }
-
-    > *:nth-child(n + 9) {
-      --grid-column-start: 3;
+      grid-column: unset;
     }
 
     dt {
       font-weight: 700;
     }
-
-    dd:nth-of-type(odd) {
-      margin-block-end: var(--space-s);
-    }
   }
 
-  @media screen and (90rem >= width > 37.5rem) {
+  @media screen and (85rem >= width > 37.5rem) {
     /* need to use layers */
     main.u-grid {
       --offset: var(--space-l);
       .trip-map {
-        margin-inline-end: var(--offset);
+        width: calc(100% - var(--offset));
       }
+
       .trip-stats {
         width: fit-content;
         position: relative;
@@ -339,9 +334,10 @@ main {
         }
 
         .trip-stats {
-          justify-self: end;
+          width: unset;
           grid-row: overlap-start / stats-end;
           position: unset;
+          justify-self: end;
           margin-inline-start: unset;
           margin-block-end: unset;
         }
@@ -364,8 +360,16 @@ main {
         }
 
         .trip-stats {
+          grid-template-columns: auto;
           grid-column: content-end / stats-end;
           grid-row-start: 2;
+          justify-self: start;
+          align-self: start;
+          row-gap: var(--space-s);
+          /* make it stay on the side as the section scrolls past */
+          /* but let the next section push it away */
+          position: sticky;
+          top: var(--space-s);
         }
       }
     }

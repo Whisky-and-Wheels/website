@@ -92,19 +92,33 @@
             <main class="u-container u-grid">
                 {{ content | safe }}
                 <div>
-                    <div class="trip-map" style="background-color: var(--thistle-dark);"></div>
+                    <svg class="trip-map" preserveaspectratio="xMinYMin meet" viewbox="0 0 400 300">
+                        <path stroke="blue" stroke-width="10px" d="M 0,290 L 200,0"/>
+                        <path stroke="green" stroke-width="10px" d="M 200,0 L 400,290"/>
+                        <path stroke="red" stroke-width="10px" d="M 400,290 L 0,290"/>
+                    </svg>
                     {# todo: make table with flex rows #}
                     <dl class="trip-stats | u-grid">
-                        <dt>Distance</dt>
-                        <dd>{{ kilometres }}km</dd>
-                        <dt>Avg. Speed</dt>
-                        <dd>{{ average_speed }}km/h</dd>
-                        <dt>Total time</dt>
-                        <dd>{{ total_duration }}</dd>
-                        <dt>Ascent</dt>
-                        <dd>{{ ascent }}m</dd>
-                        <dt>Descent</dt>
-                        <dd>{{ descent }}m</dd>
+                        <div>
+                            <dt>Distance</dt>
+                            <dd>{{ kilometres }}km</dd>
+                        </div>
+                        <div>
+                            <dt>Avg. Speed</dt>
+                            <dd>{{ average_speed }}km/h</dd>
+                        </div>
+                        <div>
+                            <dt>Ascent</dt>
+                            <dd>{{ ascent }}m</dd>
+                        </div>
+                        <div>
+                            <dt>Descent</dt>
+                            <dd>{{ descent }}m</dd>
+                        </div>
+                        <div>
+                            <dt>Total time</dt>
+                            <dd>{{ total_duration }}</dd>
+                        </div>
                     </dl>
                 </div>
                 {# todo: move to includes as partial template #}
@@ -118,16 +132,26 @@
                             <div class="trip-map" style="background-color: var(--thistle-dark);"></div>
                             {# todo: make table with flex rows #}
                             <dl class="trip-stats | u-grid">
-                                <dt>Distance</dt>
-                                <dd>{{ day.data.kilometres }}km</dd>
-                                <dt>Avg. Speed</dt>
-                                <dd>{{ day.data.average_speed }}km/h</dd>
-                                <dt>Total time</dt>
-                                <dd>{{ day.data.total_duration }}</dd>
-                                <dt>Ascent</dt>
-                                <dd>{{ day.data.ascent }}m</dd>
-                                <dt>Descent</dt>
-                                <dd>{{ day.data.descent }}m</dd>
+                                <div>
+                                    <dt>Distance</dt>
+                                    <dd>{{ kilometres }}km</dd>
+                                </div>
+                                <div>
+                                    <dt>Avg. Speed</dt>
+                                    <dd>{{ average_speed }}km/h</dd>
+                                </div>
+                                <div>
+                                    <dt>Ascent</dt>
+                                    <dd>{{ ascent }}m</dd>
+                                </div>
+                                <div>
+                                    <dt>Descent</dt>
+                                    <dd>{{ descent }}m</dd>
+                                </div>
+                                <div>
+                                    <dt>Total time</dt>
+                                    <dd>{{ total_duration }}</dd>
+                                </div>
                             </dl>
                             <div class="content">
                                 {{ day.content | safe }}
@@ -140,4 +164,4 @@
         </div>
         <!-- parallax -->
     </body>
-</html>
+</html></body></html>

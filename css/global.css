@@ -155,8 +155,8 @@ blockquote {
 }
 
 body {
-  --color-white: color-mix(in lch, var(--color-accent) 10%, white);
-  --color-black: color-mix(in lch, var(--color-accent) 10%, black);
+  --color-white: color-mix(in oklch, var(--color-accent) 10%, white);
+  --color-black: color-mix(in oklch, var(--color-accent) 10%, black);
 
   background-color: var(--color-white);
   color: var(--color-black);
