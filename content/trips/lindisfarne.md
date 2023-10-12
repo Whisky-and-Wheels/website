@@ -1,6 +1,7 @@
 ---
 tags: trip
 title: Lindisfarne
+label: glenlivet
 subtitle: The causeway that floods twice a day
 days: 2
 kilometres: 107

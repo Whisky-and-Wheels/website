@@ -1,6 +1,7 @@
 ---
 tags: trip
 title: Hexham
+label: ardbeg
 subtitle: Cloudy Stargazing
 days: 2
 kilometres: 105

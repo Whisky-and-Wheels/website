@@ -1,6 +1,7 @@
 ---
 tags: trip
 title: Cairngorms
+label: glenfiddich
 name: cairngorms
 subtitle: Our first long bike trip
 days: 14

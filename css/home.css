@@ -263,7 +263,6 @@ picture {
   a[data-label="glenfiddich"] {
     --grid-col-span: span 5;
     grid-column: var(--grid-column, var(--grid-col-span));
-    grid-row: span 2;
 
     & article {
       grid-template-columns: 20ch auto 1fr;
@@ -283,7 +282,7 @@ picture {
         align-self: center;
         font-size: var(--font-small);
         text-align: center;
-        text-balance: balance;
+        text-wrap: balance;
         text-transform: uppercase;
       }
 
@@ -430,7 +429,7 @@ picture {
         font-variation-settings: "SOFT" 50;
         font-weight: 600;
         text-align: center;
-        /* todo: add box shadow or something for diff weight borders */
+        /* todo: add box shadow or something for diff weight borders, make full-width */
         border-block-start: var(--space-3xs) double black;
 
         &::first-letter {
@@ -494,7 +493,7 @@ picture {
       }
 
       .excerpt {
-        text-balance: balance;
+        text-wrap: balance;
       }
 
       .location {
@@ -554,7 +553,7 @@ picture {
         font-size: var(--font-small);
         font-weight: 600;
         letter-spacing: 0.01em;
-        text-balance: balance;
+        text-wrap: balance;
         text-transform: uppercase;
       }
 
@@ -562,7 +561,7 @@ picture {
         font-family: var(--font-italic);
         font-weight: 400;
         line-height: 1;
-        text-balance: balance;
+        text-wrap: balance;
       }
 
       .days,

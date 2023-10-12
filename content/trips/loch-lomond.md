@@ -1,6 +1,7 @@
 ---
 tags: trip
 title: Loch Lomond
+label: ben-nevis
 subtitle: A beautiful but miserable ride
 days: 2
 kilometres: 115

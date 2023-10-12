@@ -1,6 +1,7 @@
 ---
 tags: cairngorms
 title: Braemar
+label: glenfiddich
 kilometres: 35
 start: Dalmunzie Castle
 end: Braemar

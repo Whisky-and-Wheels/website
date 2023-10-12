@@ -26,12 +26,8 @@
         </header>
         <main class="u-container u-grid">
             {%- for trip in collections.trip -%}
-                {% if loop.index % 4 == 0 %}
-                    {% set label = 'ben-nevis' %}
-                {% elif loop.index % 3 == 0 %}
-                    {% set label = 'glenlivet' %}
-                {% elif loop.index % 2 == 0 %}
-                    {% set label = 'ardbeg' %}
+                {% if trip.data.label %}
+                    {% set label = trip.data.label %}
                 {% else %}
                     {% set label = 'glenfiddich' %}
                 {% endif %}
@@ -56,7 +52,7 @@
                             to
                             <strong>{{ trip.data.end }}</strong>
                         </p>
-                        <p class="excerpt">{{ trip.page.excerpt }}</p>
+                        <p class="excerpt">{{ trip.page.excerpt | truncate(55) }}</p>
                     </article>
                 </a>
             {%- endfor -%}
