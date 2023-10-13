@@ -43,18 +43,18 @@ Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Lorem mollis ali
 Cras sed felis eget velit aliquet sagittis id consectetur purus. Etiam dignissim diam quis enim lobortis scelerisque. Neque viverra justo nec ultrices. Tortor posuere ac ut consequat semper viverra nam libero. Euismod in pellentesque massa placerat duis ultricies. Posuere morbi leo urna molestie.
 
 <figure>
-{% image "img/sycamore-gap.jpeg", "Panorama of two hills along Hadrian's wall with a tall sycamore in the middle of the valley between them", "u-full-width" %}
+{% image "img/sycamore-gap.jpeg", "Panorama of two hills along Hadrian's wall with a tall sycamore in the middle of the valley between them" %}
 </figure>
 
 Cras sed felis eget velit aliquet sagittis id consectetur purus. Etiam dignissim diam quis enim lobortis scelerisque. Neque viverra justo nec ultrices. Tortor posuere ac ut consequat semper viverra nam libero. Euismod in pellentesque massa placerat duis ultricies. Posuere morbi leo urna molestie. Sed viverra ipsum nunc aliquet bibendum enim. Sit amet facilisis magna etiam tempor. Bibendum ut tristique et egestas quis. Eget est lorem ipsum dolor sit amet consectetur. Libero justo laoreet sit amet cursus. Felis bibendum ut tristique et egestas quis ipsum suspendisse. Auctor urna nunc id cursus metus aliquam eleifend mi. Libero volutpat sed cras ornare. Gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim.
 
-<figure>
+<figure class="u-layout-float-left">
 {% image "img/hexham.jpeg", "Biking into the dying sun" %}
 </figure>
 
 Vitae ultricies leo integer malesuada nunc vel risus commodo. Sit amet massa vitae tortor condimentum lacinia quis vel. Lobortis feugiat vivamus at augue eget arcu dictum varius duis. Lacus suspendisse faucibus interdum posuere lorem ipsum. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Odio ut sem nulla pharetra diam. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Diam in arcu cursus euismod quis viverra. Eget egestas purus viverra accumsan in nisl.
 
-<figure>
+<figure class="u-layout-float-right">
 {% image "img/sycamore-gap.jpeg", "Panorama of two hills along Hadrian's wall with a tall sycamore in the middle of the valley between them" %}
 </figure>
 

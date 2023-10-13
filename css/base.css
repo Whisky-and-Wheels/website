@@ -1,0 +1,315 @@
+/* todo: mvp styles for browsers that don't support layers */
+
+@layer default, component, component-variant, component-state, template, utility, theme, exception;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../font/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces Italic";
+  src: url("../font/Fraunces-Italic-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+@layer default {
+  @layer reset {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+
+  :root {
+    /* colors */
+    @supports (color: color-mix(in oklab, black, white)) {
+      /* if it supports color-mix, it supports oklch/oklab */
+      /* mixing in oklab, custom color picking from https://oklch.com/ */
+      --theme-white: color-mix(in oklab, var(--color-accent) 5%, white);
+      --theme-black: color-mix(in oklab, var(--color-accent) 10%, black);
+      --oklch-green: oklch(61.53% 0.25 144.41);
+      --oklab-green-light: color-mix(in oklab, var(--oklch-green) 60%, white);
+      --oklab-green-dark: color-mix(in oklab, var(--oklch-green) 75%, black);
+      --oklab-scotland-light: color-mix(in oklab, thistle, white);
+      --oklch-scotland-dark: oklch(28.53% 0.128 348.72);
+    }
+    --color-neutral-light: var(--theme-white, white);
+    --color-neutral-dark: var(--theme-black, black);
+    /* font */
+    --font: "Fraunces", serif;
+    --font-italic: "Fraunces Italic", serif;
+    /* fluid type */
+    /* https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --font-small: clamp(0.8838rem, 0.9562rem + -0.0935vw, 0.9375rem);
+    --font-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --font-step-1: clamp(1.35rem, 1.2048rem + 0.7261vw, 1.7675rem);
+    --font-step-2: clamp(1.62rem, 1.3141rem + 1.5293vw, 2.4994rem);
+    --font-step-3: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem);
+    --font-step-4: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem);
+    --font-step-5: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem);
+    /* fixed spacing */
+    --space-3xs: 0.3125rem;
+    --space-2xs: 0.5625rem;
+    --space-xs: 0.875rem;
+    --space-s: 1.125rem;
+    --space-m: 1.6875rem;
+    --space-l: 2.25rem;
+    --space-xl: 3.375rem;
+    --space-2xl: 4.5rem;
+    --space-3xl: 6.75rem;
+    /* fluid spacing */
+    /* https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+    --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+    --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+    --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+    --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+    --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+    --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+    --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+    --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+    /* containers */
+    --max-width: 85rem;
+    --max-line-length: 70ch;
+    /* https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+    --gutter: var(--space-m-l, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
+    /* transition */
+    --transition-duration: 0.1s;
+  }
+
+  body {
+    min-height: 100vh;
+    display: grid;
+    /* ensure main always takes up full viewport */
+    grid-template-rows: [header-start] auto [main-start] 1fr [footer-start] auto;
+    font-family: var(--font);
+    font-size: var(--font-base);
+    line-height: 1.5;
+    background-color: var(--color-neutral-light);
+    color: var(--color-neutral-dark);
+
+    ::selection {
+      background-color: var(--color-selection-background, var(--color-accent));
+      color: var(--color-selection-text, var(--color-neutral-dark));
+    }
+  }
+
+  header {
+    padding-block: var(--space-s-m);
+  }
+
+  main {
+    padding-block: var(--space-m-l);
+  }
+
+  footer {
+    padding-block: var(--space-s-m);
+    background-color: var(--color-neutral-dark);
+    color: var(--color-neutral-light);
+  }
+
+  h1 {
+    font-size: var(--font-step-5);
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: var(--font-step-3);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: var(--font-step-2);
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: var(--max-line-length);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0rem var(--y-offset, -0.4em)
+      var(--color-link-shadow, var(--color-accent));
+    font-weight: 700;
+    transition: box-shadow var(--transition-duration);
+
+    &:hover,
+    &:focus {
+      --y-offset: -1.2em;
+    }
+  }
+
+  /* make heading links respect whatever weight is on the heading */
+  :is(h2, h3) a {
+    font-weight: inherit;
+  }
+
+  blockquote {
+    font-size: var(--font-step-1);
+    line-height: 1.3;
+    font-weight: 700;
+
+    &::before {
+      /* assumes the quote is still open unless told there are no close quotes */
+      content: open-quote no-close-quote;
+      display: block;
+      margin-block-end: -0.3em; /* try to remove the blank space under quote */
+      font-size: var(--font-step-5);
+      line-height: 1;
+      color: var(--color-accent-dark);
+    }
+
+    @media screen and (width > 35rem) {
+      display: flex;
+      gap: var(--space-xs);
+
+      &::before {
+        margin-block-end: -0.8em;
+        font-size: var(--font-step-4);
+      }
+    }
+  }
+}
+
+@layer utility {
+  .u-layout-container {
+    max-width: var(--max-width);
+    padding-inline: var(--gutter);
+    margin-inline: auto;
+  }
+
+  /* complex :has() selectors probably not well supported enough for this */
+  .u-layout-stack {
+    /* change default margin gutter with --stack-end-spacing */
+    --_block-end-spacing: var(--stack-end-spacing, var(--gutter));
+    width: 100%;
+
+    > :where(*:not(:last-child)) {
+      margin-block-end: var(--_block-end-spacing);
+    }
+
+    /* reduce margin on elements following headings */
+    h2,
+    h3 {
+      margin-block-end: calc(var(--_block-end-spacing) * 0.5);
+    }
+
+    /* increase margin on elements preceding headings */
+    *:has(+ :where(h2, h3)) {
+      margin-block-end: calc(var(--_block-end-spacing) * 1.5);
+    }
+
+    /* when a heading follows a heading, reduce margin before second heading */
+    :is(h2, h3):has(+ :is(h2, h3)) {
+      margin-block-end: calc(var(--_block-end-spacing) * 0.25);
+    }
+
+    /* when a heading is followed by image or blockquote, use full margin */
+    :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
+      margin-block-end: var(--_block-end-spacing);
+    }
+  }
+
+  .u-layout-columns {
+    columns: var(--nb-columns, 1);
+  }
+
+  .u-layout-flex {
+    /* assume we want row-direction and wrapping */
+    display: flex;
+    flex-direction: var(--flex-direction, row);
+    flex-wrap: var(--flex-wrap, wrap);
+    gap: var(--gutter);
+  }
+
+  .u-layout-grid {
+    display: grid;
+    grid-template-columns: var(
+      --grid-template-columns,
+      repeat(var(--nb-columns, 1), minmax(0, 1fr))
+    );
+    column-gap: var(--column-gutter, var(--gutter));
+    row-gap: var(--row-gutter, var(--gutter));
+  }
+
+  @supports (grid-template-columns: subgrid) {
+    .u-layout-subgrid {
+      /* assume we want column subgrid only for now, maybe break into multiple utils? */
+      grid-column: var(--subgrid-column, 1 / -1);
+      display: grid;
+      grid-template-columns: var(--subgrid-template-columns, subgrid);
+      column-gap: var(--subgrid-column-gutter, var(--gutter));
+      grid-template-rows: var(--subgrid-template-rows, initial);
+      row-gap: var(--subgrid-row-gutter, var(--gutter));
+    }
+  }
+
+  .u-layout-stack:where(.u-layout-grid, .u-layout-subgrid) {
+    /* let stack control row spacing */
+    row-gap: 0;
+  }
+
+  [class^="u-layout-float"] {
+    --float-margin: var(--space-2xs);
+    display: block;
+    width: max(200px, 40%);
+    margin-block-end: 0;
+  }
+
+  .u-layout-float-left {
+    float: left;
+    margin-right: var(--float-margin);
+  }
+
+  .u-layout-float-right {
+    float: right;
+    margin-left: var(--float-margin);
+  }
+
+  [dir="rtl"] {
+    .u-layout-float-right {
+      float: left;
+      margin-right: var(--float-margin);
+    }
+
+    .u-layout-float-left {
+      float: right;
+      margin-left: var(--float-margin);
+    }
+  }
+}
+
+@layer theme {
+  /* default to scotland theme */
+  /* - fallbacks grabbed from https://oklch.com/ color picker */
+  /* - not exactly accurate to oklab() colors, but close enough */
+  :root {
+    /* it's strongly recommended not to use the old css color names */
+    /* but who knew there was a THISTLE color? that's too perfect */
+    --color-accent: thistle;
+    --color-accent-light: var(--oklab-scotland-light, #ede1ea);
+    --color-accent-dark: var(--oklch-scotland-dark, #6f5478);
+  }
+
+  [data-theme="green"] {
+    --color-accent: var(--oklch-green, #00a125);
+    --color-accent-light: var(--oklab-green-light, #73cc75);
+    --color-accent-dark: var(--oklab-green-dark, #006c15);
+    --color-link-shadow: var(--color-accent-dark);
+    --color-neutral-light: white; /* a themed white-green looks sickly */
+  }
+}
