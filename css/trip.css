@@ -1,7 +1,7 @@
 @layer template {
   /* note: main is max-width 100% to allow white background / mountain svg overlap */
-  main .u-layout-grid {
-    --gutter: var(--space-s-m);
+  .u-layout-grid {
+    --gutter: var(--space-s);
     --max-line-length: fit-content(50ch);
     --grid-template-columns: minmax(0, 1fr) [content-start]
       var(--max-line-length) [content-end] minmax(0, 1fr);
@@ -11,27 +11,103 @@
     grid-column: content;
   }
 
-  @media screen and (width > 78rem) {
-    main .u-layout-grid {
-      --sidebar-width: 17.5rem;
-      --grid-template-columns: 1fr [map-start] var(--sidebar-width)
-        [content-start] var(--max-line-length) [content-end]
-        var(--sidebar-width) [stats-end] 1fr;
+  /* most of these styles belong in trip component with container queries */
+  @media screen and (28rem < width <= 78rem) {
+    [data-trip-content] {
+      --offset: var(--space-l);
+    }
+    .map {
+      width: calc(100% - var(--offset));
     }
 
-    /* after summary */
-    [data-trip-content]:nth-of-type(n + 2) {
-      .map {
-        display: none;
+    .stats {
+      margin-inline-start: auto;
+      margin-block-end: calc(-1 * var(--offset));
+      position: relative;
+      bottom: var(--offset);
+
+      tbody {
+        display: grid;
+        grid-template-columns: repeat(var(--nb-columns, 6), auto);
+        row-gap: var(--space-xs);
       }
-      .stats {
-        grid-column: content-end / stats-end;
-        grid-row-start: 2;
-        position: sticky;
-        top: var(--space-l);
-        align-self: start;
+
+      tr {
+        display: flex;
+        flex-direction: column;
       }
     }
+  }
+
+  @media screen and (width <= 42rem) {
+    .stats {
+      --nb-columns: 3;
+    }
+  }
+
+  @media screen and (width <= 28rem) {
+    .stats {
+      --nb-columns: 2;
+      width: 100%;
+    }
+  }
+
+  @media screen and (width > 78rem) {
+    .u-layout-grid {
+      --gutter: var(--space-l);
+      --grid-template-columns: 1fr [content-start] var(--max-line-length)
+        [content-end] auto [stats-end] 1fr;
+
+      .stats {
+        grid-column: content-end / stats-end;
+        grid-row-start: 2 / span 2;
+        position: sticky;
+        top: var(--gutter);
+        align-self: start;
+      }
+
+      &[data-trip-content="summary"] {
+        .stats {
+          grid-row-start: 1;
+        }
+      }
+    }
+
+    /* okay for proof-of-concept, needs a lot of finesse */
+    /* sticky positioning gets weird */
+    /* timing very rough */
+    /* tried animating grid-column but */
+    /* @supports (animation-timeline: view(block)) {
+      .animate-slide-shrink {
+        animation-name: slide-shrink;
+        animation-duration: auto;
+        animation-timeline: view(block);
+      }
+
+      [data-trip-content]:nth-of-type(n + 2) {
+        .map {
+          display: none;
+        }
+      }
+
+      @keyframes slide-shrink {
+        0% {
+          transform: translateX(0), scale(1);
+        }
+        50% {
+          transform-origin: bottom right;
+          transform: translateX(-100%), scale(1);
+        }
+        99% {
+          transform-origin: bottom right;
+          transform: translateX(-100%) scale(0.5);
+        }
+        100% {
+          position: sticky;
+          top: 0;
+        }
+      }
+    } */
   }
 }
 
@@ -183,7 +259,8 @@
   }
 }
 
-/* Trip */
+/* maybe split out stats and map styling to separate components? */
+/* Trip (Stack, Stats, Map) */
 @layer component {
   [data-trip-content] {
     .iframe-container {
@@ -200,12 +277,12 @@
       }
     }
 
+    /* todo: add elevation profile svg in after element with accent color */
     .stats {
-      --color-selection-background: var(--color-accent-light);
       width: fit-content;
       padding-block: var(--space-xs);
       padding-inline: var(--space-s);
-      background-color: var(--color-accent);
+      background-color: var(--color-accent-light);
 
       & th {
         border-inline-end: var(--space-xs) solid transparent;
@@ -215,7 +292,7 @@
   }
 }
 
-/* Trip: Summary */
+/* Trip: Summary (Intro Paragraph) */
 @layer variant {
   [data-trip-content="summary"] .u-layout-stack {
     > p:first-of-type {

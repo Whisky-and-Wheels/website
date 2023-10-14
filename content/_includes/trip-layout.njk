@@ -94,10 +94,8 @@
                     <div class="u-layout-stack">
                         {{ content | safe }}
                     </div>
-                    <div>
-                        {% include "./map-placeholder.njk" %}
-                        {% include "./stats-partial.njk" %}
-                    </div>
+                    {% include "./map-placeholder.njk" %}
+                    {% include "./stats-partial.njk" %}
                 </section>
                 {# todo: move map/stats block to includes as partial template #}
                 {% if name %}
