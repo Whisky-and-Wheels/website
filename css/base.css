@@ -1,4 +1,6 @@
-/* todo: mvp styles for browsers that don't support layers */
+/* todo: mvp styles for browsers that don't support layers or has  */
+/* todo: polyfill nesting? */
+/* todo: progressive enhancement for browsers that don't support layers */
 
 @layer default, component, component-variant, component-state, template, utility, theme, exception;
 
@@ -106,7 +108,7 @@
     }
   }
 
-  header {
+  header:has(+ main) {
     padding-block: var(--space-s-m);
   }
 
@@ -203,23 +205,23 @@
     }
 
     /* reduce margin on elements following headings */
-    h2,
-    h3 {
+    > h2,
+    > h3 {
       margin-block-end: calc(var(--_block-end-spacing) * 0.5);
     }
 
     /* increase margin on elements preceding headings */
-    *:has(+ :where(h2, h3)) {
+    > *:has(+ :where(h2, h3)) {
       margin-block-end: calc(var(--_block-end-spacing) * 1.5);
     }
 
     /* when a heading follows a heading, reduce margin before second heading */
-    :is(h2, h3):has(+ :is(h2, h3)) {
+    > :is(h2, h3):has(+ :is(h2, h3)) {
       margin-block-end: calc(var(--_block-end-spacing) * 0.25);
     }
 
     /* when a heading is followed by image or blockquote, use full margin */
-    :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
+    > :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
       margin-block-end: var(--_block-end-spacing);
     }
   }

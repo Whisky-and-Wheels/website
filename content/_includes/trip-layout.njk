@@ -89,72 +89,26 @@
             <header>
                 <h1 class="u-layout-container">{{ title }}</h1>
             </header>
-            <main class="u-layout-container u-layout-grid">
-                <section data-trip-content="summary" class="u-layout-subgrid">
+            <main class="u-layout-container u-layout-stack">
+                <section data-trip-content="summary" class="u-layout-grid">
                     <div class="u-layout-stack">
                         {{ content | safe }}
                     </div>
                     <div>
-                        <svg class="map" preserveaspectratio="xMinYMin meet" viewbox="0 0 400 300">
-                            <path stroke="blue" stroke-width="10px" d="M 0,290 L 200,0"/>
-                            <path stroke="green" stroke-width="10px" d="M 200,0 L 400,290"/>
-                            <path stroke="red" stroke-width="10px" d="M 400,290 L 0,290"/>
-                        </svg>
-                        <dl class="stats | u-layout-flex">
-                            <div>
-                                <dt>Distance</dt>
-                                <dd>{{ kilometres }}km</dd>
-                            </div>
-                            <div>
-                                <dt>Avg. Speed</dt>
-                                <dd>{{ average_speed }}km/h</dd>
-                            </div>
-                            <div>
-                                <dt>Ascent</dt>
-                                <dd>{{ ascent }}m</dd>
-                            </div>
-                            <div>
-                                <dt>Descent</dt>
-                                <dd>{{ descent }}m</dd>
-                            </div>
-                            <div>
-                                <dt>Total time</dt>
-                                <dd>{{ total_duration }}</dd>
-                            </div>
-                        </dl>
+                        {% include "./map-placeholder.njk" %}
+                        {% include "./stats-partial.njk" %}
                     </div>
                 </section>
                 {# todo: move map/stats block to includes as partial template #}
                 {% if name %}
                     {% for day in collections[name] %}
-                        <section data-trip-content="{{ day.data.title | lower }}" class="u-layout-subgrid">
-                            <hgroup>
+                        <section data-trip-content="{{ day.data.title | lower }}" class="u-layout-grid">
+                            <header>
                                 <h2>{{ day.data.title }}</h2>
                                 <h3>Day {{ loop.index }}</h2>
-                            </hgroup>
-                            <div class="map"></div>
-                            <dl class="stats | u-layout-flex">
-                                <div>
-                                    <dt>Distance</dt>
-                                    <dd>{{ kilometres }}km</dd>
-                                </div>
-                                <div>
-                                    <dt>Avg. Speed</dt>
-                                    <dd>{{ average_speed }}km/h</dd>
-                                </div>
-                                <div>
-                                    <dt>Ascent</dt>
-                                    <dd>{{ ascent }}m</dd>
-                                </div>
-                                <div>
-                                    <dt>Descent</dt>
-                                    <dd>{{ descent }}m</dd>
-                                </div>
-                                <div>
-                                    <dt>Total time</dt>
-                                    <dd>{{ total_duration }}</dd>
-                                </div>
-                            </dl>
+                            </header>
+                            {% include "./map-placeholder.njk" %}
+                            {% include "./stats-partial.njk" %}
                             <div class="u-layout-stack">
                                 {{ day.content | safe }}
                             </div>
