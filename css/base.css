@@ -27,11 +27,19 @@
       margin: 0;
     }
 
+    picture,
     img {
       display: block;
       width: 100%;
       height: auto;
       max-width: 100%;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
     }
   }
 
@@ -127,6 +135,7 @@
     }
   }
 
+  /* probably belongs in component */
   #colophon {
     background-color: var(--color-neutral-dark);
     color: var(--color-neutral-light);
@@ -251,6 +260,8 @@
       }
     }
   }
+
+  /* basic flow content styling when authored class is not in effect? hard to scope */
 }
 
 @layer utility {
