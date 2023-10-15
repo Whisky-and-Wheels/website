@@ -117,9 +117,64 @@
   }
 
   footer {
-    padding-block: var(--space-s-m);
+    --color-link-shadow: var(--color-accent-dark);
+    padding-block: var(--space-s);
     background-color: var(--color-neutral-dark);
     color: var(--color-neutral-light);
+
+    .u-layout-container {
+      padding-block: var(--space-xs-s);
+    }
+  }
+
+  #colophon {
+    background-color: var(--color-neutral-dark);
+    color: var(--color-neutral-light);
+    .u-layout-container {
+      --border-spacing: var(--space-2xs-xs);
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--border-spacing);
+    }
+
+    .title {
+      /*
+      border color can't be inherited
+      I assume this is because border is not inheritable in general
+      but currentColor works:
+      https://developer.mozilla.org/en-US/docs/Web/CSS/border-color#formal_definition */
+      --border: calc(0.5 * var(--space-3xs-2xs)) dotted currentColor;
+      font-size: var(--font-step-1);
+      padding-block-end: var(--border-spacing);
+      border-block-end: var(--border);
+    }
+
+    & a {
+      font-weight: 400;
+    }
+
+    @media screen and (width > 35rem) {
+      .u-layout-container {
+        --border-spacing: var(--space-xs-s);
+        grid-template-columns: [title-start] auto [title-end] 1fr [content-end];
+        column-gap: var(--border-spacing);
+      }
+
+      .title {
+        grid-column: title;
+        /* not a huge fan of hardcoding row end here, but -1 doesn't work */
+        /* could try subgrid? */
+        grid-row: 1 / 5;
+        padding-block-end: unset;
+        padding-inline-end: var(--border-spacing);
+        border-block-end: unset;
+        border-inline-end: var(--border);
+      }
+
+      & p {
+        grid-column: title-end / content-end;
+      }
+    }
   }
 
   h1 {
@@ -141,6 +196,17 @@
     max-width: var(--max-line-length);
   }
 
+  i,
+  em {
+    font-family: var(--font-italic);
+  }
+
+  small {
+    font-size: var(--font-small);
+    font-variation-settings: "WONK" 0;
+  }
+
+  /* note: if using display inline-block, the box shadow will move a little lower */
   a {
     text-decoration: none;
     color: inherit;
@@ -210,6 +276,11 @@
       margin-block-end: calc(var(--_block-end-spacing) * 0.5);
     }
 
+    /* when a heading is followed by image or blockquote, use full margin */
+    > :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
+      margin-block-end: var(--_block-end-spacing);
+    }
+
     /* increase margin on elements preceding headings */
     > *:has(+ :where(h2, h3)) {
       margin-block-end: calc(var(--_block-end-spacing) * 1.5);
@@ -218,11 +289,6 @@
     /* when a heading follows a heading, reduce margin before second heading */
     > :is(h2, h3):has(+ :is(h2, h3)) {
       margin-block-end: calc(var(--_block-end-spacing) * 0.25);
-    }
-
-    /* when a heading is followed by image or blockquote, use full margin */
-    > :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
-      margin-block-end: var(--_block-end-spacing);
     }
   }
 
@@ -311,7 +377,6 @@
     --color-accent: var(--oklch-green, #00a125);
     --color-accent-light: var(--oklab-green-light, #73cc75);
     --color-accent-dark: var(--oklab-green-dark, #006c15);
-    --color-link-shadow: var(--color-accent-dark);
-    --color-neutral-light: white; /* a themed white-green looks sickly */
+    --color-neutral-light: #ffffff; /* a themed white-green looks sickly */
   }
 }

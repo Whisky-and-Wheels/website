@@ -126,6 +126,36 @@
 @layer component {
   [data-label] {
     font-weight: 400;
+
+    .title {
+      grid-area: title;
+      line-height: 1;
+    }
+
+    .subtitle {
+      grid-area: subtitle;
+    }
+
+    /* todo: update image shortcode to provide container class */
+    article picture {
+      grid-area: image;
+    }
+
+    .days {
+      grid-area: days;
+    }
+
+    .kilometres {
+      grid-area: kilometres;
+    }
+
+    .location {
+      grid-area: location;
+    }
+
+    .excerpt {
+      grid-area: excerpt;
+    }
   }
 
   article {
@@ -137,36 +167,6 @@
       url("../img/img-noise-1000x1000.png");
     background-size: cover;
     padding: var(--space-m);
-  }
-
-  .title {
-    grid-area: title;
-    line-height: 1;
-  }
-
-  .subtitle {
-    grid-area: subtitle;
-  }
-
-  /* todo: update image shortcode to provide container class */
-  article picture {
-    grid-area: image;
-  }
-
-  .days {
-    grid-area: days;
-  }
-
-  .kilometres {
-    grid-area: kilometres;
-  }
-
-  .location {
-    grid-area: location;
-  }
-
-  .excerpt {
-    grid-area: excerpt;
   }
 }
 
