@@ -1,9 +1,10 @@
-/* todo: mvp styles for browsers that don't support layers or has  */
-/* todo: polyfill nesting? */
+/* banner for browser that don't support layers or @support */
+/* todo: mvp styles for browsers that don't support layers  */
 /* todo: progressive enhancement for browsers that don't support layers */
 
 @layer default, component, component-variant, component-state, template, utility, theme, exception;
 
+/* todo: convert to woff2? font adjust default? */
 @font-face {
   font-family: "Fraunces";
   src: url("../font/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
@@ -43,60 +44,62 @@
     }
   }
 
-  :root {
-    /* colors */
-    @supports (color: color-mix(in oklab, black, white)) {
-      /* if it supports color-mix, it supports oklch/oklab */
-      /* mixing in oklab, custom color picking from https://oklch.com/ */
-      --theme-white: color-mix(in oklab, var(--color-accent) 5%, white);
-      --theme-black: color-mix(in oklab, var(--color-accent) 10%, black);
-      --oklch-green: oklch(61.53% 0.25 144.41);
-      --oklab-green-light: color-mix(in oklab, var(--oklch-green) 60%, white);
-      --oklab-green-dark: color-mix(in oklab, var(--oklch-green) 75%, black);
-      --oklab-scotland-light: color-mix(in oklab, thistle, white);
-      --oklch-scotland-dark: oklch(28.53% 0.128 348.72);
+  @layer tokens {
+    :root {
+      /* colors */
+      @supports (color: color-mix(in oklab, black, white)) {
+        /* if it supports color-mix, it supports oklch/oklab */
+        /* mixing in oklab, custom color picking from https://oklch.com/ */
+        --theme-white: color-mix(in oklab, var(--color-accent) 5%, white);
+        --theme-black: color-mix(in oklab, var(--color-accent) 10%, black);
+        --oklch-green: oklch(61.53% 0.25 144.41);
+        --oklab-green-light: color-mix(in oklab, var(--oklch-green) 60%, white);
+        --oklab-green-dark: color-mix(in oklab, var(--oklch-green) 75%, black);
+        --oklab-scotland-light: color-mix(in oklab, thistle, white);
+        --oklch-scotland-dark: oklch(28.53% 0.128 348.72);
+      }
+      --color-neutral-light: var(--theme-white, white);
+      --color-neutral-dark: var(--theme-black, black);
+      /* font */
+      --font: "Fraunces", serif;
+      --font-italic: "Fraunces Italic", serif;
+      /* fluid type */
+      /* https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+      --font-small: clamp(0.8838rem, 0.9562rem + -0.0935vw, 0.9375rem);
+      --font-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+      --font-step-1: clamp(1.35rem, 1.2048rem + 0.7261vw, 1.7675rem);
+      --font-step-2: clamp(1.62rem, 1.3141rem + 1.5293vw, 2.4994rem);
+      --font-step-3: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem);
+      --font-step-4: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem);
+      --font-step-5: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem);
+      /* fixed spacing */
+      --space-3xs: 0.3125rem;
+      --space-2xs: 0.5625rem;
+      --space-xs: 0.875rem;
+      --space-s: 1.125rem;
+      --space-m: 1.6875rem;
+      --space-l: 2.25rem;
+      --space-xl: 3.375rem;
+      --space-2xl: 4.5rem;
+      --space-3xl: 6.75rem;
+      /* fluid spacing */
+      /* https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+      --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+      --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+      --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+      --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+      --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+      --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+      --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+      --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+      /* containers */
+      --max-width: 85rem;
+      --max-line-length: 70ch;
+      /* https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+      --gutter: var(--space-m-l, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
+      /* transition */
+      --transition-duration: 0.1s;
     }
-    --color-neutral-light: var(--theme-white, white);
-    --color-neutral-dark: var(--theme-black, black);
-    /* font */
-    --font: "Fraunces", serif;
-    --font-italic: "Fraunces Italic", serif;
-    /* fluid type */
-    /* https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-    --font-small: clamp(0.8838rem, 0.9562rem + -0.0935vw, 0.9375rem);
-    --font-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-    --font-step-1: clamp(1.35rem, 1.2048rem + 0.7261vw, 1.7675rem);
-    --font-step-2: clamp(1.62rem, 1.3141rem + 1.5293vw, 2.4994rem);
-    --font-step-3: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem);
-    --font-step-4: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem);
-    --font-step-5: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem);
-    /* fixed spacing */
-    --space-3xs: 0.3125rem;
-    --space-2xs: 0.5625rem;
-    --space-xs: 0.875rem;
-    --space-s: 1.125rem;
-    --space-m: 1.6875rem;
-    --space-l: 2.25rem;
-    --space-xl: 3.375rem;
-    --space-2xl: 4.5rem;
-    --space-3xl: 6.75rem;
-    /* fluid spacing */
-    /* https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
-    --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
-    --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
-    --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
-    --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
-    --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
-    --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
-    --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
-    --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
-    /* containers */
-    --max-width: 85rem;
-    --max-line-length: 70ch;
-    /* https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.414,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
-    --gutter: var(--space-m-l, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
-    /* transition */
-    --transition-duration: 0.1s;
   }
 
   body {
