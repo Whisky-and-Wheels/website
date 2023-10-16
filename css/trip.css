@@ -11,7 +11,6 @@
     grid-column: content;
   }
 
-  /* most of these styles belong in trip component with container queries */
   @media screen and (28rem < width <= 78rem) {
     [data-trip-content] {
       --offset: var(--space-l);
@@ -20,35 +19,15 @@
       width: calc(100% - var(--offset));
     }
 
-    .stats {
-      margin-inline-start: auto;
+    .stats-container {
       margin-block-end: calc(-1 * var(--offset));
       position: relative;
       bottom: var(--offset);
-
-      tbody {
-        display: grid;
-        grid-template-columns: repeat(var(--nb-columns, 6), auto);
-        row-gap: var(--space-xs);
-      }
-
-      tr {
-        display: flex;
-        flex-direction: column;
-      }
     }
-  }
 
-  @media screen and (width <= 42rem) {
     .stats {
-      --nb-columns: 3;
-    }
-  }
-
-  @media screen and (width <= 28rem) {
-    .stats {
-      --nb-columns: 2;
-      width: 100%;
+      width: fit-content;
+      margin-inline-start: auto;
     }
   }
 
@@ -56,18 +35,18 @@
     .u-layout-grid {
       --gutter: var(--space-l);
       --grid-template-columns: 1fr [content-start] var(--max-line-length)
-        [content-end] auto [stats-end] 1fr;
+        [content-end] 20ch [stats-end] 1fr;
 
-      .stats {
+      .stats-container {
         grid-column: content-end / stats-end;
-        grid-row-start: 2 / span 2;
+        grid-row: 2 / span 2;
         position: sticky;
         top: var(--gutter);
         align-self: start;
       }
 
       &[data-trip-content="summary"] {
-        .stats {
+        .stats-container {
           grid-row-start: 1;
         }
       }
@@ -277,16 +256,47 @@
       }
     }
 
+    .stats-container {
+      container: stats / inline-size;
+    }
+
     /* todo: add elevation profile svg in after element with accent color */
     .stats {
-      width: fit-content;
+      width: 100%;
       padding-block: var(--space-xs);
       padding-inline: var(--space-s);
       background-color: var(--color-accent-light);
 
       & th {
+        display: block;
+        width: max-content;
         border-inline-end: var(--space-xs) solid transparent;
         text-align: left;
+      }
+
+      @container stats (width > 20rem) {
+        & tbody {
+          display: grid;
+          grid-template-columns: repeat(var(--nb-columns, 2), auto);
+          row-gap: var(--space-xs);
+        }
+
+        & tr {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      @container stats (width > 28rem) {
+        & tbody {
+          --nb-columns: 3;
+        }
+      }
+
+      @container stats (width > 34rem) {
+        & tbody {
+          --nb-columns: 6;
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 /* todo: organize and have some kind of naming system for goodness sake */
-/* todo: progressively enhance to grid */
+/* todo: progressively enhance to container queries */
 @layer template {
   [data-label] {
     --grid-col-span: span 1;
@@ -136,8 +136,7 @@
       grid-area: subtitle;
     }
 
-    /* todo: update image shortcode to provide container class */
-    article picture {
+    .article picture {
       grid-area: image;
     }
 
@@ -158,11 +157,10 @@
     }
   }
 
-  article {
+  .article {
     display: grid;
     column-gap: var(--space-m);
     row-gap: var(--space-s);
-    /* todo: make better shape, ellipsis? */
     background: radial-gradient(whitesmoke, transparent),
       url("../img/img-noise-1000x1000.png");
     background-size: cover;
