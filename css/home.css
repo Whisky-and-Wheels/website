@@ -164,7 +164,7 @@
     background: radial-gradient(whitesmoke, transparent),
       url("../img/img-noise-1000x1000.png");
     background-size: cover;
-    padding: var(--space-m);
+    padding: var(--space-s-m);
   }
 }
 
@@ -714,28 +714,33 @@
 
 /* Label: Hover, Focus */
 @layer state {
-  [data-label] {
-    transition: opacity 1s;
-
-    & img {
-      filter: grayscale(50) contrast(500%);
-      transition: filter 0.2s ease-in-out;
-    }
-  }
-
-  [data-label]:hover,
   [data-label]:focus {
     outline: var(--space-3xs) solid var(--color-accent);
     transition: outline 0.2s;
-
-    & img {
-      filter: grayscale(0) contrast(150%);
-      transition: filter 0.2s;
-    }
   }
+
   /* tried first with general sibling selector */
   /* that only works with subsequent siblings */
   @media screen and (pointer: fine) {
+    [data-label] {
+      transition: opacity 1s;
+
+      & img {
+        filter: grayscale(50) contrast(500%);
+        transition: filter 0.2s ease-in-out;
+      }
+    }
+
+    [data-label]:hover,
+    [data-label]:focus {
+      outline: var(--space-3xs) solid var(--color-accent);
+      transition: outline 0.2s;
+
+      & img {
+        filter: grayscale(0) contrast(150%);
+        transition: filter 0.2s;
+      }
+    }
     main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
       opacity: 0.6;
       transition: opacity 0.1s ease-in-out;
