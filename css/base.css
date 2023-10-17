@@ -45,11 +45,11 @@
   }
 
   @layer tokens {
-    :root {
-      /* colors */
-      @supports (color: color-mix(in oklab, black, white)) {
-        /* if it supports color-mix, it supports oklch/oklab */
-        /* mixing in oklab, custom color picking from https://oklch.com/ */
+    /* conditional colors */
+    /* if it supports color-mix, it supports oklch/oklab */
+    /* mixing in oklab, custom color picking from https://oklch.com/ */
+    @supports (color: color-mix(in oklab, black, white)) {
+      :root {
         --theme-white: color-mix(in oklab, var(--color-accent) 5%, white);
         --theme-black: color-mix(in oklab, var(--color-accent) 10%, black);
         --oklch-green: oklch(61.53% 0.25 144.41);
@@ -58,6 +58,9 @@
         --oklab-scotland-light: color-mix(in oklab, thistle, white);
         --oklch-scotland-dark: oklch(28.53% 0.128 348.72);
       }
+    }
+    :root {
+      /* colors */
       --color-neutral-light: var(--theme-white, white);
       --color-neutral-dark: var(--theme-black, black);
       /* font */
@@ -349,32 +352,34 @@
     row-gap: 0;
   }
 
-  [class^="u-layout-float"] {
-    --float-margin: var(--space-2xs);
-    display: block;
-    width: max(200px, 40%);
-    margin-block-end: 0;
-  }
+  @media screen and (width > 25rem) {
+    [class^="u-layout-float"] {
+      --float-margin: var(--space-2xs);
+      display: block;
+      width: max(200px, 40%);
+      margin-block-end: 0;
+    }
 
-  .u-layout-float-left {
-    float: left;
-    margin-right: var(--float-margin);
-  }
-
-  .u-layout-float-right {
-    float: right;
-    margin-left: var(--float-margin);
-  }
-
-  [dir="rtl"] {
-    .u-layout-float-right {
+    .u-layout-float-left {
       float: left;
       margin-right: var(--float-margin);
     }
 
-    .u-layout-float-left {
+    .u-layout-float-right {
       float: right;
       margin-left: var(--float-margin);
+    }
+
+    [dir="rtl"] {
+      .u-layout-float-right {
+        float: left;
+        margin-right: var(--float-margin);
+      }
+
+      .u-layout-float-left {
+        float: right;
+        margin-left: var(--float-margin);
+      }
     }
   }
 }

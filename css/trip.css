@@ -11,6 +11,12 @@
     grid-column: content;
   }
 
+  @media screen and (width < 28rem) {
+    main > .u-layout-grid {
+      --column-gutter: 0;
+    }
+  }
+
   @media screen and (28rem < width <= 78rem) {
     [data-trip-content] {
       --offset: var(--space-l);
@@ -37,7 +43,8 @@
       --grid-template-columns: 1fr [content-start] var(--max-line-length)
         [content-end] 20ch [stats-end] 1fr;
 
-      .stats-container {
+      .map-stats-container {
+        --stack-end-spacing: calc(var(--gutter) * 0.5);
         grid-column: content-end / stats-end;
         grid-row: 2 / span 2;
         position: sticky;
@@ -47,7 +54,8 @@
 
       &[data-trip-content="summary"] {
         .stats-container {
-          grid-row-start: 1;
+          grid-column: content-end / stats-end;
+          grid-row: 1 / span 2; /* allow intro para to be shorter than stats */
         }
       }
     }
@@ -274,22 +282,16 @@
         text-align: left;
       }
 
-      @container stats (width > 20rem) {
+      @container stats (width > 28rem) {
         & tbody {
           display: grid;
-          grid-template-columns: repeat(var(--nb-columns, 2), auto);
+          grid-template-columns: repeat(var(--nb-columns, 3), auto);
           row-gap: var(--space-xs);
         }
 
         & tr {
           display: flex;
           flex-direction: column;
-        }
-      }
-
-      @container stats (width > 28rem) {
-        & tbody {
-          --nb-columns: 3;
         }
       }
 
@@ -304,7 +306,7 @@
 
 /* Trip: Summary (Intro Paragraph) */
 @layer variant {
-  [data-trip-content="summary"] .u-layout-stack {
+  [data-trip-content="summary"] {
     > p:first-of-type {
       font-size: var(--font-step-1);
       line-height: 1.4;

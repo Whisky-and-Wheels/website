@@ -20,7 +20,7 @@ permalink: "cairngorms/"
 
 Testing testing testing part 2.<!-- excerpt --> This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
 
-Testing testing testing part 2. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Testing 2nd paragraph. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
 
 Testing testing testing part 2. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
 

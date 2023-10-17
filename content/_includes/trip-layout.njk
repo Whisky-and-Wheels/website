@@ -91,11 +91,16 @@
             </header>
             <main class="u-layout-container u-layout-stack">
                 <section data-trip-content="summary" class="u-layout-grid">
-                    <div class="u-layout-stack">
-                        {{ content | safe }}
-                    </div>
+                    {% set summary = content.split("\n") %}
+                    {# pull first paragraph out of summary for different styling #}
+                    {{ summary.shift() | safe }}
                     {% include "./map-placeholder.njk" %}
                     {% include "./stats-partial.njk" %}
+                    <div class="u-layout-stack">
+                        {% for item in summary %}
+                            {{ item | safe }}
+                        {% endfor %}
+                    </div>
                 </section>
                 {# todo: move map/stats block to includes as partial template #}
                 {% if name %}
@@ -105,8 +110,10 @@
                                 <h2>{{ day.data.title }}</h2>
                                 <h3>Day {{ loop.index }}</h2>
                             </header>
-                            {% include "./map-placeholder.njk" %}
-                            {% include "./stats-partial.njk" %}
+                            <div class="map-stats-container u-layout-stack">
+                                {% include "./map-placeholder.njk" %}
+                                {% include "./stats-partial.njk" %}
+                            </div>
                             <div class="u-layout-stack">
                                 {{ day.content | safe }}
                             </div>
