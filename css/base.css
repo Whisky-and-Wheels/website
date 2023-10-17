@@ -231,6 +231,10 @@
     &:focus {
       --y-offset: -1.2em;
     }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+    }
   }
 
   /* make heading links respect whatever weight is on the heading */
