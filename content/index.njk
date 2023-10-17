@@ -25,6 +25,9 @@
       </h1>
     </header>
     <main class="u-layout-container u-layout-grid">
+      <ww-label>
+        <h3 slot="title">Something works!</h3>
+      </ww-label>
       {%- for trip in collections.trip -%}
         {% if trip.data.label %}
           {% set label = trip.data.label %}
@@ -98,5 +101,19 @@
         <!-- .u-layout-container -->
       </div>
     </footer>
+    <script>
+      class Label extends HTMLElement {
+        constructor() {
+          super();
+          const template = document.createElement('template');
+          template.innerHTML = `<article class="article">
+            <slot name="title">A title<slot>
+          </article>`
+          const shadowRoot = this.attachShadow({mode: "open"});
+          shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+      }
+      customElements.define('ww-label', Label);
+    </script>
   </body>
-</html></body></html></body></html>
+</html>
