@@ -36,9 +36,7 @@ I'm not totally convinced I need the theme layer. Setting custom properties on t
 I'm adding an "exceptions" escape hatch layer. Curious to see if I reach for this much, if at all. If it's used a lot, it would be indicative of bigger structural problems.
 
 I may move to avoiding nesting within component layer, so the general structure would be:
-`@layer default, component, component-variant, component-state, template, utility, theme, exception`
-
-I don't want to give up the namespacing of variant and state. Feels important to keep them tied to components.
+`@layer default, component, variant, state, template, utility, theme, exception`
 
 ### Web Components
 

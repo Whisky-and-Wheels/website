@@ -2,7 +2,7 @@
 /* todo: mvp styles for browsers that don't support layers  */
 /* todo: progressive enhancement for browsers that don't support layers */
 
-@layer default, component, component-variant, component-state, template, utility, theme, exception;
+@layer default, component, variant, state, template, utility, theme, exception;
 
 /* todo: convert to woff2? font adjust default? */
 @font-face {
