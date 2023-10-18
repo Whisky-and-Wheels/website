@@ -37,11 +37,15 @@ module.exports = function (eleventyConfig) {
   // Copy font
   eleventyConfig.addPassthroughCopy("font");
 
-  // Copy font
+  // Copy css
   eleventyConfig.addPassthroughCopy("css");
 
-  // Include CSS in watch updates on dev
+  // Copy js
+  eleventyConfig.addPassthroughCopy("scripts");
+
+  // Include CSS & JS in watch updates on dev
   eleventyConfig.addWatchTarget("css");
+  eleventyConfig.addWatchTarget("scripts");
 
   // use excerpt delimiter
   // https://www.11ty.dev/docs/data-frontmatter-customize/#example-parse-excerpts-from-content
