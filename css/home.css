@@ -1,6 +1,16 @@
 /* todo: organize and have some kind of naming system for goodness sake */
 /* todo: progressively enhance to container queries */
 @layer template {
+  header {
+    padding-bottom: 0;
+  }
+
+  /* for some reason, the grid collapses without a width */
+  /* I thought grid containers behaved like a block element, with width 100% by default */
+  main {
+    width: 100%;
+  }
+
   [data-label] {
     --grid-col-span: span 1;
   }
@@ -125,6 +135,8 @@
 /* Labels */
 @layer component {
   [data-label] {
+    container: label / inline-size;
+    isolation: isolate;
     font-weight: 400;
 
     .title {
@@ -174,6 +186,7 @@
     /* todo: add dotted border between columns */
     /* todo: add thin solid border between day / distance */
     .article {
+      --border-radius: var(--space-2xs);
       grid-template-columns: auto auto 1fr;
       grid-template-areas:
         "title title title"
@@ -207,10 +220,12 @@
       }
     }
 
+    /* todo: try banner with curved subtitle text */
     & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: var(--border-radius);
     }
 
     .days,
@@ -225,19 +240,37 @@
       }
     }
 
-    @media screen and (width > 35rem) {
+    @container (width <= 31.25rem) {
+      & img {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @container (width > 31.25rem) {
       .article {
         grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: repeat(4, auto);
         grid-template-areas:
           "image title title"
           "image excerpt excerpt"
           "image location location"
-          "image days kilometres"
-          "subtitle days kilometres";
+          "image days kilometres";
       }
 
       .subtitle {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 4;
+        align-self: end;
+        position: relative;
+        z-index: 1;
+        padding: var(--space-2xs, --space-xs);
+        padding-top: var(--space-m);
+        font-variant-caps: all-small-caps;
         text-align: center;
+        text-transform: unset;
+        background: linear-gradient(to top, black 50%, transparent);
+        border-radius: var(--border-radius);
+        color: var(--color-neutral-light);
       }
     }
   }
@@ -247,15 +280,16 @@
 @layer variant {
   [data-label="ardbeg"] {
     .article {
+      --divider-thickness: var(--space-3xs);
       grid-template-columns: auto 1fr;
-      grid-template-rows: repeat(4, auto) minmax(0, auto) 1fr;
+      grid-template-rows: repeat(3, auto) auto 1fr auto;
       grid-template-areas:
         "kilometres title"
         "kilometres subtitle"
-        "kilometres location"
         "kilometres excerpt"
-        "days excerpt"
-        "days image";
+        "kilometres image"
+        "days image"
+        "days location";
       row-gap: 0;
       column-gap: var(--space-xs);
     }
@@ -284,27 +318,41 @@
       &::after {
         content: "";
         display: block;
-        height: calc(0.5 * var(--space-2xs));
+        height: var(--divider-thickness);
         width: 100%;
         margin-inline-start: var(--space-s);
         background-color: var(--color-neutral-dark);
       }
     }
 
-    /* todo: move location to mirror vertical styling on left side */
-    .subtitle,
-    .location {
+    .subtitle {
       font-family: var(--font-italic);
       font-weight: 400;
       font-size: var(--font-base);
     }
 
     .location {
-      span:first-of-type {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      & span:first-of-type {
         display: none;
       }
-      strong {
+      & strong {
         font-weight: inherit;
+      }
+      & strong:first-of-type,
+      & span:last-of-type {
+        margin-inline-end: calc(0.5 * var(--space-3xs));
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        height: var(--divider-thickness);
+        width: 100%;
+        margin-inline-end: var(--space-s);
+        background-color: var(--color-neutral-dark);
       }
     }
 
@@ -321,11 +369,13 @@
         font-size: var(--font-step-2);
         line-height: 1;
       }
-      & span {
-        font-variant-caps: all-small-caps;
-        font-variation-settings: "SOFT" 100;
-        font-size: var(--font-small);
-      }
+    }
+
+    :is(.days, .kilometres) span,
+    .location {
+      font-variant-caps: all-small-caps;
+      font-variation-settings: "SOFT" 100;
+      font-size: var(--font-small);
     }
 
     .kilometres {
@@ -361,44 +411,21 @@
         content: "";
         display: block;
         height: 100%;
-        width: calc(0.5 * var(--space-2xs));
+        width: var(--divider-thickness);
         background-color: var(--color-neutral-dark);
       }
     }
 
     .excerpt {
-      margin-block-end: var(--space-s);
       font-variant-caps: all-small-caps;
       font-variation-settings: "SOFT" 100;
       line-height: 1.2;
     }
 
-    @media screen and (width <= 35rem) {
-      .title,
-      .location {
-        margin-block-end: var(--space-s);
-      }
-    }
-
-    @media screen and (width > 35rem) {
-      .article {
-        grid-template-columns: auto auto 1fr;
-        grid-template-rows: repeat(3, auto) minmax(0, auto) 1fr;
-        grid-template-areas:
-          "kilometres title title"
-          "kilometres subtitle location"
-          "kilometres excerpt excerpt"
-          "days excerpt excerpt"
-          "days image image";
-      }
-
-      .subtitle {
-        position: relative;
-        &::after {
-          content: "/";
-          margin-inline-start: var(--space-xs); /* match col gap*/
-        }
-      }
+    .subtitle,
+    .excerpt,
+    & picture {
+      margin-block-end: var(--space-s);
     }
   }
 }
@@ -408,40 +435,31 @@
   [data-label="glenlivet"] {
     .article {
       --divider-thickness: calc(var(--space-3xs) * 0.3);
-      --divider-length: 8rem;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-areas:
-        "title"
-        "location"
-        "kilometres"
-        "days"
-        "excerpt"
-        "subtitle"
-        "image";
-      row-gap: 0;
+        "title title"
+        "location location"
+        "kilometres days"
+        "excerpt excerpt"
+        "subtitle subtitle"
+        "image image";
       justify-items: center;
     }
 
-    .title,
-    .excerpt {
-      margin-block-end: var(--space-s);
-    }
-
-    .location,
-    .days {
-      margin-block-end: var(--space-m);
+    .title {
+      justify-self: stretch;
     }
 
     .location,
     .excerpt {
       font-size: var(--font-small);
       line-height: 1.2;
-      text-align: center;
     }
 
     .days,
     .kilometres {
       line-height: 1;
+      width: max-content;
     }
 
     .title {
@@ -470,6 +488,7 @@
     }
 
     .location {
+      text-align: center;
       & strong {
         font-family: var(--font-italic);
         font-weight: inherit;
@@ -480,80 +499,61 @@
     & img {
       aspect-ratio: 16 / 9;
       object-fit: cover;
+      /* couldn't figure out how to get path in clip-path*/
+      mask-image: url("../img/clippath.svg");
+      mask-repeat: no-repeat;
+      mask-position: top center;
+      mask-size: cover;
+      -webkit-mask-image: url("../img/clippath.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: top center;
+      -webkit-mask-size: cover;
     }
 
+    .kilometres,
     .days {
-      /* allow pseudo element borders */
-      position: relative;
       font-size: var(--font-step-1);
-      font-weight: 200;
-      text-align: center;
-      text-transform: uppercase;
-      & strong {
-        font-weight: inherit;
-      }
-      &::before {
-        --height: var(--divider-thickness);
-        --bump: calc(-1 * var(--space-m) * 0.5 - (var(--height) * 0.5));
-        content: "";
-        width: var(--divider-length);
-        height: var(--height);
-        position: absolute;
-        left: 50%;
-        bottom: var(--bump);
-        transform: translateX(-50%);
-        background-color: black;
-      }
-    }
-
-    .kilometres {
-      position: relative;
       font-weight: 600;
       text-transform: uppercase;
-      /* visually hide to use after element content */
-      & span {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-      }
-      & strong {
-        font-size: var(--font-step-3);
-        font-weight: inherit;
-      }
 
-      &::after {
-        content: "kilometres";
-        margin-inline-start: var(--space-3xs);
-        font-size: var(--font-step-2);
-      }
-      &::before {
-        --height: var(--divider-thickness);
-        --bump: calc(-1 * var(--space-m) * 0.5 + (var(--height) * 0.5));
-        content: "";
-        width: var(--divider-length);
-        height: var(--height);
-        position: absolute;
-        left: 50%;
-        top: var(--bump);
-        transform: translateX(-50%);
-        background-color: black;
+      & strong {
+        font-weight: inherit;
       }
     }
 
-    @media screen and (width > 35rem) {
+    @container (width <= 22rem) {
+      .kilometres {
+        justify-self: end;
+      }
+
+      .days {
+        justify-self: start;
+      }
+
+      .excerpt {
+        max-width: 60%;
+        text-align: center;
+      }
+    }
+
+    @container (width > 22rem) {
       .article {
+        --divider-spacing: var(--space-2xs);
         grid-template-columns: 1fr auto 1fr;
-        grid-template-rows: auto calc(var(--font-step-3) + var(--font-base)) auto auto auto;
+        grid-template-rows: auto minmax(0, 1fr) auto auto auto auto;
         grid-template-areas:
           "title title title"
+          ". kilometres ."
           "location kilometres excerpt"
           "location days excerpt"
           "subtitle subtitle subtitle"
           "image image image";
+        column-gap: var(--divider-spacing);
+        row-gap: 0;
+      }
+
+      .title {
+        margin-block-end: var(--space-2xs);
       }
 
       .subtitle {
@@ -563,12 +563,12 @@
       .location,
       .excerpt {
         max-width: 10ch;
-        margin-block-end: unset;
-        align-self: center;
       }
 
       .location {
         justify-self: end;
+        padding-inline-end: var(--divider-spacing);
+        border-inline-end: var(--divider-thickness) solid currentColor;
         text-align: right;
         & strong {
           display: block;
@@ -577,7 +577,8 @@
 
       .excerpt {
         justify-self: start;
-        text-align: left;
+        padding-inline-start: var(--divider-spacing);
+        border-inline-start: var(--divider-thickness) solid currentColor;
       }
 
       .kilometres {
@@ -585,31 +586,32 @@
         flex-direction: column;
         align-items: center;
 
+        /* visually hide to use after element content */
+        & span {
+          clip: rect(0 0 0 0);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+        }
+
+        & strong {
+          font-size: var(--font-step-3);
+          font-weight: inherit;
+        }
+
         &::after {
+          content: "kilometres";
+          margin-inline-start: var(--space-3xs);
           font-size: var(--font-small);
         }
       }
 
       .days {
-        &::before,
-        &::after {
-          --width: calc(var(--space-3xs) * 0.3);
-          --bump: calc(-1 * var(--space-m) * 0.5 + (var(--width) * 0.5));
-          content: "";
-          width: var(--width);
-          height: calc(100% + var(--font-step-3));
-          position: absolute;
-          bottom: calc(var(--font-base) * 0.5);
-          background-color: black;
-        }
-
-        &::before {
-          left: var(--bump);
-        }
-
-        &::after {
-          right: var(--bump);
-        }
+        font-weight: 200;
+        text-align: center;
       }
     }
   }
@@ -685,6 +687,16 @@
     & img {
       border-radius: 50%;
       height: 100%;
+      /* background: radial-gradient(closest-side, #3f87a6, #ebf8e1, #f69d3c); */
+      mask-image: url("../img/mask-blur.svg");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center center;
+      /* prefixes for chrome/edge */
+      -webkit-mask-image: url("../img/mask-blur.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center center;
     }
 
     .location {
@@ -695,7 +707,7 @@
       }
     }
 
-    @media screen and (width > 35rem) {
+    @container (width > 22rem) {
       .days,
       .kilometres {
         position: relative;
@@ -746,4 +758,10 @@
       transition: opacity 0.1s ease-in-out;
     }
   }
+}
+
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
