@@ -1,10 +1,6 @@
 /* todo: organize and have some kind of naming system for goodness sake */
 /* todo: progressively enhance to container queries */
 @layer template {
-  header {
-    padding-block-end: 0;
-  }
-
   [data-label] {
     --grid-col-span: span 1;
   }
