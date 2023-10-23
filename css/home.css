@@ -726,6 +726,10 @@
 
 /* Label: Hover, Focus */
 @layer state {
+  [data-label] {
+    box-shadow: none; /* remove default link styling */
+  }
+
   [data-label]:focus {
     outline: var(--space-3xs) solid var(--color-accent);
     transition: outline 0.2s;
@@ -736,23 +740,23 @@
   @media screen and (pointer: fine) {
     [data-label] {
       transition: opacity 1s;
-
-      & img {
-        filter: grayscale(50) contrast(500%);
-        transition: filter 0.2s ease-in-out;
-      }
     }
 
-    [data-label]:hover,
-    [data-label]:focus {
+    [data-label] img {
+      filter: grayscale(50) contrast(500%);
+      transition: filter 0.2s ease-in-out;
+    }
+
+    [data-label]:where(:hover, :focus) {
       outline: var(--space-3xs) solid var(--color-accent);
       transition: outline 0.2s;
-
-      & img {
-        filter: grayscale(0) contrast(150%);
-        transition: filter 0.2s;
-      }
     }
+
+    [data-label]:where(:hover, :focus) img {
+      filter: grayscale(0) contrast(150%);
+      transition: filter 0.2s;
+    }
+
     main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
       opacity: 0.6;
       transition: opacity 0.1s ease-in-out;
@@ -760,8 +764,60 @@
   }
 }
 
-.defs {
-  position: absolute;
-  width: 0;
-  height: 0;
+/* also doesn't support range queries */
+@supports not (selector(& a)) {
+  .article > *:not(:last-child) {
+    margin-block-end: var(--space-xs);
+  }
+  .article .subtitle,
+  .article :is(.days, .kilometres) span {
+    font-size: var(--font-base);
+    font-variant-caps: all-small-caps;
+    font-variation-settings: "SOFT" 100;
+  }
+
+  .article :is(.days, .kilometres) {
+    display: inline-block;
+  }
+
+  .article :is(.days, .kilometres) span {
+    font-weight: 700;
+  }
+
+  .article .days::after {
+    content: "";
+    display: inline-block;
+    width: 0.5ch;
+  }
+
+  .article .location {
+    font-family: var(--font-italic);
+  }
+
+  .article .location strong {
+    font-weight: inherit;
+  }
+
+  @media screen and (min-width: 35rem) {
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-s-m);
+    }
+
+    main > * {
+      flex: 0 0 auto;
+      container: unset;
+    }
+
+    .article {
+      display: block;
+      width: min-content;
+    }
+
+    .article .title {
+      width: max-content;
+    }
+  }
 }

@@ -311,14 +311,14 @@
       font-size: var(--font-step-1);
       line-height: 1.4;
 
-      &::first-line {
+      ::first-line {
         font-variant-caps: petite-caps;
         font-weight: 700;
       }
 
       /* todo: manage RTL styling */
       @media screen and (width > 37.5rem) {
-        &::first-letter {
+        ::first-letter {
           float: left;
           /* logical properties don't seem to work here */
           /* chrome not recognizing font step definition */
@@ -337,5 +337,28 @@
         }
       }
     }
+  }
+}
+
+@supports not (selector(& a)) {
+  [data-trip-content] {
+    display: block;
+    width: 60ch;
+    margin-inline: auto;
+  }
+
+  [data-trip-content] > *:not(:last-child) {
+    margin-block-end: var(--space-s);
+  }
+
+  .stats {
+    /* weird this isn't applying from main styles, it's not nested... */
+    background-color: var(--color-accent-light);
+    padding: var(--space-xs) var(--space-s);
+  }
+
+  .stats-container {
+    float: left;
+    margin-inline-end: var(--space-s);
   }
 }
