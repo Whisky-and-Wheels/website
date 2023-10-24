@@ -311,14 +311,15 @@
       font-size: var(--font-step-1);
       line-height: 1.4;
 
-      ::first-line {
+      /* still need the ampersand */
+      &::first-line {
         font-variant-caps: petite-caps;
         font-weight: 700;
       }
 
       /* todo: manage RTL styling */
       @media screen and (width > 37.5rem) {
-        ::first-letter {
+        &::first-letter {
           float: left;
           /* logical properties don't seem to work here */
           /* chrome not recognizing font step definition */
@@ -332,7 +333,7 @@
       @media screen and (width > 56rem) {
         line-height: unset;
 
-        ::first-letter {
+        &::first-letter {
           margin-top: unset;
         }
       }
