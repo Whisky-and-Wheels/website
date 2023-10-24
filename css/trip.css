@@ -1,3 +1,11 @@
+@import url(https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) layer(vendor);
+
+@layer vendor {
+  .map {
+    isolation: isolate;
+  }
+}
+
 @layer template {
   /* note: main is max-width 100% to allow white background / mountain svg overlap */
   .u-layout-grid {
@@ -11,29 +19,13 @@
     grid-column: content;
   }
 
+  .stats {
+    --float-width: fit-content;
+  }
+
   @media screen and (width < 28rem) {
     main > .u-layout-grid {
       --column-gutter: 0;
-    }
-  }
-
-  @media screen and (28rem < width <= 78rem) {
-    [data-trip-content] {
-      --offset: var(--space-l);
-    }
-    .map {
-      width: calc(100% - var(--offset));
-    }
-
-    .stats-container {
-      margin-block-end: calc(-1 * var(--offset));
-      position: relative;
-      bottom: var(--offset);
-    }
-
-    .stats {
-      width: fit-content;
-      margin-inline-start: auto;
     }
   }
 
@@ -41,22 +33,12 @@
     .u-layout-grid {
       --gutter: var(--space-l);
       --grid-template-columns: 1fr [content-start] var(--max-line-length)
-        [content-end] 20ch [stats-end] 1fr;
+        [content-end] minmax(20%, 25rem) [sidebar-end] 1fr;
 
-      .map-stats-container {
-        --stack-end-spacing: calc(var(--gutter) * 0.5);
-        grid-column: content-end / stats-end;
-        grid-row: 2 / span 2;
+      .map {
+        grid-column: content-end / sidebar-end;
         position: sticky;
-        top: var(--gutter);
-        align-self: start;
-      }
-
-      &[data-trip-content="summary"] {
-        .stats-container {
-          grid-column: content-end / stats-end;
-          grid-row: 1 / span 2; /* allow intro para to be shorter than stats */
-        }
+        top: var(--space-l);
       }
     }
 
@@ -249,57 +231,40 @@
 /* maybe split out stats and map styling to separate components? */
 /* Trip (Stack, Stats, Map) */
 @layer component {
-  [data-trip-content] {
-    .iframe-container {
+  .iframe-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+
+    & iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-
-      & iframe {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-      }
+      height: 100%;
     }
+  }
 
-    .stats-container {
-      container: stats / inline-size;
-    }
+  .map path {
+    transition: opacity var(--transition-duration);
+  }
 
-    /* todo: add elevation profile svg in after element with accent color */
-    .stats {
-      width: 100%;
-      padding-block: var(--space-xs);
-      padding-inline: var(--space-s);
-      background-color: var(--color-accent-light);
+  .map:has([data-animation="highlight"])
+    path:not([data-animation="highlight"]) {
+    opacity: 0.1;
+  }
 
-      & th {
-        display: block;
-        width: max-content;
-        border-inline-end: var(--space-xs) solid transparent;
-        text-align: left;
-      }
+  /* todo: add elevation profile svg in after element with accent color */
+  .stats {
+    padding-block: var(--space-2xs);
+    padding-inline: var(--space-xs);
+    background-color: var(--color-accent-light);
 
-      @container stats (width > 28rem) {
-        & tbody {
-          display: grid;
-          grid-template-columns: repeat(var(--nb-columns, 3), auto);
-          row-gap: var(--space-xs);
-        }
-
-        & tr {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      @container stats (width > 34rem) {
-        & tbody {
-          --nb-columns: 6;
-        }
-      }
+    & th {
+      display: block;
+      width: max-content;
+      border-inline-end: var(--space-xs) solid transparent;
+      text-align: left;
     }
   }
 }
@@ -352,14 +317,10 @@
     margin-block-end: var(--space-s);
   }
 
+  /* todo: add column styling for full-width stats */
   .stats {
     /* weird this isn't applying from main styles, it's not nested... */
     background-color: var(--color-accent-light);
     padding: var(--space-xs) var(--space-s);
-  }
-
-  .stats-container {
-    float: left;
-    margin-inline-end: var(--space-s);
   }
 }

@@ -2,7 +2,7 @@
 /* todo: mvp styles for browsers that don't support layers  */
 /* todo: progressive enhancement for browsers that don't support layers */
 
-@layer default, component, variant, state, template, utility, theme, exception;
+@layer default, vendor, component, variant, state, template, utility, theme, exception;
 
 /* todo: convert to woff2? font adjust default? */
 @font-face {
@@ -306,10 +306,10 @@
   }
 
   @media screen and (width > 25rem) {
-    [class^="u-layout-float"] {
-      --float-margin: var(--space-2xs);
+    [class*="u-layout-float"] {
+      --float-margin: var(--space-xs);
       display: block;
-      width: max(200px, 40%);
+      width: var(--float-width, max(200px, 40%));
       margin-block-end: 0;
     }
 
