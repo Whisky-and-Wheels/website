@@ -117,28 +117,26 @@
     color: var(--color-neutral-dark);
   }
 
-  body::selection {
+  ::selection {
     background-color: var(--color-selection-background, var(--color-accent));
     color: var(--color-selection-text, var(--color-neutral-dark));
   }
 
-  header:has(+ main) {
+  header,
+  main,
+  footer {
     padding-block: var(--space-s-m);
   }
 
-  main {
-    padding-block: var(--space-m-l);
+  /* allow section/article to set their own block padding */
+  :is(article, section) :is(header, footer) {
+    padding-block: unset;
   }
 
   footer {
     --color-link-shadow: var(--color-accent-dark);
-    padding-block: var(--space-s);
     background-color: var(--color-neutral-dark);
     color: var(--color-neutral-light);
-  }
-
-  footer .u-layout-container {
-    padding-block: var(--space-xs-s);
   }
 
   h1 {
@@ -224,53 +222,92 @@
     }
   }
 
-  /* basic flow content styling when authored class is not in effect? hard to scope */
+  figure:has(blockquote) {
+    padding: var(--space-xs);
+    border-top-right-radius: var(--space-xs);
+    border-bottom-left-radius: var(--space-xs);
+    background-color: var(--color-accent-dark);
+    color: var(--color-neutral-light);
+  }
+
+  figure blockquote {
+    padding-block-end: var(--space-xs);
+  }
+
+  figure blockquote::before {
+    color: var(--color-accent);
+  }
+
+  blockquote + figcaption {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    font-size: var(--font-small);
+    font-variation-settings: "SOFT" 50;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  @media screen and (min-width: 35rem) {
+    blockquote + figcaption {
+      line-height: 1;
+      text-align: right;
+    }
+
+    blockquote + figcaption::before {
+      content: "";
+      flex: 1 1 auto;
+      height: calc(0.5 * var(--space-3xs));
+      background-color: currentColor;
+    }
+  }
 }
 
 @layer utility {
-  .u-layout-container {
+  .container {
     max-width: var(--max-width);
     padding-inline: var(--gutter);
     margin-inline: auto;
   }
 
   /* complex :has() selectors probably not well supported enough for this */
-  .u-layout-stack {
+  .stack {
     /* change default margin gutter with --stack-end-spacing */
     --_block-end-spacing: var(--stack-end-spacing, var(--gutter));
     width: 100%;
   }
 
-  .u-layout-stack > :where(*:not(:last-child)) {
+  .stack > :where(*:not(:last-child)) {
     margin-block-end: var(--_block-end-spacing);
   }
 
   /* reduce margin on elements following headings */
-  .u-layout-stack > h2,
-  .u-layout-stack > h3 {
+  .stack > h2,
+  .stack > h3 {
     margin-block-end: calc(var(--_block-end-spacing) * 0.5);
   }
 
   /* when a heading is followed by image or blockquote, use full margin */
-  .u-layout-stack > :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
+  .stack > :is(h2, h3):has(+ :is(figure, picture, img, blockquote)) {
     margin-block-end: var(--_block-end-spacing);
   }
 
   /* increase margin on elements preceding headings */
-  .u-layout-stack > *:has(+ :where(h2, h3)) {
+  .stack > *:has(+ :where(h2, h3)) {
     margin-block-end: calc(var(--_block-end-spacing) * 1.5);
   }
 
   /* when a heading follows a heading, reduce margin before second heading */
-  .u-layout-stack > :is(h2, h3):has(+ :is(h2, h3)) {
+  .stack > :is(h2, h3):has(+ :is(h2, h3)) {
     margin-block-end: calc(var(--_block-end-spacing) * 0.25);
   }
 
-  .u-layout-columns {
+  .columns {
     columns: var(--nb-columns, 1);
   }
 
-  .u-layout-flex {
+  .flex {
     /* assume we want row-direction and wrapping */
     display: flex;
     flex-direction: var(--flex-direction, row);
@@ -278,20 +315,22 @@
     gap: var(--gutter);
   }
 
-  .u-layout-grid {
+  .grid {
     display: grid;
     grid-template-columns: var(
       --grid-template-columns,
       repeat(var(--nb-columns, 1), minmax(0, 1fr))
     );
+    grid-template-rows: var(--grid-template-rows, initial);
     column-gap: var(--column-gutter, var(--gutter));
     row-gap: var(--row-gutter, var(--gutter));
   }
 
   @supports (grid-template-columns: subgrid) {
-    .u-layout-subgrid {
+    .subgrid {
       /* assume we want column subgrid only for now, maybe break into multiple utils? */
       grid-column: var(--subgrid-column, 1 / -1);
+      grid-row: var(--subgrid-row, initial);
       display: grid;
       grid-template-columns: var(--subgrid-template-columns, subgrid);
       column-gap: var(--subgrid-column-gutter, var(--gutter));
@@ -300,37 +339,35 @@
     }
   }
 
-  .u-layout-stack:where(.u-layout-grid, .u-layout-subgrid) {
+  .stack:where(.grid, .subgrid) {
     /* let stack control row spacing */
     row-gap: 0;
   }
 
   @media screen and (width > 25rem) {
-    [class*="u-layout-float"] {
+    [class*="float"] {
       --float-margin: var(--space-xs);
       display: block;
       width: var(--float-width, max(200px, 40%));
-      margin-block-end: 0;
+      margin-block-end: var(--float-margin);
     }
 
-    .u-layout-float-left {
+    .float-left {
       float: left;
-      margin-right: var(--float-margin);
+      margin-inline-end: var(--float-margin);
     }
 
-    .u-layout-float-right {
+    .float-right {
       float: right;
-      margin-left: var(--float-margin);
+      margin-inline-start: var(--float-margin);
     }
 
-    [dir="rtl"] .u-layout-float-right {
+    [dir="rtl"] .float-right {
       float: left;
-      margin-right: var(--float-margin);
     }
 
-    [dir="rtl"] .u-layout-float-left {
+    [dir="rtl"] .float-left {
       float: right;
-      margin-left: var(--float-margin);
     }
   }
 }
@@ -358,7 +395,7 @@
 /* colophon */
 /* safari still doesn't seem to recognize media query changes */
 @layer component {
-  #colophon .u-layout-container {
+  #colophon .container {
     --border-spacing: var(--space-2xs-xs);
     display: grid;
     grid-template-columns: 1fr;
@@ -366,7 +403,7 @@
   }
 
   @media screen and (min-width: 35rem) {
-    #colophon .u-layout-container {
+    #colophon .container {
       --border-spacing: var(--space-xs-s);
       grid-template-columns: [title-start] auto [title-end] 1fr [content-end];
       column-gap: var(--border-spacing);
@@ -407,10 +444,4 @@
       grid-column: title-end / content-end;
     }
   }
-}
-
-/* DETECT NESTING SUPPORT */
-/* set up stack & max-width by default */
-/* if nesting supported, remove defaults */
-@supports not (selector(& a)) {
 }

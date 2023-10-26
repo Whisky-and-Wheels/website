@@ -481,6 +481,7 @@
       letter-spacing: 0.025em;
       text-align: center;
       text-transform: uppercase;
+      text-wrap: pretty;
     }
 
     .excerpt {
@@ -495,7 +496,6 @@
       }
     }
 
-    /* todo: clip or mask image for wave shape */
     & img {
       aspect-ratio: 16 / 9;
       object-fit: cover;

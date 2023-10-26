@@ -87,15 +87,16 @@
                 58.604c-.332.332-1.195.368-1.916.079-.798-.319-.561-.556.604-.604 1.054-.043 1.644.193 1.312.525Z"/>
             </svg>
             <header>
-                <h1 class="u-layout-container">{{ title }}</h1>
+                <h1 class="container">{{ title }}</h1>
             </header>
-            <main class="u-layout-container u-layout-grid">
-                <section data-trip-content="summary" class="u-layout-stack">
+            <main class="container grid">
+                <section data-trip-content="summary" class="subgrid">
                     {% set summary = content.split("\n") %}
                     {# pull first paragraph out of summary for different styling #}
                     {{ summary.shift() | safe }}
-                    <div class="u-layout-stack">
-                        <table class="stats | u-layout-float-left">
+                    {% include "./map-placeholder.njk" %}
+                    <div class="stack">
+                        <table class="stats | float-left">
                             <tr>
                                 <th scope="row">Distance</th>
                                 <td>{{ kilometres }}km</td>
@@ -122,17 +123,15 @@
                         {% endfor %}
                     </div>
                 </section>
-                {% include "./map-placeholder.njk" %}
-                {# todo: move map/stats block to includes as partial template #}
                 {% if name %}
-                    {% for day in collections[name] %}
-                        <section data-trip-content="{{ day.data.title | lower }}" class="u-layout-stack">
-                            <header class="u-layout-stack">
-                                <h2>{{ day.data.title }}</h2>
-                                <h3>Day {{ loop.index }}</h3>
-                            </header>
-                            <div class="u-layout-stack">
-                                <table class="stats | u-layout-float-right">
+                    <div class="stack">
+                        {% for day in collections[name] %}
+                            <section data-trip-content="{{ day.data.title | lower }}" class="stack">
+                                <header class="stack">
+                                    <h2>{{ day.data.title }}</h2>
+                                    <h3>Day {{ loop.index }}</h3>
+                                </header>
+                                <table class="stats | float-right">
                                     <tr>
                                         <th scope="row">Distance</th>
                                         <td>{{ kilometres }}km</td>
@@ -155,10 +154,10 @@
                                     </tr>
                                 </table>
                                 {{ day.content | safe }}
-                            </div>
-                            <!-- create single grid cell -->
-                        </section>
-                    {% endfor %}
+                            </section>
+                        {% endfor %}
+                    </div>
+                    <!-- end day content -->
                 {% endif %}
             </main>
         </div>

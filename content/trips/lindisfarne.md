@@ -20,7 +20,7 @@ This is the start of our dummy content for the archive page.<!-- excerpt --> No 
 
 <!-- todo: make a shortcode for the map & stats component -->
 
-<figure class="u-layout-float-right">
+<figure class="float-right">
 {% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
 </figure>
 

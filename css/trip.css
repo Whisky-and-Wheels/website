@@ -1,21 +1,28 @@
 @import url(https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) layer(vendor);
 
 @layer vendor {
+  /* prevent child z-index from competing with rest of page */
   .map {
     isolation: isolate;
+  }
+
+  /* remove default link styling */
+  .map a {
+    box-shadow: unset;
   }
 }
 
 @layer template {
   /* note: main is max-width 100% to allow white background / mountain svg overlap */
-  .u-layout-grid {
+  .grid {
     --gutter: var(--space-s);
     --max-line-length: fit-content(50ch);
     --grid-template-columns: minmax(0, 1fr) [content-start]
       var(--max-line-length) [content-end] minmax(0, 1fr);
   }
 
-  .u-layout-grid > * {
+  .grid > *,
+  .subgrid > * {
     grid-column: content;
   }
 
@@ -24,59 +31,37 @@
   }
 
   @media screen and (width < 28rem) {
-    main > .u-layout-grid {
+    main > .grid {
       --column-gutter: 0;
     }
   }
 
-  @media screen and (width > 78rem) {
-    .u-layout-grid {
-      --gutter: var(--space-l);
-      --grid-template-columns: 1fr [content-start] var(--max-line-length)
-        [content-end] minmax(20%, 25rem) [sidebar-end] 1fr;
+  @supports (grid-template-columns: subgrid) {
+    @media screen and (width > 78rem) {
+      .grid {
+        --gutter: var(--space-l);
+        --grid-template-columns: 1fr [content-start] var(--max-line-length)
+          [content-end] minmax(20%, 25rem) [sidebar-end] 1fr;
+        --grid-template-rows: [summary-content-start] auto auto
+          [day-content-start] auto [day-content-end];
 
-      .map {
-        grid-column: content-end / sidebar-end;
-        position: sticky;
-        top: var(--space-l);
+        .subgrid {
+          --subgrid-row: summary-content-start / day-content-end;
+          --subgrid-template-rows: subgrid;
+        }
+
+        .subgrid + * {
+          grid-row: day-content;
+        }
+
+        .map {
+          grid-column: content-end / sidebar-end;
+          grid-row: 1 / -1; /* this -1 for row only works within subgrid */
+          position: sticky;
+          top: var(--space-l);
+        }
       }
     }
-
-    /* okay for proof-of-concept, needs a lot of finesse */
-    /* sticky positioning gets weird */
-    /* timing very rough */
-    /* tried animating grid-column but */
-    /* @supports (animation-timeline: view(block)) {
-      .animate-slide-shrink {
-        animation-name: slide-shrink;
-        animation-duration: auto;
-        animation-timeline: view(block);
-      }
-
-      [data-trip-content]:nth-of-type(n + 2) {
-        .map {
-          display: none;
-        }
-      }
-
-      @keyframes slide-shrink {
-        0% {
-          transform: translateX(0), scale(1);
-        }
-        50% {
-          transform-origin: bottom right;
-          transform: translateX(-100%), scale(1);
-        }
-        99% {
-          transform-origin: bottom right;
-          transform: translateX(-100%) scale(0.5);
-        }
-        100% {
-          position: sticky;
-          top: 0;
-        }
-      }
-    } */
   }
 }
 
