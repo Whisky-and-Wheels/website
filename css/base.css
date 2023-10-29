@@ -161,6 +161,7 @@
   i,
   em {
     font-family: var(--font-italic);
+    font-style: normal;
   }
 
   small {
@@ -168,8 +169,25 @@
     font-variation-settings: "WONK" 0;
   }
 
+  /* indent the detail content */
+  details > *:not(summary) {
+    margin-inline-start: var(--space-m);
+    font-weight: 200;
+  }
+
+  summary {
+    font-size: var(--font-step-1);
+    font-weight: 800;
+    font-variant-caps: small-caps;
+    font-variation-settings: "SOFT" 50;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   /* note: if using display inline-block, the box shadow will move a little lower */
-  a {
+  a:not([class]) {
     text-decoration: none;
     color: inherit;
     box-shadow: inset 0rem var(--y-offset, -0.4em)
@@ -333,9 +351,13 @@
       grid-row: var(--subgrid-row, initial);
       display: grid;
       grid-template-columns: var(--subgrid-template-columns, subgrid);
-      column-gap: var(--subgrid-column-gutter, var(--gutter));
+      column-gap: var(
+        --subgrid-column-gutter,
+        var(--column-gutter),
+        var(--gutter)
+      );
       grid-template-rows: var(--subgrid-template-rows, initial);
-      row-gap: var(--subgrid-row-gutter, var(--gutter));
+      row-gap: var(--subgrid-row-gutter, var(--row-gutter), var(--gutter));
     }
   }
 

@@ -16,7 +16,7 @@ layout: trip-layout.njk
 permalink: "hexham/"
 ---
 
-We bike at night at the end of February. It was great.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Our first bike adventure of 2023 begins in darkness.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
 
 <figure>
 {% image "img/hexham.jpeg", "Biking into the dying sun" %}

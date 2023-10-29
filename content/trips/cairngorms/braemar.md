@@ -1,33 +1,28 @@
 ---
 tags: cairngorms
 title: Braemar
-label: glenfiddich
-kilometres: 35
+kilometres: 25.8
 start: Dalmunzie Castle
 end: Braemar
-average_speed: 13.5
+average_speed: 15.5
 total_duration: "4:13:00"
-ascent: 510
-descent: 320
+ascent: 340
+descent: 370
 permalink: false
 ---
 
-Braemar content. Laslkdasdkfjgh laksjhf glajhsf gljha sfkjgh alfjh glja fgkla
+<figure class="float-right">
+{% image "img/tea.jpeg", "Two bikes lean against an outdoor picnic table, facing the large cafe at Glenshee Ski Centre on a blue-sky, sunny day. " %}
+</figure>
 
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page. This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+We climbed another mountain today. At least this time it was on road.
 
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Stopped at Glenshee Ski Centre for [Tea @ the Shee](https://www.ski-glenshee.co.uk/Tea-The-Shee-Cafe). Two old goldens at picnic bench next to ours. They couldn’t have been happier to climb the mountain themselves. Terminally good-natured dogs.
 
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+<figure class="float-left">
+{% image "img/river.jpeg", "Looking back at the river winding between the hills near the bottom of descent from Glenshee ski hill." %}
+</figure>
 
-Braemar content. Laslkdasdkfjgh laksjhf glajhsf gljha sfkjgh alfjh glja fgkla
+Descent into Braemar was unreal. Layers of mountains like a painting. Green and yellow in the foreground. Blue and purple in the distance. A perfect little stream running alongside the road.
 
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
-
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
-
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
-
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
-
-This is the start of our dummy content for the archive page. No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Busier road than usual. We did turn off the highway to continue following the Old Military Road, but it was a moment of trepidation considering all Google Maps put us through Saturday.

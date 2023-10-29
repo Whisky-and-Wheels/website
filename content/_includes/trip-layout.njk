@@ -96,27 +96,29 @@
                     {{ summary.shift() | safe }}
                     {% include "./map-placeholder.njk" %}
                     <div class="stack">
-                        <table class="stats | float-left">
-                            <tr>
-                                <th scope="row">Distance</th>
-                                <td>{{ kilometres }}km</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Avg. Speed</th>
-                                <td>{{ average_speed }}km/h</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Ascent</th>
-                                <td>{{ ascent }}m</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Descent</th>
-                                <td>{{ descent }}m</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Total time</th>
-                                <td>{{ total_duration }}</td>
-                            </tr>
+                        <table class="stats">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Distance</th>
+                                    <td>{{ kilometres }}km</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Avg. Speed</th>
+                                    <td>{{ average_speed }}km/h</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ascent</th>
+                                    <td>{{ ascent }}m</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Descent</th>
+                                    <td>{{ descent }}m</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Total time</th>
+                                    <td>{{ total_duration }}</td>
+                                </tr>
+                            </tbody>
                         </table>
                         {% for item in summary %}
                             {{ item | safe }}
@@ -131,27 +133,29 @@
                                     <h2>{{ day.data.title }}</h2>
                                     <h3>Day {{ loop.index }}</h3>
                                 </header>
-                                <table class="stats | float-right">
-                                    <tr>
-                                        <th scope="row">Distance</th>
-                                        <td>{{ kilometres }}km</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Avg. Speed</th>
-                                        <td>{{ average_speed }}km/h</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ascent</th>
-                                        <td>{{ ascent }}m</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Descent</th>
-                                        <td>{{ descent }}m</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Total time</th>
-                                        <td>{{ total_duration }}</td>
-                                    </tr>
+                                <table class="stats">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Distance</th>
+                                            <td>{{ day.data.kilometres }}km</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Avg. Speed</th>
+                                            <td>{{ day.data.average_speed }}km/h</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Ascent</th>
+                                            <td>{{ day.data.ascent }}m</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Descent</th>
+                                            <td>{{ day.data.descent }}m</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Total time</th>
+                                            <td>{{ day.data.total_duration }}</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                                 {{ day.content | safe }}
                             </section>
