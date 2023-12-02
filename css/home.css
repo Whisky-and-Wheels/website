@@ -1,0 +1,823 @@
+/* todo: organize and have some kind of naming system for goodness sake */
+/* todo: progressively enhance to container queries */
+@layer template {
+  header {
+    padding-bottom: 0;
+  }
+
+  /* for some reason, the grid collapses without a width */
+  /* I thought grid containers behaved like a block element, with width 100% by default */
+  main {
+    width: 100%;
+  }
+
+  [data-label] {
+    --grid-col-span: span 1;
+  }
+
+  @media screen and (width > 35rem) {
+    main {
+      align-items: start;
+    }
+
+    [data-label="glenfiddich"] {
+      --grid-col-span: span 5;
+      grid-column: var(--grid-column, var(--grid-col-span));
+    }
+
+    [data-label="ardbeg"] {
+      --grid-col-span: span 3;
+      grid-column: var(--grid-column, var(--grid-col-span));
+      grid-row: span 3;
+    }
+
+    [data-label="glenlivet"] {
+      --grid-col-span: span 3;
+      grid-column: var(--grid-column, var(--grid-col-span));
+      grid-row: span 2;
+    }
+
+    [data-label="ben-nevis"] {
+      --grid-col-span: span 3;
+      grid-column: var(--grid-column, var(--grid-col-span));
+      grid-row: span 3;
+    }
+  }
+
+  @media screen and (48rem >= width > 35rem) {
+    main {
+      --nb-columns: 4;
+    }
+
+    [data-label="glenfiddich"] {
+      --grid-col-span: span 4;
+    }
+
+    [data-label]:nth-of-type(even) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
+  }
+
+  @media screen and (78rem >= width > 48rem) {
+    main {
+      --nb-columns: 6;
+    }
+  }
+
+  @media screen and (width > 78rem) {
+    main {
+      --nb-columns: 9;
+    }
+
+    [data-label]:nth-child(1) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
+
+    [data-label]:nth-child(7) {
+      --grid-column: 2 / var(--grid-col-span);
+    }
+  }
+}
+
+/* Stylized title */
+@layer component {
+  h1:has([data-text]) {
+    display: grid;
+    grid-template-rows: auto 0 auto;
+    grid-template-columns: 1fr;
+    width: min-content;
+  }
+
+  [data-text="whisky"],
+  [data-text="wheels"] {
+    grid-column: 1 / span 1;
+  }
+
+  [data-text="whisky"] {
+    font-weight: 400;
+  }
+
+  [data-text="ampersand"] {
+    grid-column: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+    opacity: 0.15;
+    font-size: 3em;
+    font-weight: 400;
+  }
+
+  @media screen and (width > 48rem) {
+    h1:has([data-text]) {
+      grid-template-columns: repeat(3, min-content);
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-text="whisky"],
+    [data-text="ampersand"],
+    [data-text="wheels"] {
+      grid-row-start: 1;
+    }
+
+    [data-text="ampersand"] {
+      grid-column-start: 2;
+      opacity: 1;
+      font-size: 1.5em;
+      font-weight: 100;
+    }
+
+    [data-text="wheels"] {
+      grid-column-start: 3;
+    }
+  }
+}
+
+/* Labels */
+@layer component {
+  [data-label] {
+    container: label / inline-size;
+    isolation: isolate;
+    font-weight: 400;
+
+    .title {
+      grid-area: title;
+      line-height: 1;
+    }
+
+    .subtitle {
+      grid-area: subtitle;
+    }
+
+    .article picture {
+      grid-area: image;
+    }
+
+    .days {
+      grid-area: days;
+    }
+
+    .kilometres {
+      grid-area: kilometres;
+    }
+
+    .location {
+      grid-area: location;
+    }
+
+    .excerpt {
+      grid-area: excerpt;
+    }
+  }
+
+  .article {
+    display: grid;
+    column-gap: var(--space-m);
+    row-gap: var(--space-s);
+    background: radial-gradient(whitesmoke, transparent),
+      url("../img/img-noise-1000x1000.png");
+    background-size: cover;
+    padding: var(--space-s-m);
+  }
+}
+
+/* Label: Glenfiddich */
+@layer variant {
+  [data-label="glenfiddich"] {
+    /* todo: add dotted border between columns */
+    /* todo: add thin solid border between day / distance */
+    .article {
+      --border-radius: var(--space-2xs);
+      grid-template-columns: auto auto 1fr;
+      grid-template-areas:
+        "title title title"
+        "image image image"
+        "subtitle subtitle subtitle"
+        "excerpt excerpt excerpt"
+        "location location location"
+        "days kilometres .";
+      column-gap: var(--space-s);
+    }
+
+    .title {
+      font-weight: 600;
+      font-variation-settings: "SOFT" 50;
+    }
+
+    .subtitle {
+      align-self: center;
+      font-size: var(--font-small);
+      text-align: left;
+      text-wrap: balance;
+      text-transform: uppercase;
+    }
+
+    .location {
+      line-height: 1;
+      font-family: var(--font-italic);
+      font-weight: 300;
+      & strong {
+        font-weight: inherit;
+      }
+    }
+
+    /* todo: try banner with curved subtitle text */
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+    }
+
+    .days,
+    .kilometres {
+      font-size: var(--font-step-1);
+      font-weight: 700;
+      text-transform: uppercase;
+
+      & strong {
+        font-size: var(--font-step-2);
+        font-weight: inherit;
+      }
+    }
+
+    @container (width <= 31.25rem) {
+      & img {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @container (width > 31.25rem) {
+      .article {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+          "image title title"
+          "image excerpt excerpt"
+          "image location location"
+          "image days kilometres";
+      }
+
+      .subtitle {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 4;
+        align-self: end;
+        position: relative;
+        z-index: 1;
+        padding: var(--space-2xs, --space-xs);
+        padding-top: var(--space-m);
+        font-variant-caps: all-small-caps;
+        text-align: center;
+        text-transform: unset;
+        background: linear-gradient(to top, black 50%, transparent);
+        border-radius: var(--border-radius);
+        color: var(--color-neutral-light);
+      }
+    }
+  }
+}
+
+/* Label: Ardbeg */
+@layer variant {
+  [data-label="ardbeg"] {
+    .article {
+      --divider-thickness: var(--space-3xs);
+      grid-template-columns: auto 1fr;
+      grid-template-rows: repeat(3, auto) auto 1fr auto;
+      grid-template-areas:
+        "kilometres title"
+        "kilometres subtitle"
+        "kilometres excerpt"
+        "kilometres image"
+        "days image"
+        "days location";
+      row-gap: 0;
+      column-gap: var(--space-xs);
+    }
+
+    .title,
+    .subtitle,
+    .location {
+      line-height: 1;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: var(--font-step-2);
+      font-weight: 600;
+      font-variation-settings: "SOFT" 100;
+      text-transform: uppercase;
+
+      &:first-letter {
+        font-size: var(--font-step-3);
+        font-weight: 500;
+        font-variation-settings: "SOFT" 50;
+        letter-spacing: -0.025em;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: var(--divider-thickness);
+        width: 100%;
+        margin-inline-start: var(--space-s);
+        background-color: var(--color-neutral-dark);
+      }
+    }
+
+    .subtitle {
+      font-family: var(--font-italic);
+      font-weight: 400;
+      font-size: var(--font-base);
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      & span:first-of-type {
+        display: none;
+      }
+      & strong {
+        font-weight: inherit;
+      }
+      & strong:first-of-type,
+      & span:last-of-type {
+        margin-inline-end: calc(0.5 * var(--space-3xs));
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        height: var(--divider-thickness);
+        width: 100%;
+        margin-inline-end: var(--space-s);
+        background-color: var(--color-neutral-dark);
+      }
+    }
+
+    /* todo: credit trinity icon */
+    /* https://thenounproject.com/icon/trinity-5380405/ */
+    .days,
+    .kilometres {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 700;
+      & strong {
+        writing-mode: vertical-lr;
+        font-size: var(--font-step-2);
+        line-height: 1;
+      }
+    }
+
+    :is(.days, .kilometres) span,
+    .location {
+      font-variant-caps: all-small-caps;
+      font-variation-settings: "SOFT" 100;
+      font-size: var(--font-small);
+    }
+
+    .kilometres {
+      align-self: start;
+      margin-block-end: var(--space-s);
+
+      &::before {
+        content: "";
+        display: block;
+        width: var(--font-step-3);
+        aspect-ratio: 1 / 1;
+        background-image: url("../img/icon-trinity.png");
+        background-size: contain;
+        margin-block-end: var(--space-s);
+      }
+    }
+
+    .days {
+      display: flex;
+      justify-content: end;
+
+      & strong {
+        margin-inline-start: var(
+          --space-s
+        ); /* requires vertical writing mode */
+      }
+
+      & strong,
+      & span {
+        flex: 0 auto;
+      }
+      &::before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: var(--divider-thickness);
+        background-color: var(--color-neutral-dark);
+      }
+    }
+
+    .excerpt {
+      font-variant-caps: all-small-caps;
+      font-variation-settings: "SOFT" 100;
+      line-height: 1.2;
+    }
+
+    .subtitle,
+    .excerpt,
+    & picture {
+      margin-block-end: var(--space-s);
+    }
+  }
+}
+
+/* Label: Glenlivet */
+@layer variant {
+  [data-label="glenlivet"] {
+    .article {
+      --divider-thickness: calc(var(--space-3xs) * 0.3);
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "title title"
+        "location location"
+        "kilometres days"
+        "excerpt excerpt"
+        "subtitle subtitle"
+        "image image";
+      justify-items: center;
+    }
+
+    .title {
+      justify-self: stretch;
+    }
+
+    .location,
+    .excerpt {
+      font-size: var(--font-small);
+      line-height: 1.2;
+    }
+
+    .days,
+    .kilometres {
+      line-height: 1;
+      width: max-content;
+    }
+
+    .title {
+      font-variant-caps: small-caps;
+      font-variation-settings: "SOFT" 50;
+      font-weight: 600;
+      text-align: center;
+      /* todo: add box shadow or something for diff weight borders, make full-width */
+      border-block-start: var(--space-3xs) double black;
+
+      &::first-letter {
+        vertical-align: middle;
+      }
+    }
+
+    .subtitle {
+      font-size: var(--font-small);
+      font-weight: 400;
+      letter-spacing: 0.025em;
+      text-align: center;
+      text-transform: uppercase;
+      text-wrap: pretty;
+    }
+
+    .excerpt {
+      text-wrap: balance;
+    }
+
+    .location {
+      text-align: center;
+      & strong {
+        font-family: var(--font-italic);
+        font-weight: inherit;
+      }
+    }
+
+    & img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      /* couldn't figure out how to get path in clip-path*/
+      mask-image: url("../img/clippath.svg");
+      mask-repeat: no-repeat;
+      mask-position: top center;
+      mask-size: cover;
+      -webkit-mask-image: url("../img/clippath.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: top center;
+      -webkit-mask-size: cover;
+    }
+
+    .kilometres,
+    .days {
+      font-size: var(--font-step-1);
+      font-weight: 600;
+      text-transform: uppercase;
+
+      & strong {
+        font-weight: inherit;
+      }
+    }
+
+    @container (width <= 22rem) {
+      .kilometres {
+        justify-self: end;
+      }
+
+      .days {
+        justify-self: start;
+      }
+
+      .excerpt {
+        max-width: 60%;
+        text-align: center;
+      }
+    }
+
+    @container (width > 22rem) {
+      .article {
+        --divider-spacing: var(--space-2xs);
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto minmax(0, 1fr) auto auto auto auto;
+        grid-template-areas:
+          "title title title"
+          ". kilometres ."
+          "location kilometres excerpt"
+          "location days excerpt"
+          "subtitle subtitle subtitle"
+          "image image image";
+        column-gap: var(--divider-spacing);
+        row-gap: 0;
+      }
+
+      .title {
+        margin-block-end: var(--space-2xs);
+      }
+
+      .subtitle {
+        margin-block-start: var(--space-s);
+      }
+
+      .location,
+      .excerpt {
+        max-width: 10ch;
+      }
+
+      .location {
+        justify-self: end;
+        padding-inline-end: var(--divider-spacing);
+        border-inline-end: var(--divider-thickness) solid currentColor;
+        text-align: right;
+        & strong {
+          display: block;
+        }
+      }
+
+      .excerpt {
+        justify-self: start;
+        padding-inline-start: var(--divider-spacing);
+        border-inline-start: var(--divider-thickness) solid currentColor;
+      }
+
+      .kilometres {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        /* visually hide to use after element content */
+        & span {
+          clip: rect(0 0 0 0);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+        }
+
+        & strong {
+          font-size: var(--font-step-3);
+          font-weight: inherit;
+        }
+
+        &::after {
+          content: "kilometres";
+          margin-inline-start: var(--space-3xs);
+          font-size: var(--font-small);
+        }
+      }
+
+      .days {
+        font-weight: 200;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Label: Ben Nevis */
+@layer variant {
+  [data-label="ben-nevis"] {
+    .article {
+      grid-template-columns: repeat(3, auto);
+      grid-template-rows: repeat(3, auto) minmax(150px, auto) auto;
+      grid-template-areas:
+        "subtitle subtitle subtitle"
+        "title title title"
+        "excerpt excerpt excerpt"
+        "days image kilometres"
+        "location location location";
+      gap: 0;
+      line-height: 1;
+      text-align: center;
+      border: var(--space-3xs) solid black;
+      outline: calc(var(--space-3xs) * 0.5) solid black;
+      outline-offset: calc(var(--space-3xs) * 0.5);
+    }
+
+    .excerpt {
+      margin-block-end: var(--space-m);
+    }
+
+    .title,
+    .subtitle,
+    & picture {
+      margin-block-end: var(--space-xs);
+    }
+
+    .title {
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1; /* needed to override global styles, use web components to allow utility class as needed */
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-family: inherit;
+      font-size: var(--font-small);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+      text-transform: uppercase;
+    }
+
+    .excerpt {
+      font-family: var(--font-italic);
+      font-weight: 400;
+      line-height: 1;
+      text-wrap: balance;
+    }
+
+    .days,
+    .kilometres {
+      --bump: 2rem;
+      position: relative;
+      font-weight: 400;
+      font-size: var(--font-small);
+      text-transform: uppercase;
+
+      & strong {
+        font-weight: inherit;
+      }
+    }
+
+    /* todo: blurred border */
+    & img {
+      border-radius: 50%;
+      height: 100%;
+      /* background: radial-gradient(closest-side, #3f87a6, #ebf8e1, #f69d3c); */
+      mask-image: url("../img/mask-blur.svg");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center center;
+      /* prefixes for chrome/edge */
+      -webkit-mask-image: url("../img/mask-blur.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center center;
+    }
+
+    .location {
+      font-size: var(--font-small);
+      text-transform: uppercase;
+      & strong {
+        font-weight: inherit;
+      }
+    }
+
+    @container (width > 22rem) {
+      .days,
+      .kilometres {
+        position: relative;
+      }
+
+      .days {
+        left: var(--space-m);
+      }
+
+      .kilometres {
+        right: var(--space-m);
+      }
+    }
+  }
+}
+
+/* Label: Hover, Focus */
+@layer state {
+  [data-label] {
+    box-shadow: none; /* remove default link styling */
+  }
+
+  [data-label]:focus {
+    outline: var(--space-3xs) solid var(--color-accent);
+    transition: outline 0.2s;
+  }
+
+  /* tried first with general sibling selector */
+  /* that only works with subsequent siblings */
+  @media screen and (pointer: fine) {
+    [data-label] {
+      transition: opacity 1s;
+    }
+
+    [data-label] img {
+      filter: grayscale(50) contrast(500%);
+      transition: filter 0.2s ease-in-out;
+    }
+
+    [data-label]:where(:hover, :focus) {
+      outline: var(--space-3xs) solid var(--color-accent);
+      transition: outline 0.2s;
+    }
+
+    [data-label]:where(:hover, :focus) img {
+      filter: grayscale(0) contrast(150%);
+      transition: filter 0.2s;
+    }
+
+    main:has(a:hover, a:focus) a:not(a:hover, a:focus) {
+      opacity: 0.6;
+      transition: opacity 0.1s ease-in-out;
+    }
+  }
+}
+
+/* also doesn't support range queries */
+@supports not (selector(& a)) {
+  .article > *:not(:last-child) {
+    margin-block-end: var(--space-xs);
+  }
+  .article .subtitle,
+  .article :is(.days, .kilometres) span {
+    font-size: var(--font-base);
+    font-variant-caps: all-small-caps;
+    font-variation-settings: "SOFT" 100;
+  }
+
+  .article :is(.days, .kilometres) {
+    display: inline-block;
+  }
+
+  .article :is(.days, .kilometres) span {
+    font-weight: 700;
+  }
+
+  .article .days::after {
+    content: "";
+    display: inline-block;
+    width: 0.5ch;
+  }
+
+  .article .location {
+    font-family: var(--font-italic);
+  }
+
+  .article .location strong {
+    font-weight: inherit;
+  }
+
+  @media screen and (min-width: 35rem) {
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-s-m);
+    }
+
+    main > * {
+      flex: 0 0 auto;
+      container: unset;
+    }
+
+    .article {
+      display: block;
+      width: min-content;
+    }
+
+    .article .title {
+      width: max-content;
+    }
+  }
+}
