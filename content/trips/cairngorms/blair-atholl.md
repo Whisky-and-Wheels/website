@@ -1,5 +1,6 @@
 ---
 tags: cairngorms
+date: 2021-08-18
 title: Blair Atholl
 kilometres: 29.6
 start: Boat of Garten

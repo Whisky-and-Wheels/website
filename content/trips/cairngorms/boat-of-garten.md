@@ -1,5 +1,6 @@
 ---
 tags: cairngorms
+date: 2021-08-15
 title: Boat of Garten
 kilometres: 29.6
 start: Tomintoul
@@ -15,10 +16,6 @@ permalink: false
 
 Bullet points only:
 
-<figure class="float-right">
-{% image "img/aviemore-gravel.jpeg", "Two bikes parked along a well-maintained gravel path. Mounds of heather stretch as far as the eye can see.'" %}
-</figure>
-
 - Off at 10h30-ish
 - High, windy biking
 - Fast, fancy cars
@@ -30,3 +27,5 @@ Bullet points only:
 - 40min bike back, off road bits otherworldly
 - Bikes stored
 - Dinner 18h45
+
+{% image "img/aviemore-gravel.jpeg", "Two bikes parked along a well-maintained gravel path. Mounds of heather stretch as far as the eye can see.'" %}

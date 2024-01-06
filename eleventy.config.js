@@ -34,6 +34,9 @@ module.exports = function (eleventyConfig) {
   // Copy jpegs
   eleventyConfig.addPassthroughCopy("img");
 
+  // Copy maps
+  eleventyConfig.addPassthroughCopy("maps");
+
   // Copy font
   eleventyConfig.addPassthroughCopy("font");
 
