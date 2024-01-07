@@ -1,5 +1,6 @@
 ---
 tags: cairngorms
+date: 2021-08-07
 title: Dalmunzie
 kilometres: 28.2
 start: Pitlochry

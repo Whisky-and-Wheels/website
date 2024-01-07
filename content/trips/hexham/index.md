@@ -1,5 +1,7 @@
 ---
 tags: trip
+date: 2023-02-24
+name: hexham
 title: Hexham
 label: ardbeg
 subtitle: Cloudy Stargazing
@@ -16,11 +18,11 @@ layout: trip-layout.njk
 permalink: "hexham/"
 ---
 
-Our first bike adventure of 2023 begins in darkness.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Our first bike adventure of 2023 began in darkness.<!-- excerpt --> Winter trips in the Northern hemisphere mean early sunsets and require good lights.
 
-<figure>
 {% image "img/hexham.jpeg", "Biking into the dying sun" %}
-</figure>
+
+We stayed at the [Twice-Brewed Inn](https://www.twicebrewedinn.co.uk/). Even on a cloudy night, their stargazing event was a lot of fun.
 
 ## Heading
 

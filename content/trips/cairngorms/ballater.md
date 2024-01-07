@@ -1,5 +1,6 @@
 ---
 tags: cairngorms
+date: 2021-08-11
 title: Ballater
 kilometres: 29.6
 start: Braemar

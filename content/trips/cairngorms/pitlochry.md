@@ -1,4 +1,5 @@
 ---
+date: 2021-08-20
 tags: cairngorms
 title: Pitlochry
 kilometres: 11.6

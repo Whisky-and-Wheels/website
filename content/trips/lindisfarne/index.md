@@ -1,5 +1,7 @@
 ---
 tags: trip
+date: 2023-03-11
+name: lindisfarne
 title: Lindisfarne
 label: glenlivet
 subtitle: The causeway that floods twice a day

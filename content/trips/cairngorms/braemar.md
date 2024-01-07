@@ -1,5 +1,6 @@
 ---
 tags: cairngorms
+date: 2021-08-09
 title: Braemar
 kilometres: 25.8
 start: Dalmunzie Castle
@@ -26,3 +27,5 @@ Stopped at Glenshee Ski Centre for [Tea @ the Shee](https://www.ski-glenshee.co.
 Descent into Braemar was unreal. Layers of mountains like a painting. Green and yellow in the foreground. Blue and purple in the distance. A perfect little stream running alongside the road.
 
 Busier road than usual. We did turn off the highway to continue following the Old Military Road, but it was a moment of trepidation considering all Google Maps put us through Saturday.
+
+<!-- add honeycomb cheesecake note -->

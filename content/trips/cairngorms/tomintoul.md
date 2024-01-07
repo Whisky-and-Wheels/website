@@ -1,6 +1,7 @@
 ---
 tags: cairngorms
 title: Tomintoul
+date: 2021-08-13
 kilometres: 32.3
 start: Candacraig
 end: Tomintoul

@@ -1,5 +1,6 @@
 ---
 tags: trip
+date: 2021-08-07
 title: Cairngorms
 label: glenfiddich
 name: cairngorms
@@ -18,7 +19,7 @@ descent: 1320
 permalink: "cairngorms/"
 ---
 
-This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. Trouble was, we wanted to see so much more that we couldn't decide on a single location for the trip.
+This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. But we couldn't decide on a single location for the trip.
 
 In the end, we picked a general area, the [Cairngorms](https://www.visitcairngorms.com/), and planned an ambitious bike trip around it. We had only done a few weekend trips at this point, with no experience biking in Scottish hills. Normally, we aim for 50km on a bike day but we tried to avoid over 30km most days for this trip (with one spectacular failure in this regard).
 
