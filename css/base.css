@@ -152,12 +152,17 @@
   }
 
   nav[aria-label="social"] {
+    @media screen and (width < 25rem) {
+      width: 100%;
+
+      & ul {
+        justify-content: space-between;
+      }
+    }
+
     & ul {
       display: flex;
       gap: var(--space-2xs);
-      @media screen and (pointer: coarse) {
-        gap: var(--gutter);
-      }
       padding: 0;
       list-style: "";
     }
@@ -165,6 +170,7 @@
     & a {
       display: inline-block;
       padding: var(--space-2xs);
+      color: var(--color-neutral-light);
     }
 
     & a:is(:hover, :focus) {
