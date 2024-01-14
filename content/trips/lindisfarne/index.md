@@ -16,6 +16,7 @@ total_duration: 5 hours
 total_elevation: 500m
 layout: trip-layout.njk
 permalink: "lindisfarne/"
+social: "lindisfarne.jpg"
 ---
 
 This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
