@@ -16,6 +16,7 @@ total_duration: 5 hours
 total_elevation: 500m
 layout: trip-layout.njk
 permalink: "hexham/"
+social: "hexham.jpg"
 ---
 
 Our first bike adventure of 2023 began in darkness.<!-- excerpt --> Winter trips in the Northern hemisphere mean early sunsets and require good lights.

@@ -10,6 +10,17 @@
         <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+        <meta name="description" content="{{ page.excerpt }}"/>
+        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:description" content="{{ page.excerpt }}"/>
+        <meta property="og:image" content="https://whiskyandwheels.ca/img/social/{{ social }}"/>
+        <meta property="og:url" content="https://whiskyandwheels.ca/{{ name }}"/>
+        <meta name="twitter:card" content="https://whiskyandwheels.ca/img/social/{{ social }}"/>
+        <meta name="twitter:title" content="{{ title }}"/>
+        <meta name="twitter:description" content="{{ page.excerpt }}"/>
+        <meta name="twitter:image" content="https://whiskyandwheels.ca/img/social/{{ social }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <div class="parallax">
@@ -94,7 +105,14 @@
                     {% set summary = content.split("\n") %}
                     {# pull first paragraph out of summary for different styling #}
                     {{ summary.shift() | safe }}
-                    <iframe class="map" title="Trip map" height="300px" width="100%" src="../../maps/{{ title | lower | replace(" ", "-")}}.html"></iframe>
+                    <iframe
+                        class="map"
+                        title="Trip map"
+                        height="300px"
+                        width="100%"
+                        src="../../maps/{{ title | lower | replace("
+                        ", "
+                        -") }}.html"></iframe>
                     <div class="stack">
                         <table class="stats">
                             <tbody>

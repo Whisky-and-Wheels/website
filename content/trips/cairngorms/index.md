@@ -17,6 +17,7 @@ total_duration: "29:48:13"
 ascent: 3820
 descent: 1320
 permalink: "cairngorms/"
+social: "cairngorms.jpg"
 ---
 
 This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. But we couldn't decide on a single location for the trip.
