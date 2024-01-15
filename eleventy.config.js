@@ -1,7 +1,11 @@
 const path = require("path");
 const Image = require("@11ty/eleventy-img");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
+  // https://www.11ty.dev/docs/plugins/rss/
+  eleventyConfig.addPlugin(pluginRss);
+
   // straight from the docs:
   // https://www.11ty.dev/docs/plugins/image/#nunjucks-liquid-javascript-(asynchronous-shortcodes)
   eleventyConfig.addShortcode("image", async function (src, alt, classes = "") {
@@ -40,7 +44,7 @@ module.exports = function (eleventyConfig) {
   // Copy font
   eleventyConfig.addPassthroughCopy("font");
 
-  // Copy font
+  // Copy css
   eleventyConfig.addPassthroughCopy("css");
 
   // Include CSS in watch updates on dev
