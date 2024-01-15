@@ -40,7 +40,7 @@
     [data-label="ben-nevis"] {
       --grid-col-span: span 3;
       grid-column: var(--grid-column, var(--grid-col-span));
-      grid-row: span 3;
+      grid-row: span 2;
     }
   }
 

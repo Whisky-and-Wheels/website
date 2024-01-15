@@ -25,7 +25,8 @@
             </h1>
         </header>
         <main class="container grid">
-            {%- for trip in collections.trip -%}
+            {# sort from newest to oldest #}
+            {%- for trip in collections.trip | reverse-%}
                 {% if trip.data.label %}
                     {% set label = trip.data.label %}
                 {% else %}
