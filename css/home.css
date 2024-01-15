@@ -41,7 +41,7 @@
 
     /* allow glenfiddich to use side-by-side layout */
     [data-label="glenfiddich"] {
-      --grid-col-span: span 4;
+      --grid-col-span: span 5;
     }
 
     /* specific placement adjustments */
