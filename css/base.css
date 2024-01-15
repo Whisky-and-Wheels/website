@@ -125,9 +125,14 @@
   }
 
   header,
-  main,
   footer {
-    padding-block: var(--space-s-m);
+    padding-block: var(--space-m-l);
+  }
+
+  /* create space before main content ends and footer begins */
+  /* use padding to allow main background color */
+  main {
+    padding-block-end: var(--space-m-l);
   }
 
   /* allow section/article to set their own block padding */

@@ -1,18 +1,10 @@
 /* todo: organize and have some kind of naming system for goodness sake */
 /* todo: progressively enhance to container queries */
 @layer template {
-  header {
-    padding-bottom: 0;
-  }
-
   /* for some reason, the grid collapses without a width */
   /* I thought grid containers behaved like a block element, with width 100% by default */
   main {
     width: 100%;
-  }
-
-  [data-label] {
-    --grid-col-span: span 1;
   }
 
   @media screen and (width > 35rem) {
@@ -20,37 +12,15 @@
       align-items: start;
     }
 
-    [data-label="glenfiddich"] {
-      --grid-col-span: span 5;
-      grid-column: var(--grid-column, var(--grid-col-span));
-    }
-
-    [data-label="ardbeg"] {
+    [data-label] {
       --grid-col-span: span 3;
       grid-column: var(--grid-column, var(--grid-col-span));
-      grid-row: span 3;
-    }
-
-    [data-label="glenlivet"] {
-      --grid-col-span: span 3;
-      grid-column: var(--grid-column, var(--grid-col-span));
-      grid-row: span 2;
-    }
-
-    [data-label="ben-nevis"] {
-      --grid-col-span: span 3;
-      grid-column: var(--grid-column, var(--grid-col-span));
-      grid-row: span 2;
     }
   }
 
   @media screen and (48rem >= width > 35rem) {
     main {
       --nb-columns: 4;
-    }
-
-    [data-label="glenfiddich"] {
-      --grid-col-span: span 4;
     }
 
     [data-label]:nth-of-type(even) {
@@ -66,15 +36,21 @@
 
   @media screen and (width > 78rem) {
     main {
-      --nb-columns: 9;
+      --nb-columns: 8;
     }
 
+    /* allow glenfiddich to use side-by-side layout */
+    [data-label="glenfiddich"] {
+      --grid-col-span: span 4;
+    }
+
+    /* specific placement adjustments */
     [data-label]:nth-child(1) {
       --grid-column: 2 / var(--grid-col-span);
     }
 
-    [data-label]:nth-child(7) {
-      --grid-column: 2 / var(--grid-col-span);
+    [data-label]:nth-child(2) {
+      align-self: end;
     }
   }
 }
