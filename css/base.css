@@ -124,10 +124,14 @@
     color: var(--color-selection-text, var(--color-neutral-dark));
   }
 
-  header,
-  main,
-  footer {
-    padding-block: var(--space-s-m);
+  header {
+    padding-block: var(--space-m-l);
+  }
+
+  /* create space before main content ends and footer begins */
+  /* use padding to allow main background color */
+  main {
+    padding-block-end: var(--space-m-l);
   }
 
   /* allow section/article to set their own block padding */
@@ -137,14 +141,14 @@
 
   footer {
     --color-link-shadow: var(--color-accent-dark);
+
+    padding-block: var(--space-s);
     background-color: var(--color-neutral-dark);
     color: var(--color-neutral-light);
 
-    /* just as a reminder to myself this is possible */
-    /* there's no nth-of-class, but this is essentially doing that */
-    :nth-child(1 of .container) {
+    .container {
       display: flex;
-      gap: var(--gutter);
+      gap: var(--space-2xs);
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
@@ -152,7 +156,7 @@
   }
 
   nav[aria-label="social"] {
-    @media screen and (width < 25rem) {
+    @media screen and (width < 20rem) {
       width: 100%;
 
       & ul {

@@ -19,14 +19,12 @@ permalink: "lindisfarne/"
 social: "lindisfarne.jpg"
 ---
 
-This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
-
-<!-- todo: make a shortcode for the map & stats component -->
+All bikers should ride this causeway at least once in their lives. But remember to plan for the tides.<!-- excerpt -->
 
 <figure class="float-right">
 {% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
 </figure>
 
-This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+Yes, the North Sea really floods this thing twice a day!
 
-This is the start of our dummy content for the archive page.<!-- excerpt --> No idea what we'll actually write, but need some content to grab for excerpt on all trips landing page.
+And no, you're definitely not supposed stop on it to take a picture. But it was like riding on a different planet and needed to be captured for posterity.
