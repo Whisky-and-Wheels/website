@@ -6,7 +6,7 @@ kilometres: 28.2
 start: Pitlochry
 end: Dalmunzie Castle
 average_speed: 10.6
-total_duration: "4:13:85"
+total_duration: "5:55:00"
 ascent: 720
 descent: 470
 permalink: false
