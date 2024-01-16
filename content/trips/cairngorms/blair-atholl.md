@@ -6,7 +6,7 @@ kilometres: 29.6
 start: Boat of Garten
 end: Blair Atholl
 average_speed: 16.7
-total_duration: "At least 8 hours"
+total_duration: "8:00:00"
 ascent: 190
 descent: 210
 permalink: false

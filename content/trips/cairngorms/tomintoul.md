@@ -10,6 +10,8 @@ total_duration: "4:13:00"
 ascent: 630
 descent: 610
 permalink: false
+sidetrip_km: 28.99
+sidetrip_duration: "0:0:0"
 ---
 
 Not terribly difficult first peak on way to [Tomintoul (pronunciation)](https://www.youtube.com/watch?v=bl_1enZk-so). True test of strength and stamina (and wind resistance) was over the second peak, [Lecht ski hills](https://www.lecht.co.uk/about-the-lecht).
