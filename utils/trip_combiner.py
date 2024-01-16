@@ -32,6 +32,11 @@ class Time:
     def __str__(self):
         return self.__repr__()
 
+    @property
+    def all_sec(self) -> float:
+        """Convert to seconds"""
+        return self.sec + self.min * 60 + self.hour * 3600 + self.day * 24 * 3600
+
     @staticmethod
     def from_data(day: int, hour: int, minute: int, sec: int) -> Text:
         """Convert integer data to text"""
@@ -51,6 +56,20 @@ class Time:
         return Time(
             self.from_data(total_day, remaining_hour, remaining_min, remaining_sec)
         )
+
+
+def average_speed(distance: float, duration: Time) -> float:
+    """
+    Compute average speed from distance and duration
+
+    Args:
+        distance (`float`): distance in km
+        duration (`Time`): duration
+
+    Returns:
+        float: average speed in km/h
+    """
+    return 3600 * distance / duration.all_sec
 
 
 def main(args):
@@ -88,19 +107,22 @@ def main(args):
         end = content.find("\n---")
         content = yaml.safe_load(content[begin:end])
 
-        index["kilometres"] += content.get("kilometres", 0.0) + content.get(
-            "sidetrip_km", 0.0
-        )
+        current_distance = content.get("kilometres", 0.0)
+        current_duration = Time(content.get("total_duration", "0:0:0"))
+
+        index["kilometres"] += current_distance + content.get("sidetrip_km", 0.0)
         index["ascent"] += content.get("ascent", 0.0)
         index["descent"] += content.get("descent", 0.0)
-        index["average_speed"] += content.get("average_speed", 0.0)
+        index["average_speed"] += content.get(
+            "average_speed", average_speed(current_distance, current_duration)
+        )
         number_of_trips += 1
 
         index["total_duration"] = reduce(
             lambda a, b: a + b,
             [
                 index["total_duration"],
-                Time(content.get("total_duration", "0:0:0")),
+                current_duration,
                 Time(content.get("sidetrip_duration", "0:0:0")),
             ],
         )
