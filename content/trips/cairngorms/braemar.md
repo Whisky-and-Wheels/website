@@ -6,7 +6,7 @@ kilometres: 25.8
 start: Dalmunzie Castle
 end: Braemar
 average_speed: 15.5
-total_duration: "4:13:00"
+total_duration: "02:37:00"
 ascent: 340
 descent: 370
 permalink: false

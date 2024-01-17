@@ -2,14 +2,16 @@
 tags: cairngorms
 date: 2021-08-18
 title: Blair Atholl
-kilometres: 29.6
+kilometres: 86.1
 start: Boat of Garten
 end: Blair Atholl
 average_speed: 16.7
-total_duration: "8:00:00"
+total_duration: "6:20:00"
 ascent: 190
 descent: 210
 permalink: false
+sidetrip_km: 5.15
+sidetrip_duration: "00:20:00"
 ---
 
 This was the result of some bad luck.

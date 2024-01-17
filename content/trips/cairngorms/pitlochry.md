@@ -6,7 +6,7 @@ kilometres: 11.6
 start: Blair Atholl
 end: Pitlochry
 average_speed: 16.7
-total_duration: "1:13:00"
+total_duration: "0:46:00"
 ascent: 90
 descent: 110
 permalink: false
