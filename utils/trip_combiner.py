@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import copy
 import os
 from dataclasses import dataclass
 from functools import reduce
-from typing import Text
+from typing import Text, Union
 
 import yaml
 
@@ -58,6 +59,68 @@ class Time:
         )
 
 
+_meta = {
+    "kilometres": 0.0,
+    "average_speed": 0.0,
+    "total_duration": "0:0:0",
+    "ascent": 0.0,
+    "descent": 0.0,
+    "sidetrip_km": 0.0,
+    "sidetrip_duration": "0:0:0",
+}
+
+_types = {
+    "kilometres": int,
+    "average_speed": lambda x: round(x, 1),
+    "ascent": int,
+    "descent": int,
+    "total_duration": str,
+    "sidetrip_duration": str,
+    "sidetrip_km": int,
+}
+
+
+@dataclass
+class Trip:
+
+    filename: Text
+
+    def __post_init__(self):
+        if os.path.isfile(self.filename):
+            with open(self.filename, "r") as f:
+                content = f.read()
+            start_loc = content.find("---\n")
+            start_loc += (start_loc >= 0) * len("---\n")
+            end_loc = content.find("\n---")
+            if start_loc >= 0 and end_loc >= 0:
+                self.meta = yaml.safe_load(content[start_loc:end_loc])
+                self.content = content[end_loc + len("---\n") + 1 :]
+        else:
+            self.meta = {**_meta}
+            self.content = "Add your story here..."
+
+    def get(self, key: Text) -> Union[Time, float]:
+        """Retreive metadata"""
+        if "duration" in key:
+            time = self.meta.get(key, "0:0:0")
+            if isinstance(time, Time):
+                return time
+            return Time(time)
+        return self.meta.get(key, 0.0)
+
+    def update(self, **kwargs) -> None:
+        """Update metadata"""
+        self.meta.update(kwargs)
+
+    def write(self):
+        """write to a file"""
+        meta = copy.deepcopy(self.meta)
+        for key, item in _types.items():
+            meta[key] = item(meta.get(key, _meta[key]))
+        with open(self.filename, "w") as f:
+            f.write("---\n" + yaml.dump(meta) + "---\n" + self.content)
+
+
 def average_speed(distance: float, duration: Time) -> float:
     """
     Compute average speed from distance and duration
@@ -75,72 +138,48 @@ def average_speed(distance: float, duration: Time) -> float:
 def main(args):
     """Main function"""
 
-    index_md = os.path.join(args.TRIPPATH, "index.md")
-    trip_files = os.listdir(args.TRIPPATH)
+    index_md = Trip(os.path.join(args.TRIPPATH, "index.md"))
+    index_md.update(**_meta)
+    trip_files = [
+        os.path.join(args.TRIPPATH, x)
+        for x in os.listdir(args.TRIPPATH)
+        if os.path.join(args.TRIPPATH, x) != index_md.filename and x.endswith(".md")
+    ]
 
-    index = {}
-    start_loc, end_loc = 0, 0
-    if os.path.isfile(index_md):
-        with open(index_md, "r") as f:
-            index_file = f.read()
-        start_loc = index_file.find("---\n") + len("---\n")
-        end_loc = index_file.find("\n---")
-        index = yaml.safe_load(index_file[start_loc:end_loc])
-
-    index.update(
-        {
-            "kilometres": 0.0,
-            "average_speed": 0.0,
-            "total_duration": Time("0:0:0"),
-            "ascent": 0.0,
-            "descent": 0.0,
-        }
-    )
-    number_of_trips = 0
+    number_of_trips = len(trip_files)
     for trip in (os.path.join(args.TRIPPATH, x) for x in trip_files):
-        if trip == index_md:
+        if trip == index_md.filename:
             continue
 
-        with open(trip, "r") as f:
-            content = f.read()
-        begin = content.find("---\n") + len("---\n")
-        end = content.find("\n---")
-        content = yaml.safe_load(content[begin:end])
+        current_trip = Trip(trip)
 
-        current_distance = content.get("kilometres", 0.0)
-        current_duration = Time(content.get("total_duration", "0:0:0"))
+        current_distance = current_trip.get("kilometres")
+        current_duration = current_trip.get("total_duration")
 
-        index["kilometres"] += current_distance + content.get("sidetrip_km", 0.0)
-        index["ascent"] += content.get("ascent", 0.0)
-        index["descent"] += content.get("descent", 0.0)
-        index["average_speed"] += content.get(
-            "average_speed", average_speed(current_distance, current_duration)
+        index_md.meta["kilometres"] += current_distance + current_trip.get("sidetrip_km")
+        index_md.meta["ascent"] += current_trip.get("ascent")
+        index_md.meta["descent"] += current_trip.get("descent")
+
+        if args.UPDATESUB:
+            current_trip.update(
+                average_speed=average_speed(current_distance, current_duration)
+            )
+            current_trip.write()
+
+        index_md.meta["average_speed"] += (
+            current_trip.get("average_speed") / number_of_trips
         )
-        number_of_trips += 1
 
-        index["total_duration"] = reduce(
+        index_md.meta["total_duration"] = reduce(
             lambda a, b: a + b,
             [
-                index["total_duration"],
+                index_md.get("total_duration"),
                 current_duration,
-                Time(content.get("sidetrip_duration", "0:0:0")),
+                current_trip.get("sidetrip_duration"),
             ],
         )
 
-    index["kilometres"] = int(index["kilometres"])
-    index["ascent"] = int(index["ascent"])
-    index["descent"] = int(index["descent"])
-    index["total_duration"] = str(index["total_duration"])
-    index["average_speed"] = round(index["average_speed"] / number_of_trips, 1)
-    content = yaml.dump(index)
-
-    if end_loc == 0:
-        include = ""
-    else:
-        include = index_file[end_loc + len("---\n") + 1 :]
-
-    with open(index_md, "w") as f:
-        f.write("---\n" + content + "---\n" + include)
+    index_md.write()
 
 
 if __name__ == "__main__":
@@ -155,6 +194,14 @@ if __name__ == "__main__":
         help="Absolute path of the trip",
         dest="TRIPPATH",
         required=True,
+    )
+    parameters.add_argument(
+        "--update-subtrips",
+        "-u",
+        action="store_true",
+        default=False,
+        help="Update subtrips.",
+        dest="UPDATESUB",
     )
 
     args = parser.parse_args()
