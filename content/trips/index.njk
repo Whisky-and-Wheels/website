@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../css/base.css" type="text/css">
         <link rel="stylesheet" href="../../css/trip.css" type="text/css">
-        <title>Trips | {{ title }}</title>
+        <title>{{ title }}</title>
         <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
@@ -98,87 +98,22 @@
                 58.604c-.332.332-1.195.368-1.916.079-.798-.319-.561-.556.604-.604 1.054-.043 1.644.193 1.312.525Z"/>
             </svg>
             <header>
-                <h1 class="container">{{ title }}</h1>
+                <h1 class="container">Trips</h1>
             </header>
             <main class="container grid">
                 <section data-trip-content="summary" class="subgrid">
-                    {% set summary = content.split("\n") %}
-                    {# pull first paragraph out of summary for different styling #}
-                    {{ summary.shift() | safe }}
-                    <iframe
-                        class="map"
-                        title="Trip map"
-                        height="300px"
-                        width="100%"
-                        src="../../maps/{{ title | lower | replace(" ", "-") }}.html"></iframe>
-                    <div class="stack">
-                        <table class="stats">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Distance</th>
-                                    <td>{{ kilometres }}km</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Avg. Speed</th>
-                                    <td>{{ average_speed }}km/h</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ascent</th>
-                                    <td>{{ ascent }}m</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Descent</th>
-                                    <td>{{ descent }}m</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Biking time</th>
-                                    <td>{{ total_duration }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        {% for item in summary %}
-                            {{ item | safe }}
-                        {% endfor %}
-                    </div>
+                        <p>This is where all the trips will live. Map of all trips too.</p>
                 </section>
-                {% if name %}
-                    <div class="stack">
-                        {% for day in collections[name] %}
-                            <section data-trip-content="{{ day.data.title | lower }}" class="stack">
-                                <header class="stack">
-                                    <h2>{{ day.data.title }}</h2>
-                                    <h3>Day {{ loop.index }}</h3>
-                                </header>
-                                <table class="stats">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Distance</th>
-                                            <td>{{ day.data.kilometres }}km</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Avg. Speed</th>
-                                            <td>{{ day.data.average_speed }}km/h</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Ascent</th>
-                                            <td>{{ day.data.ascent }}m</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Descent</th>
-                                            <td>{{ day.data.descent }}m</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Total time</th>
-                                            <td>{{ day.data.total_duration }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                {{ day.content | safe }}
-                            </section>
+                    <section class="stack">
+                        {% for trip in collections.trip | reverse %}
+                            <article class="stack">
+                    <h2>
+                        <a href="{{ trip.page.url }}">{{ trip.data.title }}</a>
+                    </h2>
+                    <p>{{ trip.page.excerpt }}</p>
+                </article>
                         {% endfor %}
-                    </div>
-                    <!-- end day content -->
-                {% endif %}
+                    </section>
             </main>
         <footer class="stack" data-theme="green">
             <div class="container">

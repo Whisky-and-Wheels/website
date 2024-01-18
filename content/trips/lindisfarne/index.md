@@ -5,14 +5,14 @@ date: 2023-03-11
 days: 2
 descent: 898
 end: Alnmouth
-image_alt: Red mountain bike with red bike bag on a causeway at low tide, sand rippling
+image_alt:
+  Red mountain bike with red bike bag on a causeway at low tide, sand rippling
   away from the paved road
 image_file: lindisfarne
 kilometres: 107
 label: glenlivet
 layout: trip-layout.njk
 name: lindisfarne
-permalink: lindisfarne/
 social: lindisfarne.jpg
 start: Berwick-upon-Tweed
 subtitle: The causeway that floods twice a day

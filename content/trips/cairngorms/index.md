@@ -11,7 +11,6 @@ kilometres: 215
 label: glenfiddich
 layout: trip-layout.njk
 name: cairngorms
-permalink: cairngorms/
 social: cairngorms.jpg
 start: Pitlochry
 subtitle: Our first long bike trip
