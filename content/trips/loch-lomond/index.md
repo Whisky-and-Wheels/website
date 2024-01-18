@@ -11,7 +11,6 @@ kilometres: 112
 label: ben-nevis
 layout: trip-layout.njk
 name: loch-lomond
-permalink: loch-lomond/
 social: loch_lomond.jpg
 start: Balloch
 subtitle: A beautiful but miserable ride

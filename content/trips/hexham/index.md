@@ -5,14 +5,14 @@ date: 2023-02-24
 days: 2
 descent: 1280
 end: Newcastle
-image_alt: Night falling along quiet country roads, a small red light from the back
+image_alt:
+  Night falling along quiet country roads, a small red light from the back
   of a bike is visible in middle distance
 image_file: hexham
 kilometres: 118
 label: ardbeg
 layout: trip-layout.njk
 name: hexham
-permalink: hexham/
 social: hexham.jpg
 start: Hexham
 subtitle: Cloudy Stargazing
