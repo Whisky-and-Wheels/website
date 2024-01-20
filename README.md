@@ -1,5 +1,7 @@
 # Wheels and Whisky
 
+<img src="img/favicon/android-chrome-512x512.png" alt="Whisky and Wheels logo" style="float: right; margin-right: 50px" align="right" width=250px/>
+
 ## Install
 
 ```bash
