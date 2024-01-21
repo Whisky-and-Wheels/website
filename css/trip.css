@@ -1,0 +1,367 @@
+@import url(https://unpkg.com/leaflet@1.9.4/dist/leaflet.css) layer(vendor);
+
+@layer vendor {
+  /* prevent child z-index from competing with rest of page */
+  .map {
+    isolation: isolate;
+  }
+
+  /* remove default link styling */
+  .map a {
+    box-shadow: unset;
+  }
+}
+
+@layer template {
+  /* note: main is max-width 100% to allow white background / mountain svg overlap */
+  .grid {
+    --gutter: var(--space-s);
+    --max-line-length: fit-content(50ch);
+    --grid-template-columns: minmax(0, 1fr) [content-start]
+      var(--max-line-length) [content-end] minmax(0, 1fr);
+  }
+
+  main.grid > *,
+  .subgrid > * {
+    grid-column: content;
+  }
+
+  /* to investigate: should be falling back to --gutter value, but isn't taking effect */
+  .subgrid {
+    --subgrid-row-gutter: var(--space-s);
+  }
+
+  .stats {
+    --float-width: fit-content;
+  }
+
+  @media screen and (width < 28rem) {
+    main > .grid {
+      --column-gutter: 0;
+    }
+  }
+
+  @supports (grid-template-columns: subgrid) {
+    @media screen and (width > 78rem) {
+      .grid {
+        --column-gutter: var(--space-l);
+        --grid-template-columns: 1fr [content-start] var(--max-line-length)
+          [content-end] minmax(20%, 25rem) [sidebar-end] 1fr;
+        --grid-template-rows: [summary-content-start] auto auto
+          [day-content-start] auto [day-content-end];
+
+        .subgrid {
+          --subgrid-row: summary-content-start / day-content-end;
+          --subgrid-template-rows: subgrid;
+        }
+
+        .subgrid + * {
+          grid-row: day-content;
+        }
+
+        .map {
+          grid-column: content-end / sidebar-end;
+          grid-row: 1 / -1; /* this -1 for row only works within subgrid */
+          position: sticky;
+          top: var(--space-l);
+        }
+      }
+    }
+  }
+}
+
+/* Mountain Header  */
+@layer component {
+  :root {
+    --title-stack-index: 1;
+  }
+
+  [class^="mountain"] ~ header {
+    height: calc(3 * var(--font-step-5));
+
+    @media screen and (width > 64rem) {
+      height: calc(2.5 * var(--font-step-5));
+    }
+  }
+
+  h1 {
+    position: relative;
+    z-index: var(--title-stack-index);
+  }
+
+  /* todo: manage heights better across screen sizes*/
+  :where(svg[class^="mountain"]) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+
+  .mountain-background {
+    top: calc(var(--font-step-5) * 0.6);
+    fill: var(--color-accent-light);
+  }
+
+  .mountain-midground {
+    height: 150px;
+    top: calc(var(--font-step-5) * 1.2);
+    fill: var(--color-accent);
+  }
+
+  .mountain-foreground {
+    top: calc(var(--font-step-5) * 0.8);
+    height: 250px;
+    fill: var(--color-accent-dark);
+  }
+
+  main {
+    --max-width: 100%;
+    position: relative;
+    /* go on top of mountains */
+    z-index: var(--title-stack-index);
+    padding-top: var(--space-l-xl);
+    background-color: var(--color-neutral-light);
+  }
+}
+
+/* Mountain Header: Parallax */
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* figure out height responsiveness later */
+  @media screen and (height > 39rem) {
+    /* support query and more on parallax technique: https://keithclark.co.uk/articles/practical-css-parallax/ */
+    @supports (
+      (perspective: 1px) and (not (-webkit-overflow-scrolling: touch))
+    ) {
+      @layer variant {
+        .parallax {
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          overscroll-behavior: contain;
+          perspective: 1px;
+          isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
+        }
+
+        h1 {
+          /*
+          I wanted to nest mountains inside header, but then sticky behaviour doesn't take
+          effect on Firefox. Seems related to spec implementation for perspective and further
+          descendents: https://bugzilla.mozilla.org/show_bug.cgi?id=716524
+          - tried with preserve-3d on header (maybe try with it on h1 too?)
+        */
+          position: sticky;
+          top: var(--space-m); /* match block padding*/
+        }
+
+        :where(svg[class^="mountain"]):last-of-type {
+          z-index: calc(var(--title-stack-index) + 1);
+        }
+
+        /* todo: manage heights better across screen sizes*/
+        :where(svg[class^="mountain"]) {
+          position: fixed;
+        }
+
+        .mountain-background {
+          height: 100px;
+          top: -550px;
+          transform: translateZ(-2px);
+          scale: 3;
+        }
+
+        .mountain-midground {
+          top: -150px;
+          transform: translateZ(-1px);
+          scale: 2;
+        }
+
+        .mountain-foreground {
+          top: -20px;
+          transform: translateZ(0);
+        }
+
+        main {
+          /* go on top of last mountain */
+          z-index: calc(var(--title-stack-index) + 2);
+        }
+
+        @media screen and (width > 38rem) {
+          .mountain-background {
+            top: -400px;
+            height: 200px;
+          }
+
+          .mountain-midground {
+            top: -70px;
+          }
+
+          .mountain-foreground {
+            top: 30px;
+          }
+        }
+
+        @media screen and (width > 75rem) {
+          .mountain-background {
+            top: -300px;
+            height: initial;
+          }
+
+          .mountain-midground {
+            top: 30px;
+          }
+
+          .mountain-foreground {
+            top: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* maybe split out stats and map styling to separate components? */
+/* Trip (Stack, Stats, Map) */
+@layer component {
+  [data-trip-content] {
+    display: flow-root;
+  }
+
+  .iframe-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+
+    & iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .map path {
+    transition: opacity var(--transition-duration);
+  }
+
+  .map:has([data-animation="highlight"])
+    path:not([data-animation="highlight"]) {
+    opacity: 0.1;
+  }
+
+  /* todo: add elevation profile svg in after element with accent color */
+  .stats {
+    container: stats / inline-size;
+    display: block; /* allows container queries to take effect */
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-s);
+    border: 2px solid var(--color-accent-dark);
+    box-shadow: -2px 3px 0 var(--color-accent-dark),
+      -3px 4px 0 var(--color-accent-dark), -4px 5px 0 var(--color-accent-dark),
+      -5px 6px 0 var(--color-accent-dark);
+    border-radius: var(--space-xs);
+    background-color: var(--color-accent-light);
+
+    & tr {
+      width: min-content;
+    }
+
+    & th {
+      width: max-content;
+      text-align: left;
+    }
+  }
+
+  @container stats (width <= 20rem) {
+    .stats th {
+      padding-inline-end: var(--space-s); /* simulate margin */
+    }
+  }
+
+  @container stats (width > 20rem) {
+    .stats tbody {
+      --nb-columns: 2;
+      display: grid;
+      grid-template-columns: repeat(var(--nb-columns), auto);
+      row-gap: var(--space-xs);
+    }
+
+    .stats tr > * {
+      display: block;
+    }
+  }
+
+  @container stats (width > 24rem) {
+    .stats tbody {
+      --nb-columns: 3;
+    }
+  }
+
+  @container stats (width > 32rem) {
+    .stats tbody {
+      --nb-columns: 4;
+    }
+  }
+
+  @container stats (width > 36rem) {
+    .stats tbody {
+      --nb-columns: 5;
+    }
+  }
+}
+
+/* Trip: Summary (Intro Paragraph) */
+@layer variant {
+  [data-trip-content="summary"] {
+    > p:first-of-type {
+      font-size: var(--font-step-1);
+      font-weight: 400;
+      line-height: 1.4;
+
+      /* still need the ampersand */
+      &::first-line {
+        font-variant-caps: petite-caps;
+        font-weight: 700;
+      }
+
+      /* todo: manage RTL styling */
+      @media screen and (width > 37.5rem) {
+        &::first-letter {
+          float: left;
+          /* logical properties don't seem to work here */
+          /* chrome not recognizing font step definition */
+          margin-left: calc(-0.33 * var(--font-step-5));
+          font-size: var(--font-step-5);
+          letter-spacing: 0.05em;
+          line-height: 1;
+        }
+      }
+
+      @media screen and (width > 56rem) {
+        line-height: unset;
+
+        &::first-letter {
+          margin-top: unset;
+        }
+      }
+    }
+  }
+}
+
+@supports not (selector(& a)) {
+  [data-trip-content] {
+    display: block;
+    width: 60ch;
+    margin-inline: auto;
+  }
+
+  [data-trip-content] > *:not(:last-child) {
+    margin-block-end: var(--space-s);
+  }
+
+  /* todo: add column styling for full-width stats */
+  .stats {
+    /* weird this isn't applying from main styles, it's not nested... */
+    background-color: var(--color-accent-light);
+    padding: var(--space-xs) var(--space-s);
+  }
+}

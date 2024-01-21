@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://whiskyandwheels.com/feeds/trips.xml">
+  <title>Whisky &amp; Wheels</title>
+  <subtitle>Adventures in bike touring and whisky tasting.</subtitle>
+  <link href="https://whiskyandwheels.com/feeds/feeds/trips.xml" rel="self"/>
+  <link href="https://whiskyandwheels.com/feeds/trips.xml"/>
+  <updated>2023-03-24T00:00:00Z</updated>
+  <id>https://whiskyandwheels.com/feeds/trips.xml</id>
+  <entry>
+    <title>Loch Lomond</title>
+    <link href="https://whiskyandwheels.com/trips/loch-lomond/"/>
+    <updated>2023-03-24T00:00:00Z</updated>
+    <id>https://whiskyandwheels.com/trips/loch-lomond/</id>
+    <summary>A beautiful but miserable ride</summary>
+  </entry>
+  <entry>
+    <title>Lindisfarne</title>
+    <link href="https://whiskyandwheels.com/trips/lindisfarne/"/>
+    <updated>2023-03-11T00:00:00Z</updated>
+    <id>https://whiskyandwheels.com/trips/lindisfarne/</id>
+    <summary>The causeway that floods twice a day</summary>
+  </entry>
+  <entry>
+    <title>Hexham</title>
+    <link href="https://whiskyandwheels.com/trips/hexham/"/>
+    <updated>2023-02-24T00:00:00Z</updated>
+    <id>https://whiskyandwheels.com/trips/hexham/</id>
+    <summary>Cloudy Stargazing</summary>
+  </entry>
+  <entry>
+    <title>Cairngorms</title>
+    <link href="https://whiskyandwheels.com/trips/cairngorms/"/>
+    <updated>2021-08-07T00:00:00Z</updated>
+    <id>https://whiskyandwheels.com/trips/cairngorms/</id>
+    <summary>Our first long bike trip</summary>
+  </entry>
+</feed>
