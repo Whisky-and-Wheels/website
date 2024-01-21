@@ -23,52 +23,25 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      matrix:
-        node-version: ['21.x']
+        matrix:
+            node-version: ['21.x']
 
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies & build
-        run: |
-          npm ci
-          npm run production
+    - name: Install dependencies & build
+      run: |
+        npm ci
+        npm run production
 
-      - name: Fix permissions if needed
-        run: |
-          chmod -c -R +rX "./_site" | while read line; do
-              echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
-  
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './_site'
-
-  deploy:
-    name: Deploy website to GitHub Pages
-    needs: build
-    # Set permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./_site
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    
