@@ -1,15 +1,17 @@
 ---
-tags: cairngorms
-date: 2021-08-07
-title: Dalmunzie
-kilometres: 28.2
-start: Pitlochry
-end: Dalmunzie Castle
-average_speed: 10.6
-total_duration: "5:55:00"
 ascent: 720
+average_speed: 4.8
+date: 2021-08-07
 descent: 470
+end: Dalmunzie Castle
+kilometres: 28
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Pitlochry
+tags: cairngorms
+title: Dalmunzie
+total_duration: '5:55:00'
 ---
 
 We barely survived the first ride. Google Maps took us off road for the last 12km or so. We had done very well with the first bit on undulating and zigzagging asphalt road. We were completely unprepared for the [Cateran trail](https://www.pkct.org/cateran-trail).
