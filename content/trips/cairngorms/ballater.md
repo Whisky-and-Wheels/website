@@ -1,15 +1,17 @@
 ---
-tags: cairngorms
-date: 2021-08-11
-title: Ballater
-kilometres: 29.6
-start: Braemar
-end: Candacraig
-average_speed: 16.7
-total_duration: "4:13:00"
 ascent: 190
+average_speed: 7.0
+date: 2021-08-11
 descent: 210
+end: Candacraig
+kilometres: 29
 permalink: false
+sidetrip_duration: "1:17:0"
+sidetrip_km: 6.92
+start: Braemar
+tags: cairngorms
+title: Ballater
+total_duration: '4:13:00'
 ---
 
 Difficult ride to Balmoral. Jack was miles ahead of me the whole way and it was a busy road (logging trucks are _the worst_). The views were stunning as usual. And the elevation changes were not too severe. I had to ask Jack to slow down, which he sort of did and I sort of felt better.

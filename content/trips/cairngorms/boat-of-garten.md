@@ -1,17 +1,17 @@
 ---
-tags: cairngorms
-date: 2021-08-15
-title: Boat of Garten
-kilometres: 24.1
-start: Tomintoul
-end: Boat of Garten
-average_speed: 16.7
-total_duration: "1:58:00"
 ascent: 190
+average_speed: 12.3
+date: 2021-08-15
 descent: 210
+end: Boat of Garten
+kilometres: 24
 permalink: false
-sidetrip_km: 53.59
-sidetrip_duration: "03:13:00"
+sidetrip_duration: 03:13:00
+sidetrip_km: 53
+start: Tomintoul
+tags: cairngorms
+title: Boat of Garten
+total_duration: '1:58:00'
 ---
 
 {% image "img/road-to-boat-of-garten.jpeg", "Two lane road winding along rolling green hills dotted with heather on a sunny day.'" %}

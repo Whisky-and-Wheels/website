@@ -1,15 +1,17 @@
 ---
+ascent: 90
+average_speed: 15.1
 date: 2021-08-20
+descent: 110
+end: Pitlochry
+kilometres: 11
+permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Blair Atholl
 tags: cairngorms
 title: Pitlochry
-kilometres: 11.6
-start: Blair Atholl
-end: Pitlochry
-average_speed: 16.7
-total_duration: "0:46:00"
-ascent: 90
-descent: 110
-permalink: false
+total_duration: 0:46:00
 ---
 
 My back tire punctured somewhere on the way home from Bruar. It was totally flat when we collected the bikes to check out of Atholl Arms.
