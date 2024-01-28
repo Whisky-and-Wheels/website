@@ -7,7 +7,7 @@ descent: 2190
 end: Pitlochry
 image_alt: Looking over the edge of a rolling green hill into a small, distant village
 image_file: cairngorms
-kilometres: 343
+kilometres: 345
 label: glenfiddich
 layout: trip-layout.njk
 name: cairngorms
@@ -18,7 +18,7 @@ start: Pitlochry
 subtitle: Our first long bike trip
 tags: trip
 title: Cairngorms
-total_duration: 1-07:43:00
+total_duration: 1-09:00:00
 ---
 
 This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. But we couldn't decide on a single location for the trip.

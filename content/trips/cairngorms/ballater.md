@@ -6,8 +6,8 @@ descent: 210
 end: Candacraig
 kilometres: 29
 permalink: false
-sidetrip_duration: 0:0:0
-sidetrip_km: 0
+sidetrip_duration: "1:17:0"
+sidetrip_km: 6.92
 start: Braemar
 tags: cairngorms
 title: Ballater
