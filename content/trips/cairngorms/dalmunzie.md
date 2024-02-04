@@ -32,7 +32,7 @@ Never trust the maps of Google
 
 Jack made the call to ignore Google and stick to the marked trail, which was wise. I reached the signpost we had designated as a re-grouping point first and called Dalmunzie, our hotel.
 
-There are no words to express the relief I felt when I told the receptionist we were on the Cateran trail and she said, “Oh, I know exactly where you are.” That made one of us. We had stopped about 30ft from the peak and on the other side, a rocky downhill slope led to the road and Dalmunzie hotel.
+There are no words to express the relief I felt when I told the receptionist we were on the Cateran trail and she said, “Oh, I know exactly where you are.” That made one of us. We had stopped about 30ft from the peak and, on the other side, a rocky downhill slope led to the road and Dalmunzie hotel.
 
 <figure class="float-left">
 {% image "img/descent.jpeg", "Walking our bikes down the steep and gravelly Cateran mountain trail path towards Dalmunzie hotel." %}

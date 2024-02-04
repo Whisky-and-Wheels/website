@@ -24,7 +24,7 @@ That said, we made great time to Ballater, arriving around 13h after having left
 
 Ballater is bigger than Braemar. More restaurants and cafes. More sprawl of commercial streets.
 
-We got lunch takeaway from a butcher’s called Sheridan’s. I was tempted by Shorty’s ice cream but it was too cold. Then we found a cafe with outdoor seating, Rocksalt and Snails. Bailey’s hot chocolate with cream and marshmallows for me. Cappuccino for Jack. Jack was still craving cheesecake so I got the only one on offer: lemon meringue. Not quite as good as the honeycomb one from last night.
+We got lunch takeaway from a butcher’s called Sheridan’s. I was tempted by Shorty’s ice cream but it was too cold. Then we found a cafe with outdoor seating, Rocksalt and Snails. Bailey’s hot chocolate with cream and marshmallows for me. Cappuccino for Jack. Jack was still craving cheesecake so I got the only one on offer: lemon meringue. Not quite as good as the honeycomb one from Farquharson's in Braemar the night before.
 
 On the way from Ballater to Candacraig, we immediately overheated and felt sick. The sweaters came off. The cheesecake was regretted. There wasn’t a ton of incline, but there was enough and we walked a good portion of it on cold, tired, sore legs.
 
