@@ -22,7 +22,7 @@ We hurried on to our lunch stop at Seahouses. I thought we'd be OK as long as we
 
 We struggled to find a place to eat as many were closed or not serving lunch. Eventually, Neptune's Fish & Chips was the winner. We've learned to share pub-portioned food and half a fish & chips (however delicious it may be) is more than enough for a lunch stop.
 
-Back on the road, the wind started working against us. I felt completely out of energy by 14h but was determined not to miss another train (see [Hexham, Bike Day 3](http://localhost:8080/trips/hexham/#bike-day-3)).
+Back on the road, the wind started working against us. I felt completely out of energy by 14h but was determined not to miss another train (see [Hexham, Bike Day 3](./trips/hexham/#bike-day-3)).
 
 We decided to skip the planned off-road coastal portion of the ride and stick to the road, in an attempt to avoid the worst of the wind. This made the journey longer, and the wind was still pretty angry at us.
 
