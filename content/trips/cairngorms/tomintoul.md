@@ -6,7 +6,7 @@ descent: 610
 end: Tomintoul
 kilometres: 44
 permalink: false
-sidetrip_duration: '2:49:0'
+sidetrip_duration: "2:49:0"
 sidetrip_km: 34
 start: Candacraig
 tags: cairngorms
@@ -36,4 +36,4 @@ We were unable to find a place to warm up in Tomintoul with the bikes so went a 
 {% image "img/rainbow.jpeg", "Inside a large rustic ski center, looking out the big window to the top of the Lecht. Bikes parked on the side. Two donuts sit on the windowsill." %}
 </figure>
 
-We even got a beautiful rainbow on arrival.
+We even got a beautiful rainbow on arrival. And the next day, we visited The Glenlivet distillery. 10/10, would visit again.
