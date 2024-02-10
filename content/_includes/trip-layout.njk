@@ -144,7 +144,7 @@
                 {% if name %}
                     <div class="stack">
                         {% for day in collections[name] %}
-                            <section data-trip-content="{{ day.data.title | lower }}" class="stack">
+                            <section id="bike-day-{{ loop.index }}" data-trip-content="{{ day.data.title | lower }}" class="stack">
                                 <header class="stack">
                                     <h2>{{ day.data.title }}</h2>
                                     <h3>Bike Day {{ loop.index }}</h3>

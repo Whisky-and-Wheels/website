@@ -24,10 +24,8 @@ total_elevation: 500m
 
 All bikers should ride this causeway at least once in their lives. But remember to plan for the tides.<!-- excerpt -->
 
-<figure class="float-right">
-{% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
-</figure>
-
 Yes, the North Sea really floods this thing twice a day!
+
+{% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
 
 And no, you're definitely not supposed stop on it to take a picture. But it was like riding on a different planet and needed to be captured for posterity.
