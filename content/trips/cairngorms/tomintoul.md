@@ -36,4 +36,8 @@ We were unable to find a place to warm up in Tomintoul with the bikes so went a 
 {% image "img/rainbow.jpeg", "Inside a large rustic ski center, looking out the big window to the top of the Lecht. Bikes parked on the side. Two donuts sit on the windowsill." %}
 </figure>
 
-We even got a beautiful rainbow on arrival. And the next day, we visited The Glenlivet distillery. 10/10, would visit again.
+We even got a beautiful rainbow on arrival.
+
+And the next day, we visited [The Glenlivet (pronunciation)](https://www.youtube.com/watch?v=4fZWvnopKxM&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=41) distillery.
+
+10/10, would visit again (both yurt and distillery).
