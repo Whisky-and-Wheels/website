@@ -1,22 +1,24 @@
 ---
 ascent: 2350
-average_speed: 15.3
+average_speed: 10.8
 date: 2021-08-07
 days: 14
 descent: 2190
 end: Pitlochry
 image_alt: Looking over the edge of a rolling green hill into a small, distant village
 image_file: cairngorms
-kilometres: 215
+kilometres: 345
 label: glenfiddich
 layout: trip-layout.njk
 name: cairngorms
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
 social: cairngorms.jpg
 start: Pitlochry
 subtitle: Our first long bike trip
 tags: trip
 title: Cairngorms
-total_duration: 1-06:19:25
+total_duration: 1-09:00:00
 ---
 
 This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. But we couldn't decide on a single location for the trip.

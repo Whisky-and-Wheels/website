@@ -1,15 +1,17 @@
 ---
-tags: cairngorms
-date: 2021-08-09
-title: Braemar
-kilometres: 25.8
-start: Dalmunzie Castle
-end: Braemar
-average_speed: 15.5
-total_duration: "02:37:00"
 ascent: 340
+average_speed: 9.9
+date: 2021-08-09
 descent: 370
+end: Braemar
+kilometres: 25
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Dalmunzie Castle
+tags: cairngorms
+title: Braemar
+total_duration: 02:37:00
 ---
 
 <figure class="float-right">
