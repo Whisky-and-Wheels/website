@@ -42,4 +42,4 @@ Online searching showed the only other pub in the vicinity opened at 16h. We wal
 
 There was also an old dog in the pub (maybe a spaniel?). She was desperate to make friends. Sometimes she'd be lying on the floor and look dead to the world except for a furiously thumping tail. Two patrons gave her much appreciated scratches.
 
-We had two whisky drams of unremembered age: Highland Park and Jura. Both good, but we both preferred Jura.
+We had two whisky drams of unremembered age: Highland Park and [Jura (pronunciation)](https://www.youtube.com/watch?v=qz_ZTwrv0Jk&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=29). Both good, but we both preferred Jura.
