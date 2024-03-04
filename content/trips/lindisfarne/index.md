@@ -28,4 +28,8 @@ Yes, the North Sea really floods this thing twice a day!
 
 {% image "img/lindisfarne.jpeg", "Red bike on lindisfarne causeway at low tide" %}
 
-And no, you're definitely not supposed stop on it to take a picture. But it was like riding on a different planet and needed to be captured for posterity.
+And no, you're definitely not supposed to stop on it to take a picture. But it was like riding on a different planet and needed to be captured for posterity.
+
+<figure>
+{% image "img/causeway-lindisfarne.jpeg", "Causeway sign, it reads Danger Holy Island Causeway. Look at tide tables for safe crossing times. 30 yds ahead." %}
+</figure>

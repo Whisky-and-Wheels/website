@@ -12,9 +12,13 @@ descent: 447
 permalink: false
 ---
 
-Slow out of bed. Jack still full from last night's dinner but insisted on having full Northumbrian breakfast “for tradition”.
+Slow out of bed. Jack was still full from last night's dinner but insisted on having a full Northumbrian breakfast "for tradition".
 
-We set out for the Lambley Viaduct, which didn't disappoint. Took a little exploring to figure out how to get to the river level. We had to lock up the bikes and take stairs. There was an old narrow bridge over the Tyne river that got the best view of the Viaduct.
+We set out for the Lambley Viaduct, which didn't disappoint. Took a little exploring to figure out how to get to the river level. We had to lock up the bikes and take the stairs. There was an old narrow bridge over the Tyne river that got the best view of the Viaduct.
+
+<figure>
+{% image "img/lambley-viaduct.jpeg", "Lambley Viaduct from below" %}
+</figure>
 
 Unfortunately, standing still for too long put a chill in us. I could barely feel my fingers most of the ride back. The sun peeked out just in time to warm us up and give us a second wind to visit [Vindolanda](https://www.vindolanda.com/roman-vindolanda-fort-museum).
 

@@ -12,7 +12,12 @@ descent: 647
 permalink: false
 ---
 
+
 We got up for an early breakfast because we wanted to walk to the Sycamore Gap\* before checkout. On the way there, we walked along Hadrian's wall. Sometimes up some very steep, rocky steps.
+
+<figure>
+{% image "img/sycamore-hadrianswall.jpeg", "The way to the Sycamore Gap through Hadrian's wall" %}
+</figure>
 
 We descended to the foretold gap. The sycamore tree is truly lovely. Also known as the Robin Hood tree for featuring in a movie where Kevin Costner has a baffling accent (non-accent? I don't know what was going on there).
 
@@ -22,7 +27,7 @@ We descended to the foretold gap. The sycamore tree is truly lovely. Also known 
 
 On the way back, we took the flat path, but it was very swampy. I stepped on what I thought was a rock and almost lost a shoe sinking into ankle-deep mud.
 
-The bike ride to Newcastle was a bit hectic after our lunch stop in Hexham, because it had taken us about 2 times longer than I had estimated to reach that point. We were rushing to make the 16:36 train.
+The bike ride to Newcastle was a bit hectic after our lunch stop in Hexham because it had taken us about 2 times longer than I had estimated to reach that point. We were rushing to make the 16:36 train.
 
 Very skillful navigating by Jack through Newcastle City Center. We arrived, exhausted but triumphant, at 16:28 - only to look at the departure board and realize there _was_ no 16:36 train.
 
@@ -30,4 +35,4 @@ I had misremembered the time. Our train was actually at 16:26. We'd missed it by
 
 Thankfully, there are lots of trains from Newcastle to Durham on any given day, so all was not lost, But was a long, cold wait in the open air station for the 17:30 train.
 
-**_Postscript_**: _Sadly, the beautiful old Sycamore was felled in September 2023 (reasons and perpetrators unknown as of the time of writing, February 2024)._
+**_Postscript_**: _Sadly, the beautiful old Sycamore was felled on 28 September 2023 (reasons and perpetrators unknown as of the time of writing, February 2024)._
