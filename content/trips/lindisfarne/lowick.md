@@ -34,6 +34,15 @@ Cafe stop for cheese scones and rock-hard butter ([Pilgrims Coffee House & Roast
 
 [The Priory Museum](https://www.english-heritage.org.uk/visit/places/lindisfarne-priory/) was small but interesting and the ruins were impressive. We probably could have spent an hour with the friendly lady in the entrance booth. She told us that the landowner had sold the lead from the roof of the priory in the 1600s and that was when it really started to fall apart. Perhaps as karma, the lead shipment sank and the landowner was never paid for it.
 
+<details class="stack">
+<summary>The Holy Island</summary>
+
+Lindisfarne is a tidal island located on the northeast coast of England. The island was famous for its saint bishop, Saint Cuthbert. In 793 the Vikings raided the island, which was the first recorded raid in England (Archeological record shows that there had been much earlier visits by Vikings to Shetland and the Outer Hebrides.). The monks that have left the island after continuous raids have first founded the church in Chester-le-Street and then founded the Durham Cathedral. According to the story (by an elderly tour guide at the Durham Cathedral), while trying to find a resting place for St. Cuthbert's bones, a cow led the monks to the location where the Cathedral stands to this day. Perhaps that's the reason why the street is called Dun Cow Lane. This is not very unrealistic tho, at the time this region was full of cattle herders.
+
+Lindisfarne has also been featured in the historic fiction show [Vikings](https://www.history.com/shows/vikings)](<https://www.history.com/shows/vikings>).
+
+</details>
+
 <figure>
 {% image "img/lindisfarne-priory.jpeg", "The priory with the fallen roof." %}
 </figure>
