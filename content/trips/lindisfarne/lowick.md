@@ -18,7 +18,7 @@ We left Hamsterley in good time. There wasn't too much snow. The train to Berwic
 
 It was cold. Even with my winter cycling gloves. The tips of my fingers were numb and what I could feel was tingly and painful.
 
-That said, the bike to Lindisfarne was beautiful. Waves rolling into shore, birds chirping, dogs playing on the beach...
+All that said, the bike to Lindisfarne was beautiful: waves rolling into shore, birds chirping, dogs playing on the beach.
 
 When off asphalt, it was hard to take in anything but the ten feet in front of you. The ground was still wet and had dangerous mud grooves from vehicles and other bikes. Poor Jack fell twice, which is highly unusual for him (falling is more _my_ thing).
 
@@ -58,3 +58,5 @@ We had two hours to kill in the cold outdoors. We sheltered in a bus stop on the
 Online searching showed the only other pub in the vicinity opened at 16h ([The Black Bull Inn](https://maps.app.goo.gl/RvDNp8YJXvwM6yGJ8)). We walked up together and went in as it opened. It was a small but lively place. One couple sat down to share a booth with a fellow they didn't know. I could hear them talking about the rugby that was on the TV.
 
 There was also an old dog in the pub (maybe a spaniel?). She was desperate to make friends. Sometimes she'd be lying on the floor and look dead to the world except for a furiously thumping tail. Two patrons gave her much appreciated scratches.
+
+We had two whisky drams of unremembered age: Highland Park and [Jura (pronunciation)](https://www.youtube.com/watch?v=qz_ZTwrv0Jk&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=29). Both good, but we both preferred Jura.

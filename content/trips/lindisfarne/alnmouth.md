@@ -22,13 +22,13 @@ The day started fine. We were on the road close to 9h and, thanks to some great 
 
 We wished we could have stayed longer. If I were to do this again, I would have us stay overnight in Bamburgh.
 
-We hurried on to our lunch stop at Seahouses. I thought we'd be OK as long as we left by 12h30. Two hours to go 30km seemed reasonable. I had not factored in the wind, but we'll get to that later.
+We hurried on to our lunch stop at Seahouses. I thought we'd be OK as long as we left by 12h30. Two hours to go 30km seemed reasonable. I had not factored in the wind, a critical error.
 
-We struggled to find a place to eat. Many places were closed. [Neptune's Fish & Chips](https://maps.app.goo.gl/3qVw97fMzhbxDyn9A) was the winner.
+We struggled to find a place to eat as many were closed or not serving lunch. Eventually, [Neptune's Fish & Chips](https://maps.app.goo.gl/3qVw97fMzhbxDyn9A) was the winner. We've learned to share pub-portioned food and half a fish & chips (however delicious it may be) is more than enough for a lunch stop.
 
-Back on the road, the wind started working against us. I felt completely out of energy by 14h but was determined not to miss another train.
+Back on the road, the wind started working against us. I felt completely out of energy by 14h but was determined not to miss another train (see [Hexham, Bike Day 3](./trips/hexham/#bike-day-3)).
 
-We decided to skip the planned off-road coastal portion of the ride and stuck to the road. This made the journey longer and, although we were on a better surface, it didn't feel like we were getting much more protection from the wind.
+We decided to skip the planned off-road coastal portion of the ride and stick to the road, in an attempt to avoid the worst of the wind. This made the journey longer, and the wind was still pretty angry at us.
 
 Desperately tired and defeated, we limped to Alnmouth ten minutes late for our train - only to find the train station wasn't actually properly marked at the end of our route. We were still several kilometres away from it.
 
@@ -39,4 +39,4 @@ Alnmouth train station is actually in Hipsburn, 1.6 km west of the Alnmouth city
 
 </details>
 
-A solid 45 minutes late in the end. Good thing our LNER train was running over an hour late :)
+In the end, we arrived at the station a solid 45 minutes late for our scheduled departure. But as luck would have it, our train was running over an hour late, so we caught it despite ourselves.

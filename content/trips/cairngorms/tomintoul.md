@@ -6,7 +6,7 @@ descent: 610
 end: Tomintoul
 kilometres: 44
 permalink: false
-sidetrip_duration: '2:49:0'
+sidetrip_duration: "2:49:0"
 sidetrip_km: 34
 start: Candacraig
 tags: cairngorms
@@ -37,3 +37,7 @@ We were unable to find a place to warm up in Tomintoul with the bikes so went a 
 </figure>
 
 We even got a beautiful rainbow on arrival.
+
+And the next day, we visited [The Glenlivet (pronunciation)](https://www.youtube.com/watch?v=4fZWvnopKxM&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=41) distillery.
+
+10/10, would visit again (both yurt and distillery).
