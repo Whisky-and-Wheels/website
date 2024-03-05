@@ -33,6 +33,6 @@ Very skillful navigating by Jack through Newcastle City Center. We arrived, exha
 
 I had misremembered the time. Our train was actually at 16:26. We'd missed it by two minutes. Devastating.
 
-Thankfully, there are lots of trains from Newcastle to Durham on any given day, so all was not lost, But was a long, cold wait in the open air station for the 17:30 train.
+Thankfully, there are lots of trains from Newcastle to Durham on any given day, so all was not lost but was a long, cold wait in the open-air station for the 17:30 train.
 
-**_Postscript_**: _Sadly, the beautiful old Sycamore was felled on 28 September 2023 (reasons and perpetrators unknown as of the time of writing, February 2024)._
+**_Postscript_**: _Sadly, the beautiful old Sycamore gap tree was felled on 28 September 2023 (reasons and perpetrators unknown as of the time of writing, February 2024)._

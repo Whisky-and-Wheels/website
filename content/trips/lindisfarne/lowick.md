@@ -39,7 +39,7 @@ Cafe stop for cheese scones and rock-hard butter ([Pilgrims Coffee House & Roast
 
 Lindisfarne is a tidal island located on the northeast coast of England. The island was famous for its saint bishop, Saint Cuthbert. In 793 the Vikings raided the island, which was the first recorded raid in England (Archeological record shows that there had been much earlier visits by Vikings to Shetland and the Outer Hebrides.). The monks that have left the island after continuous raids have first founded the church in Chester-le-Street and then founded the Durham Cathedral. According to the story (by an elderly tour guide at the Durham Cathedral), while trying to find a resting place for St. Cuthbert's bones, a cow led the monks to the location where the Cathedral stands to this day. Perhaps that's the reason why the street is called Dun Cow Lane. This is not very unrealistic tho, at the time this region was full of cattle herders.
 
-Lindisfarne has also been featured in the historic fiction show [Vikings](https://www.history.com/shows/vikings)](<https://www.history.com/shows/vikings>).
+Lindisfarne has also been featured in the historical fiction show [Vikings](https://www.history.com/shows/vikings).
 
 </details>
 
@@ -53,10 +53,10 @@ Since the causeway would no longer be safe by 17h, we decided to head out early 
 
 We hit our only significant hills on this part of the journey and it was quite devastating to arrive early only to find the pub was closed till 16:30 ([The White Swan Inn](https://maps.app.goo.gl/9CvE79oFTFM4fp6y5)).
 
-We had two hours to kill in the cold outdoors. We sheltered in a bus stop on the main street. It was very difficult but at least we were motivated to do some stretches to stay warm. Hopefully, that will pay off tomorrow.
+We had two hours to kill in the cold outdoors. We sheltered at a bus stop on the main street. It was very difficult but at least we were motivated to do some stretches to stay warm. Hopefully, that will pay off tomorrow.
 
 Online searching showed the only other pub in the vicinity opened at 16h ([The Black Bull Inn](https://maps.app.goo.gl/RvDNp8YJXvwM6yGJ8)). We walked up together and went in as it opened. It was a small but lively place. One couple sat down to share a booth with a fellow they didn't know. I could hear them talking about the rugby that was on the TV.
 
 There was also an old dog in the pub (maybe a spaniel?). She was desperate to make friends. Sometimes she'd be lying on the floor and look dead to the world except for a furiously thumping tail. Two patrons gave her much appreciated scratches.
 
-We had two whisky drams of unremembered age: Highland Park and [Jura (pronunciation)](https://www.youtube.com/watch?v=qz_ZTwrv0Jk&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=29). Both good, but we both preferred Jura.
+We had two whisky drams of unremembered age: Highland Park and [Jura (pronunciation)](https://www.youtube.com/watch?v=qz_ZTwrv0Jk&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=29). Both were good, but we both preferred Jura.

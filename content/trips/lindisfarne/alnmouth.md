@@ -35,7 +35,7 @@ Desperately tired and defeated, we limped to Alnmouth ten minutes late for our t
 <details class="stack">
 <summary>Alnmouth train station</summary>
 
-Alnmouth train station is actually in Hipsburn, 1.6 km west of the Alnmouth city centre. The reason is probably due to the location of Alnmouth which is surrounded by Aln River.
+Alnmouth train station is actually in Hipsburn, 1.6 km west of the Alnmouth city centre. The reason is probably due to the location of Alnmouth which is surrounded by the Aln River.
 
 </details>
 

@@ -26,7 +26,7 @@ Tricksy sun then disappeared and we nearly froze trying to eat our Co-op sandwic
 
 The museum attached to the cafe was excellent. They've found so much stuff on this site! It was not so pleasant walking back through the ruins in the wind and cold but I'm glad we went.
 
-No energy left to visit Sycamore Gap before dinner. Discovered [delicious cherry stout beer called Nox](https://www.twicebrewed.co.uk/product/nox-cherry-milk-stout-5-500ml-bottle-6/) (picked up a few more bottles for home consumption). Then it was time for the main event: stargazing!
+No energy left to visit Sycamore Gap before dinner. Discovered a [delicious cherry stout beer called Nox](https://www.twicebrewed.co.uk/product/nox-cherry-milk-stout-5-500ml-bottle-6/) (picked up a few more bottles for home consumption). Then it was time for the main event: stargazing!
 
 Now, it had been a very cloudy, occasionally rainy day, so expectations were low. But Wil (host, astronomical fellow) and Thea (stargazing assistant by night, electrical engineer by day) put on a great event.
 
