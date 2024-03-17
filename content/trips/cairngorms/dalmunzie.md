@@ -14,12 +14,12 @@ title: Dalmunzie
 total_duration: '5:55:00'
 ---
 
-We barely survived the first ride. Google Maps took us off road for the last 12km or so. We had done very well with the first bit on undulating and zigzagging asphalt road. We were completely unprepared for the [Cateran trail](https://www.pkct.org/cateran-trail).
+We barely survived the first ride. Google Maps took us off road for the last 12 km (7.46 miles) or so. We had done very well with the first bit on undulating and zigzagging asphalt road. We were completely unprepared for the [Cateran trail](https://www.pkct.org/cateran-trail).
 
 _Trail_ is a generous word. There were occasional signposts and the merest wisp of a path through the grass. For two hours we saw nothing but mountains and sheep.
 
 <div class="grid" style="--column-gutter: var(--space-xs); --grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); --grid-template-rows: auto;">
-{% image "img/asphalt.jpeg", "Red bike loaded with two pannier bags, looking out on a long, smooth asphalt road. Cloud-topped mountains loom in distance." %}
+{% image "img/asphalt.jpeg", "Red bike loaded with two pannier bags, looking out on a long, smooth asphalt road. Cloud-topped mountains loom in the distance." %}
 {% image "img/cairngorms.jpeg", "Looking over the edge of a rolling green hill into a small, distant village." %}
 </div>
 
@@ -32,14 +32,14 @@ Never trust the maps of Google
 <figcaption>Holland-Araz family motto</figcaption>
 </figure>
 
-Jack made the call to ignore Google and stick to the marked trail, which was wise. I reached the signpost we had designated as a re-grouping point first and called Dalmunzie, our hotel.
+Jack made the call to ignore Google and stick to the "marked trail", which was wise. I reached the signpost we had designated as a re-grouping point first and called Dalmunzie, our hotel, which was the only point we had a cell signal.
 
-There are no words to express the relief I felt when I told the receptionist we were on the Cateran trail and she said, “Oh, I know exactly where you are.” That made one of us. We had stopped about 30ft from the peak and on the other side, a rocky downhill slope led to the road and Dalmunzie hotel.
+There are no words to express the relief I felt when I told the receptionist we were on the Cateran trail and she said, “Oh, I know exactly where you are.” That made one of us. We had stopped about 30ft from the peak and, on the other side, a rocky downhill slope led to the road and Dalmunzie Hotel.
 
 <figure class="float-left">
 {% image "img/descent.jpeg", "Walking our bikes down the steep and gravelly Cateran mountain trail path towards Dalmunzie hotel." %}
 </figure>
 
-We limped to Dalmunzie. Jack collapsed on the grass outside and I went to reception to check-in. When I came out, he was still on the ground.
+We limped to Dalmunzie. Jack collapsed on the grass outside and I went to reception to check in. When I came out, he was still on the ground.
 
-I said the warranty on a new husband must still be good. I should trade him in for a newer model. He said they wouldn't take him back. His condition was due to user fault.
+I said the warranty on a new husband must still be good. I should trade him in for a newer model. He said they wouldn't take him back. His condition was due to the user's fault.

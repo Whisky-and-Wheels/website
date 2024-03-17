@@ -22,6 +22,8 @@ total_elevation: 500m
 
 The banks of Loch Lomond are still bonnie when one has a cold, but that's not much comfort.<!-- excerpt --> This was a tough one.
 
-We had been in Paris during the week for Jack's work. We weren't sure the trains would run to get us to the airport Friday morning, but they did.
+We had been in Paris during the week for Jack's work. There was lots of talk of train strikes for the day we were scheduled to fly out.
 
-It was a whirlwind day of travel and un-packing and re-packing and more travel. We arrived in Balloch after dark and rode a short ways to the B&B.
+Thankfully, the trains ran and the flight was on time and we were back in Durham before we knew it.
+
+But it was a whirlwind day of travel and un-packing and re-packing and more travel. We arrived in Balloch after dark and rode a short ways to the B&B.

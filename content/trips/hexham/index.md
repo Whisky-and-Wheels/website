@@ -22,7 +22,7 @@ total_duration: 08:06:02
 total_elevation: 500m
 ---
 
-Our first bike adventure of 2023 began in darkness.<!-- excerpt --> Winter trips in the Northern hemisphere mean early sunsets and require good lights.
+Our first bike adventure of 2023 began in darkness.<!-- excerpt --> Winter trips in the Northern Hemisphere mean early sunsets and require good lights.
 
 {% image "img/hexham.jpeg", "Biking into the dying sun" %}
 

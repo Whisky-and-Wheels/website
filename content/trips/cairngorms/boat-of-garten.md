@@ -16,7 +16,7 @@ total_duration: '1:58:00'
 
 {% image "img/road-to-boat-of-garten.jpeg", "Two lane road winding along rolling green hills dotted with heather on a sunny day.'" %}
 
-Bullet points only:
+Too tired for full sentences. Bullet points only:
 
 - Off at 10h30-ish
 - High, windy biking
@@ -24,7 +24,7 @@ Bullet points only:
 - Nice forest section
 - Jack wants new legs
 - Boat of Garten! Drop bags
-- Buy train tickets to Aviemore (Ah-vee-more)
+- Buy train tickets to Aviemore (pronounced _Ah-vee-more_)
 - Round trip Aviemore to Broomhill (with tea and extra scones!)
 - 40min bike back, off road bits otherworldly
 - Bikes stored

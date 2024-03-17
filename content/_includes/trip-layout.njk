@@ -132,7 +132,7 @@
                                     <td>{{ descent }}m</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Biking time</th>
+                                    <th scope="row">Bike time</th>
                                     <td>{{ total_duration }}</td>
                                 </tr>
                             </tbody>
@@ -145,10 +145,10 @@
                 {% if name %}
                     <div class="stack">
                         {% for day in collections[name] %}
-                            <section data-trip-content="{{ day.data.title | lower }}" class="stack">
+                            <section id="bike-day-{{ loop.index }}" data-trip-content="{{ day.data.title | lower }}" class="stack">
                                 <header class="stack">
                                     <h2>{{ day.data.title }}</h2>
-                                    <h3>Day {{ loop.index }}</h3>
+                                    <h3>Bike Day {{ loop.index }}</h3>
                                 </header>
                                 <table class="stats">
                                     <tbody>
@@ -169,7 +169,7 @@
                                             <td>{{ day.data.descent }}m</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">Biking time</th>
+                                            <th scope="row">Bike time</th>
                                             <td>{{ day.data.total_duration }}</td>
                                         </tr>
                                     </tbody>
