@@ -22,7 +22,7 @@ Not terribly difficult first peak on way to [Tomintoul (pronunciation)](https://
 
 Clouded over, windy, and threatening a storm. We thought we reached the top only to find a slight decline followed by another peak.
 
-Stopped at Lecht cafe (highest roadside bar in Scotland, according to the sign out front) for much-needed hot drinks and Jack’s treat: donuts.
+Stopped at [Lecht cafe](https://maps.app.goo.gl/ATc1e5VLgsE4Rw9e9) (the highest roadside bar in Scotland, according to the sign-out front) for much-needed hot drinks and Jack’s treat: donuts.
 
 <figure class="float-right">
 {% image "img/lecht.jpeg", "Inside a large rustic ski center, looking out the big window to the top of the Lecht. Bikes parked outside by a bench. Hot drinks and a container of two donuts sit on the windowsill." %}

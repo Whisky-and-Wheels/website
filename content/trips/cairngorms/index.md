@@ -23,7 +23,7 @@ total_duration: 1-09:00:00
 
 This was a delightful series of mistakes we will never forget.<!-- excerpt --> We got engaged in Edinburgh and wanted to see more of Scotland for a honeymoon trip. But we couldn't decide on a single location for the trip.
 
-In the end, we picked a general area, the [Cairngorms](https://www.visitcairngorms.com/), and planned an ambitious bike trip around it. We had only done a few weekend trips at this point, with no experience biking in Scottish hills. Normally, we aim for 50km on a bike day but we tried to avoid over 30km most days for this trip (with one spectacular failure in this regard).
+In the end, we picked a general area, the [Cairngorms](https://www.visitcairngorms.com/), and planned an ambitious bike trip around it. We had only done a few weekend trips at this point, with no experience biking in Scottish hills. Normally, we aim for 50 km (31.07 miles) on a bike day but we tried to avoid over 30 km (18.64 miles) most days for this trip (with one spectacular failure in this regard).
 
 We were very careless with several crucial factors:
 

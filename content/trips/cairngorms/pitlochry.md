@@ -18,11 +18,11 @@ My back tire punctured somewhere on the way home from the [House of Bruar](https
 
 Relatively easy ride to Pitlochry (once Jack pumped my tire back to life). I passed Jack going up a hill. Man watching from the bus stop told him he would need a motor to keep up with me. Jack said he wanted to tie a rope to my bike and get towed.
 
-Drinks and lunch at Old Mill Inn (not a working mill, Jack noted with disappointment). We wandered over to the station early and I bought some books from the [second-hand bookshop](https://www.pitlochrystationbookshop.co.uk/).
+Drinks and lunch at [Old Mill Inn](https://maps.app.goo.gl/yJciK3L9YMKQ4DvA9) (not a working mill, Jack noted with disappointment). We wandered over to the station early and I bought some books from the [second-hand bookshop](https://www.pitlochrystationbookshop.co.uk/).
 
 {% image "img/pitlochry-station.jpeg", "A charming blue and white railway station, with an arched bridge connecting the two platforms. A signpost at the gate for National Cycle Route 7 points to Glasgow in one direction and Inverness in the other." %}
 
-Devastation upon train’s arrival. It was packed. People sitting all over our cycle rack. An old lady disembarking took one look at our bikes, laughed, and muttered, “Not a chance.”
+Devastation upon the train’s arrival. It was packed. People sitting all over our cycle rack. An old lady disembarking took one look at our bikes, laughed, and muttered, “Not a chance.”
 
 <figure>
 <blockquote>
