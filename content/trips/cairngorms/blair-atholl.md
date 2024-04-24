@@ -24,7 +24,7 @@ There were lots of options if we wanted to stop further North, but we had to cat
 <blockquote>
 Yeah.
 </blockquote>
-<figcaption>Jack (on being asked if we could bike over 90km in a day)</figcaption>
+<figcaption>Jack (on being asked if we could bike 90 km (55.92 miles) in a day)</figcaption>
 </figure>
 
 We left closer to 10h than 9h30. Jack immediately felt weak. Not sore. Just not able to push pedals at all. I didn’t know what to do about this other than go slow and take breaks as needed.
@@ -35,7 +35,7 @@ There were no plaques on the exhibits so it was great to have him give us the ru
 
 We got back on the road and arrived at Dalwhinnie Distillery around 15h30. Jack was still having a lot of trouble.
 
-I bought a small 15-year Dalwhinnie to taste later and went down the road to the Snack Shack, which was easily our most disappointing pit stop. However, it seemed to give Jack his second wind (eventually).
+I bought a small 15-year [Dalwhinnie (pronunciation)](https://www.youtube.com/watch?v=FqHAT7wlveI&list=PL6TwbysAXiWKQfv9GFWwsGhyjeMDShAqp&index=25) to taste later and went down the road to the Snack Shack, which was easily our most disappointing pit stop. The waitress was chasing two ducks stealing customer's meals, which was not happening for the first time! However, it seemed to give Jack his second wind (eventually).
 
 We were assisted by several long downhill slopes. The weather remained beautiful and we had some excellent views of the mountains and a winding river and horse pastures.
 

@@ -45,6 +45,7 @@ module.exports = function (eleventyConfig) {
             loading: "lazy",
             decoding: "async",
             class: classes,
+            media: "(min-width: 78rem)",
         };
 
         // You bet we throw an error on a missing alt (alt="" works okay)
