@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-08-08
-title: Elgol
-kilometres: 47.5
-start: Sligachan
-end: Elgol
-average_speed: 14.0
-total_duration: "3:23:01"
 ascent: 549
+average_speed: 14.0
+date: 2023-08-08
 descent: 462
+end: Elgol
+kilometres: 47
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Sligachan
+tags: outer-hebrides-skye
+title: Elgol
+total_duration: '3:23:01'
 ---
 
 The ride from Sligachan to Broadford is mostly good but busy. Weather great. Roads are relatively flat, if a little more single-track than I like.

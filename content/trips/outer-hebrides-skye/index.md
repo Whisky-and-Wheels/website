@@ -1,13 +1,13 @@
 ---
-ascent: 2350
-average_speed: 10.8
+ascent: 3866
+average_speed: 15.2
 date: 2023-07-28
 days: 16
-descent: 2190
+descent: 3937
 end: Armadale
 image_alt: Looking over the edge of a rolling green hill into a small, distant village
 image_file: cairngorms
-kilometres: 345
+kilometres: 457
 layout: trip-layout.njk
 name: outer-hebrides-skye
 sidetrip_duration: 0:0:0
@@ -17,7 +17,7 @@ start: Castlebay
 subtitle: Wherein we learn our gear is not Scotland-proof
 tags: trip
 title: Outer Hebrides and Skye
-total_duration: 1-09:00:00
+total_duration: 1-06:44:05
 ---
 
 We've never had particularly graceful departures, but this one was the roughest yet: our bikes were vandalised two days before the trip and Jack had a terrible fall in the rain the morning of our first travel day.  

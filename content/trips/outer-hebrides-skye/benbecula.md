@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-07-29
-title: Benbecula
-kilometres: 58.8
-start: North Bay
-end: Benbecula
-average_speed: 20.4
-total_duration: "2:53:17"
 ascent: 285
+average_speed: 20.4
+date: 2023-07-29
 descent: 281
+end: Benbecula
+kilometres: 58
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: North Bay
+tags: outer-hebrides-skye
+title: Benbecula
+total_duration: '2:53:17'
 ---
 
 Luckily, our B&B owner was well-stocked for first aid and had two large bandages to spare. Jack said changing the bandage to this new one felt like changing out of 5-day-old underwear.

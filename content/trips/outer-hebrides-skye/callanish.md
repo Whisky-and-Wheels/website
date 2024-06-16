@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-08-04
-title: Callanish
-kilometres: 60.1
-start: Tarbert
-end: Callanish
-average_speed: 14.9
-total_duration: "4:01:52"
 ascent: 658
+average_speed: 14.9
+date: 2023-08-04
 descent: 677
+end: Callanish
+kilometres: 60
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Tarbert
+tags: outer-hebrides-skye
+title: Callanish
+total_duration: '4:01:52'
 ---
 
 Harris Hotel was very nice. Wish we had an extra day there, especially since they had a laundry service and we are constantly dirtying our clothes quicker than we can clean them.

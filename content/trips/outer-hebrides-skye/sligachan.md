@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-08-06
-title: Sligachan
-kilometres: 85.3
-start: Callanish
-end: Sligachan
-average_speed: 15.0
-total_duration: "5:42:22"
 ascent: 1027
+average_speed: 14.9
+date: 2023-08-06
 descent: 1036
+end: Sligachan
+kilometres: 85
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Callanish
+tags: outer-hebrides-skye
+title: Sligachan
+total_duration: '5:42:22'
 ---
 
 We had a very pleasant bike to Stornoway and made such a good time we had to kill 2 hours before our transport back to Tarbert. We did this at Lews Castle, which was a good choice because it rained on and off and they had a generously sized entrance to keep us dry and warm.

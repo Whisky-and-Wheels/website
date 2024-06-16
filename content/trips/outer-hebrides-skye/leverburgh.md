@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-07-31
-title: Leverburgh
-kilometres: 54.8
-start: Benbecula
-end: Leverburgh
-average_speed: 13.8
-total_duration: "3:57:50"
 ascent: 323
+average_speed: 13.8
+date: 2023-07-31
 descent: 315
+end: Leverburgh
+kilometres: 54
 permalink: false
+sidetrip_duration: '3:32:48'
+sidetrip_km: 50
+start: Benbecula
+tags: outer-hebrides-skye
+title: Leverburgh
+total_duration: '3:57:50'
 ---
 
 *Dreich*. All day.

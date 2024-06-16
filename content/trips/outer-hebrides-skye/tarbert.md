@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-08-03
-title: Tarbert
-kilometres: 39.5
-start: Leverburgh
-end: Tarbert
-average_speed: 13.2
-total_duration: "3:00:06"
 ascent: 453
+average_speed: 13.2
+date: 2023-08-03
 descent: 471
+end: Tarbert
+kilometres: 39
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Leverburgh
+tags: outer-hebrides-skye
+title: Tarbert
+total_duration: '3:00:06'
 ---
 
 We had planned a longer stay in Leverburgh to leave time for the two-day window required when booking a St. Kilda trip. Unfortunately, the winds were too strong on both days, so the trip was canceled.

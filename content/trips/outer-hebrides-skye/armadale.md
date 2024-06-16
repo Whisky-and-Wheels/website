@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
-date: 2023-08-11
-title: Armadale
-kilometres: 48.1
-start: Elgol
-end: Armadale
-average_speed: 14.0
-total_duration: "3:25:39"
 ascent: 468
+average_speed: 14.0
+date: 2023-08-11
 descent: 595
+end: Armadale
+kilometres: 48
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Elgol
+tags: outer-hebrides-skye
+title: Armadale
+total_duration: '3:25:39'
 ---
 
 Jack says it takes 15.5 days to kill him. He is dead.
