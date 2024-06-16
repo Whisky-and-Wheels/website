@@ -1,15 +1,17 @@
 ---
-tags: outer-hebrides-skye
+ascent: 103
+average_speed: 16.7
 date: 2023-07-28
-title: North Bay
-kilometres: 76.8
-start: Castlebay
+descent: 100
 end: North Bay
-average_speed: 15.1
-total_duration: "5:15:40"
-ascent: 468
-descent: 490
+kilometres: 13
 permalink: false
+sidetrip_duration: 0:0:0
+sidetrip_km: 0
+start: Castlebay
+tags: outer-hebrides-skye
+title: North Bay
+total_duration: 0:47:10
 ---
 
 Surprisingly catastrophe-free journey from Glasgow to Barra. Train on time. Ferry on time. Not a terribly long bike to North Bay. Not too rainy. And a *fantastic* dinner at Tigh Grianach.
