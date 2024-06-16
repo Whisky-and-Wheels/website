@@ -2,13 +2,13 @@
 tags: outer-hebrides-skye
 date: 2023-07-31
 title: Leverburgh
-kilometres: 76.8
+kilometres: 54.8
 start: Benbecula
 end: Leverburgh
-average_speed: 15.1
-total_duration: "5:15:40"
-ascent: 468
-descent: 490
+average_speed: 13.8
+total_duration: "3:57:50"
+ascent: 323
+descent: 315
 permalink: false
 ---
 
@@ -20,9 +20,9 @@ Technically, we biked; it felt more like swimming.
 
 We were still making fairly good time about halfway through. Then we stalled going over a long hill and never really recovered our energy. It was cold and wet when we arrived at the shores that led to Vallay.
 
-We briefly considered waiting for low tide, but with 20km to go and no cafe in sight to warm us up, we abandoned that plan and continued on to Berneray.
+We briefly considered waiting for low tide, but with 20km to go and no cafe in sight to warm us up, we abandoned that plan and continued to Berneray.
 
-It was the right choice because it took two hours for us to finish the bike ride, with miserable weather the entire way and more cars than I like to see on single track roads. 
+It was the right choice because it took two hours for us to finish the bike ride, with miserable weather the entire way and more cars than I like to see on single-track roads.
 
 Waiting for the ferry, we saw our bike twins— a couple we have encountered twice before already (at Barra and Daliburgh). It was doubly funny when we went separate ways in Leverburgh, only to see them again at the community stop, getting dinner. Who knows how many more times we will cross paths?
 

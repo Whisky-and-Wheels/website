@@ -2,13 +2,13 @@
 tags: outer-hebrides-skye
 date: 2023-07-28
 title: North Bay
-kilometres: 76.8
+kilometres: 13.1
 start: Castlebay
 end: North Bay
 average_speed: 15.1
-total_duration: "5:15:40"
-ascent: 468
-descent: 490
+total_duration: "0:47:10"
+ascent: 103
+descent: 100
 permalink: false
 ---
 
