@@ -1,6 +1,6 @@
 ---
 tags: outer-hebrides-skye
-date: 2023-08-06
+date: 2023-08-11
 title: Armadale
 kilometres: 76.8
 start: Elgol
@@ -11,3 +11,11 @@ ascent: 468
 descent: 490
 permalink: false
 ---
+
+Jack says it takes 15.5 days to kill him. He is dead.
+
+More accurately, he was dead about halfway through today’s ride but we managed to suffer through and catch the ferry anyway. I felt bad for him. I would have towed him if I could. I know things have gotten grim if he doesn’t even have the energy to complain. But we made it.
+
+On the plus side, this ride had a lovely bike path running parallel to the main road for a significant stretch along the Sleat peninsula. This was particularly appreciated because there are a good number of large vehicles speeding along the road to and from the ferry. Biking alongside transport trucks is never fun. 
+
+If we come back to this part of Scotland (and we’d like to), I would want to find more routes that keep us off the main roads.

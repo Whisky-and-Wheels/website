@@ -2,7 +2,7 @@
 ascent: 2350
 average_speed: 10.8
 date: 2023-07-28
-days: 14
+days: 16
 descent: 2190
 end: Armadale
 image_alt: Looking over the edge of a rolling green hill into a small, distant village

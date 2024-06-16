@@ -31,3 +31,15 @@ The sun had gone down and we’d had a frantic Co-op stop in Portree because it 
 That last half hour of the bike in darkness and hunger with no real sense of remaining distance was as brutal as anything we’ve ever done.
 
 On the plus side, we were immediately blown away by the beauty of Skye. We stopped at Kilt Rock coastline and waved at the Old Man of Storr as the sun was setting.
+
+<details class="stack">
+<summary>A hike to the Faerie Pools</summary>
+
+Off-bike day activities included an 18km round trip hike from Sligachan Hotel to the Faerie Pools. Another exhausting but rewarding day. We saw no one on the hike there and not too many on the hike back. There are the most amazing hills all around throughout the journey, some grey and menacingly sharp-peaked, others green and pleasantly rounded.
+
+We looped around the far end of the pools first. Moving closer to the car park meant more and more people. It was nice that we found some more secluded spots away from the crowd but really, even a crowd can’t ruin the experience. 
+
+The Faerie Pools are genuinely stunning. Clear water rushing over falls, swirling about in eddies, and pooling invitingly in sheltered coves (yes, a few people were in the water).
+
+10/10. Would highly recommend a visit.
+</details>
