@@ -41,6 +41,6 @@ At the hotel, I was delighted to find our room had a bathtub and took full advan
 <details class="stack">
 <summary>Lorna's Larder</summary>
 
-At the time we wrote this piece, we realised that Lorna's Larder was permanently closed. What a shame, it was a lifesaver. [Hotel](https://maps.app.goo.gl/9JTuHhTH3CKQExDX8) Hebrides](<https://maps.app.goo.gl/9JTuHhTH3CKQExDX8>) has a wee pub though, which we realised when we came back to Tarbert after Callanish.
+At the time we wrote this piece, we realised that Lorna's Larder was permanently closed. What a shame, it was a lifesaver. [Hotel Hebrides](<https://maps.app.goo.gl/9JTuHhTH3CKQExDX8>) has a wee pub though, which we realised when we came back to Tarbert after Callanish.
 
 </details>
