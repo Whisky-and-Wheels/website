@@ -6,7 +6,7 @@ days: 16
 descent: 3937
 end: Armadale
 image_alt: Looking over the edge of a rolling green hill into a small, distant village
-image_file: cairngorms
+image_file: outer-hebrides-skye
 kilometres: 457
 layout: trip-layout.njk
 name: outer-hebrides-skye
@@ -16,7 +16,7 @@ social: outer-hebrides-skye.jpg
 start: Castlebay
 subtitle: Wherein we learn our gear is not Scotland-proof
 tags: trip
-title: Outer Hebrides and Skye
+title: Outer Hebrides & Skye
 total_duration: 1-06:44:05
 ---
 
