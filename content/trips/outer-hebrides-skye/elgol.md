@@ -20,15 +20,18 @@ One section was very strange. A police car parked diagonally across the two lane
 
 When we stopped at [Siaway](https://maps.app.goo.gl/Ge9hjRF5N6o3y8Qn8) for a lunch break, we learned the reason. A vehicle with an abnormal load (a large circular thing protruding beyond a single lane of traffic) came through and things returned to normal after that.
 
-We also randomly saw a Formula One-type car. It was an odd day.
-
-Broadford to Elgol was much quieter, away from the main traffic on the peninsula. Towards the end of the ride, we hit some big hills and I stopped near the top of one, next to a [cemetery](https://maps.app.goo.gl/feEzbDiw6bqagB4A8), waiting for Jack.
+Broadford to Elgol was much quieter, away from the main traffic. Towards the end of the ride, we hit some big hills and I stopped near the top of one, next to a [cemetery](https://maps.app.goo.gl/feEzbDiw6bqagB4A8), waiting for Jack.
 
 As he approached, I gave him an encouraging smile and said, “We’re nearly there!”
 
 He nodded at the graveyard in reply: “We’re nearly *there*.”
 
-[Coriusk House](https://maps.app.goo.gl/hQuhQ6gxmzbzazkh9) food is as delicious as I remember (delicious enough to forget the wifi is spotty). Dinner was a 2-hour affair of four courses:
+<figure>
+<blockquote><span>We’re nearly <em>there</em>.</span></blockquote>
+<figcaption>Jack, nodding towards graveyard</figcaption>
+</figure>
+
+[Coriusk House](https://maps.app.goo.gl/hQuhQ6gxmzbzazkh9) food is as delicious as I remember (delicious enough to forget the wifi is spotty). Dinner was a two-hour affair of four courses:
 
 - Chanterelle soup
 - Smoked haddock mousse, scallops and langoustine

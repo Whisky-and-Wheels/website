@@ -16,13 +16,15 @@ total_duration: '3:00:06'
 
 We had planned a longer stay in Leverburgh to leave time for the two-day window required when booking a St. Kilda trip. Unfortunately, the winds were too strong on both days, so the trip was canceled.
 
-After hearing the disappointing news, one of our B&B hosts, Polly, brought out a little Puffin stuffy, saying she wanted me to see a Puffin, which was very sweet. Apparently, her mum is puffin-mad and they have all sorts of Puffin-themed things about. As it happened, this was the only puffin I saw on the trip. Also, Jack absolutely loved Polly's breakfast mushrooms...
+After hearing the disappointing news, one of our B&B hosts, Polly, brought out a little Puffin stuffy, saying she wanted me to see a Puffin, which was very sweet. Apparently, her mum is puffin-mad and they have all sorts of Puffin-themed things about. As it happened, this was the only puffin I saw on the trip.
 
 <figure class="float-right">
 {% image "img/puffin.jpeg", "A very cute but very not-real puffin stuffy on the kitchen counter." %}
 </figure>
 
-A very blustery start to the day. We saw lots of great holiday cottages and clamping pods along the way to Tarbert. The wind made it tough at points but the views were incredible.
+We intend to return someday to try our luck with St. Kilda again. Jack would come back solely for the mushrooms Polly makes for breakfast.
+
+Our bike trip to Tarbert was very blustery. We saw lots of great holiday cottages and glamping pods along the way. The wind made it tough at points but the views were incredible.
 
 We detoured out to Luskentyre Beach, which was as stunning as advertised but distinctly lacking in cafes. Later, we arrived at Harris Hotel just after they stopped serving lunch.
 
