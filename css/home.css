@@ -7,6 +7,20 @@
     width: 100%;
   }
 
+  .featured-banner {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+
+    svg {
+      width: 100%;
+      fill: none;
+      stroke: currentColor;
+    }
+  } 
+
   @media screen and (width > 35rem) {
     main {
       align-items: start;

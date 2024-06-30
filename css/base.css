@@ -110,6 +110,10 @@
         }
     }
 
+    html {
+        overscroll-behavior: none; /* stop scroll bounce */
+    }
+
     body {
         min-height: 100vh;
         display: grid;
@@ -125,6 +129,59 @@
     ::selection {
         background-color: var(--color-selection-background, var(--color-accent));
         color: var(--color-selection-text, var(--color-neutral-dark));
+    }
+
+    .top-nav {
+        height: 100%;
+        position: relative;
+        isolation: isolate;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 100%;
+            display: block;
+            background: var(--color-neutral-dark);
+            position: absolute;
+            z-index: -1;
+        }
+
+        &::before {
+            height: 60%;
+            top: 0;
+        }
+
+        &::after {
+            height: 25%;
+            bottom: 0;
+        }
+
+        ul {
+            list-style: "";
+            padding-inline-start: 0;
+            display: flex;
+            justify-content: end;
+            gap: var(--space-2xs-xs);
+        }
+    }
+
+    .top-nav__link {
+        padding-inline: var(--space-3xs);
+        color: var(--color-neutral-light);
+        background-color: var(--color-neutral-dark);
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-neutral-light);
+            color: var(--color-neutral-dark);
+        }
     }
 
     header {
@@ -450,7 +507,7 @@
 
 @layer theme {
 
-    /* default to scotland theme */
+    /* default to thistle theme */
     /* - fallbacks grabbed from https://oklch.com/ color picker */
     /* - not exactly accurate to oklab() colors, but close enough */
     :root {
@@ -467,5 +524,11 @@
         --color-accent-dark: var(--oklab-green-dark, #006c15);
         --color-neutral-light: #ffffff;
         /* a themed white-green looks sickly */
+    }
+
+    [data-theme="thistle"] {
+        --color-accent: thistle;
+        --color-accent-light: var(--oklab-scotland-light, #ede1ea);
+        --color-accent-dark: var(--oklch-scotland-dark, #6f5478);
     }
 }
