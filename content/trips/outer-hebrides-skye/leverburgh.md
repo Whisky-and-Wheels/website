@@ -37,7 +37,7 @@ Jack thinks we should start looking for clothes that are *Scotland-proof*. Regul
 <details class="class">
 <summary>Northton Beach</summary>
 
-On the way to Northton Beach, we stopped at a lovely little visitor centre and Croft 36, a cafe with lots of little baked goods and soup with a cash box for payment. Then we went on to find a beautiful stone building (a restaurant, only open Thursday to Saturday). We ate looking over the water and hills.
+On the way to Northton Beach, we stopped at a lovely little visitor centre and [Croft 36](https://maps.app.goo.gl/ikEfnQdtrKuRvrpx7), a cafe with lots of little baked goods and soup with a cash box for payment. Then we went on to find a beautiful stone building (a restaurant, only open Thursday to Saturday). We ate looking over the water and hills.
 
 Finally, the beach.
 
@@ -49,9 +49,9 @@ It was busy by Hebridean standards, maybe 12 people on sand and in water. Jack a
 
 The hour ferry between Berneray and Leverburgh takes a big chunk of the day but the wind can take a piece of your soul.
 
-We didn’t have it too bad getting down to Sollas. Soon, we were in the parking lot leading to the sandy sea floor approaching low tide. We started biking and didn’t get far before a sizeable river of water gave us enough concern to dismount and remove our shoes.
+We didn’t have it too bad getting down to Sollas. Soon, we were in the parking lot leading to [the sandy sea floor approaching low tide](https://maps.app.goo.gl/dS8AxHZ9hzZqUAYQ9). We started biking and didn’t get far before a sizeable river of water gave us enough concern to dismount and remove our shoes.
 
-Walking and pushing our bikes took over half an hour and it felt longer with the wind pushing back. The views were impeccable, with sand ripples and Vallay isle ruins in the distance. 
+Walking and pushing our bikes took over half an hour and it felt longer with the wind pushing back. The views were impeccable, with sand ripples and Vallay isle ruins in the distance.
 
 We passed some walkers who were on their way back. They asked if we needed any info about the tide schedule. We said we would have a quick lunch and head straight back, but it made me wonder if the tide came in faster than expected and we were setting ourselves up for another drenching.
 
@@ -59,5 +59,5 @@ I was a little stressed and a lot tired from the howling wind, so didn’t appre
 
 I was determined to ride the bikes back. I couldn’t face how long it would have taken by foot. Though very bumpy over the sand ridges, there were a few enjoyable stretches of smooth sand too.
 
-The best part was when we encountered the little river again. Instead of dismounting, we kept up our speed and plowed through it. Water sprays arched away from our wheels and our feet stayed dry. A small but significant triumph. 
+The best part was when we encountered the little river again. Instead of dismounting, we kept up our speed and plowed through it. Water sprays arched away from our wheels and our feet stayed dry. A small but significant triumph.
 </details>

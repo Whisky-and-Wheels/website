@@ -49,7 +49,7 @@ One of the great benefits of staying at Callanish is that you can walk to the st
 
 Our original plan for this trip was to do the full Hebridean Way, starting in Vatersay and ending at the [Butt of Lewis](https://www.google.com/maps/place/Butt+of+Lewis+Lighthouse/@58.516677,-6.2769879,15z/data=!4m14!1m7!3m6!1s0x48921ecaae2ef9d9:0xbb59e5a78c6eb889!2sButt+of+Lewis!8m2!3d58.5166667!4d-6.2666667!16zL20vMDZnM215!3m5!1s0x48921eb5f44ef479:0x2b9306df4bcabe8c!8m2!3d58.5154969!4d-6.2609168!16s%2Fm%2F04tny9q?entry=ttu). When we decided to incorporate Skye, we had to make some concessions and shaved off the ends of our Hebridean trip.
 
-But Jack really wanted to see the Butt of Lewis lighthouse. If not by bike, then by bus. One bus got us to Stornoway and another took us the rest of the way.
+But Jack really wanted to see the Butt of Lewis lighthouse. If not by bike, then by bus. One bus got us to Stornoway and another took us the rest of the way. One can catch the Callanish-Stornaway bus at the [bus stop just in front of the Callanish Standing Stones visitor centre](https://maps.app.goo.gl/L8N5WRitHwknieaHA) but note that the timetable is not very clear everyday.
 
 The lighthouse is not overly impressive but the scenery around it is spectacular. It had been raining in Stornoway but was all blue skies and fluffy white clouds up North. Two major downsides: no food and no bathroom. We had a long-ish wait for the bus back and both fell asleep on the return ride.
 </details>
