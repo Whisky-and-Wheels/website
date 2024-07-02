@@ -14,9 +14,7 @@ title: Sligachan
 total_duration: '5:42:22'
 ---
 
-<figure class="center">
-{% image "maps/alt_dist_sligachan.png", "Altitude vs distance plot." %}
-</figure>
+![profile](/maps/alt_dist_sligachan.svg)
 
 We had a very pleasant bike to Stornoway and made such a good time we had to kill 2 hours before our transport back to Tarbert. We did this at [Lews Castle](https://maps.app.goo.gl/EQU29PK11kxDi618A), which was a good choice because it rained on and off and they had a generously sized entrance to keep us dry and warm.
 

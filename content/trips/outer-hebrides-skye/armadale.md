@@ -14,9 +14,7 @@ title: Armadale
 total_duration: '3:25:39'
 ---
 
-<figure class="center">
-{% image "maps/alt_dist_armadale.png", "Altitude vs distance plot." %}
-</figure>
+![profile](/maps/alt_dist_armadale.svg)
 
 Jack says it takes 15.5 days to kill him. He is dead.
 
