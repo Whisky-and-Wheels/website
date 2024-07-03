@@ -223,11 +223,12 @@
         &::first-letter {
           float: left;
           /* logical properties don't seem to work here */
-          /* chrome not recognizing font step definition */
           margin-left: calc(-0.33 * var(--font-step-5));
           font-size: var(--font-step-5);
+          font-weight: initial;
           letter-spacing: 0.05em;
-          line-height: 1;
+          /* hack for safari/chrome to get letter poking above rest of line */
+          line-height: 0.5;
         }
       }
 
