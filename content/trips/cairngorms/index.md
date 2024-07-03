@@ -16,7 +16,7 @@ sidetrip_km: 0
 social: cairngorms.jpg
 start: Pitlochry
 subtitle: Our first long bike trip
-tags: trip
+tags: ['trip', 'featured']
 title: Cairngorms
 total_duration: 1-09:00:00
 ---

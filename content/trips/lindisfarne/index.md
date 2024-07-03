@@ -16,7 +16,7 @@ name: lindisfarne
 social: lindisfarne.jpg
 start: Berwick-upon-Tweed
 subtitle: The causeway that floods twice a day
-tags: trip
+tags: ['trip', 'featured']
 title: Lindisfarne
 total_duration: 07:05:36
 total_elevation: 500m

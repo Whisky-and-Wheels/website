@@ -52,6 +52,7 @@
     /* specific placement adjustments */
     [data-label]:nth-child(1) {
       --grid-column: 2 / var(--grid-col-span);
+      align-self: end;
     }
 
     [data-label]:nth-child(2) {
@@ -284,30 +285,13 @@
     .title {
       display: flex;
       align-items: center;
-      font-size: var(--font-step-2);
+      font-size: var(--font-step-1);
       font-weight: 600;
       font-variation-settings: "SOFT" 100;
       text-transform: uppercase;
-
-      &:first-letter {
-        font-size: var(--font-step-3);
-        font-weight: 500;
-        font-variation-settings: "SOFT" 50;
-        letter-spacing: -0.025em;
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        height: var(--divider-thickness);
-        width: 100%;
-        margin-inline-start: var(--space-s);
-        background-color: var(--color-neutral-dark);
-      }
     }
 
     .subtitle {
-      font-family: var(--font-italic);
       font-weight: 400;
       font-size: var(--font-base);
     }
@@ -403,6 +387,7 @@
       line-height: 1.2;
     }
 
+    .title,
     .subtitle,
     .excerpt,
     & picture {
