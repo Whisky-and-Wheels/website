@@ -156,10 +156,6 @@
     border-radius: var(--space-xs);
     background-color: var(--color-accent-light);
 
-    & tr {
-      width: min-content;
-    }
-
     & th {
       width: max-content;
       text-align: left;
