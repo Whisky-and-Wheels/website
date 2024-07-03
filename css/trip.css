@@ -13,7 +13,6 @@
 }
 
 @layer template {
-  /* note: main is max-width 100% to allow white background / mountain svg overlap */
   .grid {
     --gutter: var(--space-s);
     --max-line-length: fit-content(50ch);
@@ -76,12 +75,11 @@
     --title-stack-index: 1;
   }
 
-  [class^="mountain"] ~ header {
-    height: calc(3 * var(--font-step-5));
-
-    @media screen and (width > 64rem) {
-      height: calc(2.5 * var(--font-step-5));
-    }
+  /* position mountains relative to header */
+  header {
+    position: relative;
+    padding-block-end: var(--font-step-5);
+    overflow: hidden;
   }
 
   h1 {
@@ -89,132 +87,29 @@
     z-index: var(--title-stack-index);
   }
 
-  /* todo: manage heights better across screen sizes*/
   :where(svg[class^="mountain"]) {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    inset-inline: 0;
   }
 
   .mountain-background {
-    top: calc(var(--font-step-5) * 0.6);
     fill: var(--color-accent-light);
+    inset-block-end: 0;
   }
 
   .mountain-midground {
-    height: 150px;
-    top: calc(var(--font-step-5) * 1.2);
     fill: var(--color-accent);
+    inset-block-end: calc(-1 * (var(--font-step-5) / 3));
+    scale: 2;
   }
 
   .mountain-foreground {
-    top: calc(var(--font-step-5) * 0.8);
-    height: 250px;
     fill: var(--color-accent-dark);
+    inset-block-end: calc(-1 * (var(--font-step-5) / 5));
   }
 
   main {
-    --max-width: 100%;
-    position: relative;
-    /* go on top of mountains */
-    z-index: var(--title-stack-index);
     padding-top: var(--space-l-xl);
-    background-color: var(--color-neutral-light);
-  }
-}
-
-/* Mountain Header: Parallax */
-@media screen and (prefers-reduced-motion: no-preference) {
-  /* figure out height responsiveness later */
-  @media screen and (height > 39rem) {
-    /* support query and more on parallax technique: https://keithclark.co.uk/articles/practical-css-parallax/ */
-    @supports (
-      (perspective: 1px) and (not (-webkit-overflow-scrolling: touch))
-    ) {
-      @layer variant {
-        .parallax {
-          height: 100vh;
-          overflow-x: hidden;
-          overflow-y: auto;
-          overscroll-behavior: contain;
-          perspective: 1px;
-          isolation: isolate; /* prevent descendent z-index from fighting with nav or footer*/
-        }
-
-        h1 {
-          /*
-          I wanted to nest mountains inside header, but then sticky behaviour doesn't take
-          effect on Firefox. Seems related to spec implementation for perspective and further
-          descendents: https://bugzilla.mozilla.org/show_bug.cgi?id=716524
-          - tried with preserve-3d on header (maybe try with it on h1 too?)
-        */
-          position: sticky;
-          top: var(--space-m); /* match block padding*/
-        }
-
-        :where(svg[class^="mountain"]):last-of-type {
-          z-index: calc(var(--title-stack-index) + 1);
-        }
-
-        /* todo: manage heights better across screen sizes*/
-        :where(svg[class^="mountain"]) {
-          position: fixed;
-        }
-
-        .mountain-background {
-          height: 100px;
-          top: -550px;
-          transform: translateZ(-2px);
-          scale: 3;
-        }
-
-        .mountain-midground {
-          top: -150px;
-          transform: translateZ(-1px);
-          scale: 2;
-        }
-
-        .mountain-foreground {
-          top: -20px;
-          transform: translateZ(0);
-        }
-
-        main {
-          /* go on top of last mountain */
-          z-index: calc(var(--title-stack-index) + 2);
-        }
-
-        @media screen and (width > 38rem) {
-          .mountain-background {
-            top: -400px;
-            height: 200px;
-          }
-
-          .mountain-midground {
-            top: -70px;
-          }
-
-          .mountain-foreground {
-            top: 30px;
-          }
-        }
-
-        @media screen and (width > 75rem) {
-          .mountain-background {
-            top: -300px;
-            height: initial;
-          }
-
-          .mountain-midground {
-            top: 30px;
-          }
-
-          .mountain-foreground {
-            top: 100px;
-          }
-        }
-      }
-    }
   }
 }
 
