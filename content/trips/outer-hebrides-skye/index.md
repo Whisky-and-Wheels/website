@@ -16,7 +16,7 @@ sidetrip_km: 0
 social: outer-hebrides-skye.jpg
 start: Castlebay
 subtitle: Wherein we learn our gear is not Scotland-proof
-tags: trip
+tags: ['trip', 'featured']
 title: Outer Hebrides and Skye
 total_duration: 1-06:44:05
 ---

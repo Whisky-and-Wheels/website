@@ -14,7 +14,7 @@ name: loch-lomond
 social: loch_lomond.jpg
 start: Balloch
 subtitle: A beautiful but miserable ride
-tags: trip
+tags: ['trip', 'featured']
 title: Loch Lomond
 total_duration: 07:42:17
 total_elevation: 500m

@@ -27,39 +27,34 @@
         <main
             class="container grid">
             {# sort from newest to oldest #}
-            {%- for trip in collections.trip | reverse -%}
-                {% if trip.data.label %}
-                    {% set label = trip.data.label %}
-                {% else %}
-                    {% set label = 'glenfiddich' %}
-                {% endif %}
+            {%- for featured in collections.featured | reverse -%}
                 {# todo: proper sizes values for label images #}
-                <a data-label="{{ label }}" href="{{ trip.page.url }}">
+                <a data-label="{{ featured.data.label }}" href="{{ featured.page.url }}">
                     <article class="article">
-                        <h2 class="title">{{ trip.data.title }}</h2>
+                        <h2 class="title">{{ featured.data.title }}</h2>
                         <h3 class="subtitle">
-                            <span>{{ trip.data.subtitle }}</span>
+                            <span>{{ featured.data.subtitle }}</span>
                         </h3>
-                        {% image ["img/", trip.data.image_file, ".jpeg"] | join, trip.data.image_alt, "300px" %}
+                        {% image ["img/", featured.data.image_file, ".jpeg"] | join, featured.data.image_alt, "300px" %}
                         <p class="days">
-                            <strong>{{ trip.data.days }}</strong>
+                            <strong>{{ featured.data.days }}</strong>
                             <span>days</span>
                         </p>
                         <p class="kilometres">
-                            <strong>{{ trip.data.kilometres }}</strong>
+                            <strong>{{ featured.data.kilometres }}</strong>
                             <span>km</span>
                         </p>
                         <p class="location">
                             <span>From</span>
-                            <strong>{{ trip.data.start }}</strong>
+                            <strong>{{ featured.data.start }}</strong>
                             <span>to</span>
-                            <strong>{{ trip.data.end }}</strong>
+                            <strong>{{ featured.data.end }}</strong>
                         </p>
                         <p class="excerpt">
-                            {% if trip.data.label == 'glenlivet' %}
-                                {{ trip.page.excerpt | truncate(50) }}
+                            {% if featured.data.label == 'glenlivet' %}
+                                {{ featured.page.excerpt | truncate(50) }}
                             {% else %}
-                                {{ trip.page.excerpt }}
+                                {{ featured.page.excerpt }}
                             {% endif %}
                         </p>
                     </article>

@@ -7,6 +7,11 @@
     width: 100%;
   }
 
+  body {
+    background-image:  url("../img/img-noise-1000x1000.png"),linear-gradient(to bottom left, var(--color-neutral-dark) 0.1%, transparent 20%, var(--color-neutral-dark)), linear-gradient(to right, var(--color-neutral-dark) 1%, transparent, var(--color-neutral-dark) 99%);
+    background-blend-mode: hard-light;
+  }
+
   @media screen and (width > 35rem) {
     main {
       align-items: start;
@@ -47,6 +52,7 @@
     /* specific placement adjustments */
     [data-label]:nth-child(1) {
       --grid-column: 2 / var(--grid-col-span);
+      align-self: end;
     }
 
     [data-label]:nth-child(2) {
@@ -149,10 +155,10 @@
     display: grid;
     column-gap: var(--space-m);
     row-gap: var(--space-s);
-    background: radial-gradient(whitesmoke, transparent),
-      url("../img/img-noise-1000x1000.png");
+    background: var(--color-neutral-light);
     background-size: cover;
     padding: var(--space-s-m);
+    border: var(--space-3xs) solid var(--color-neutral-dark);
   }
 }
 
@@ -279,30 +285,13 @@
     .title {
       display: flex;
       align-items: center;
-      font-size: var(--font-step-2);
+      font-size: var(--font-step-1);
       font-weight: 600;
       font-variation-settings: "SOFT" 100;
       text-transform: uppercase;
-
-      &:first-letter {
-        font-size: var(--font-step-3);
-        font-weight: 500;
-        font-variation-settings: "SOFT" 50;
-        letter-spacing: -0.025em;
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        height: var(--divider-thickness);
-        width: 100%;
-        margin-inline-start: var(--space-s);
-        background-color: var(--color-neutral-dark);
-      }
     }
 
     .subtitle {
-      font-family: var(--font-italic);
       font-weight: 400;
       font-size: var(--font-base);
     }
@@ -398,6 +387,7 @@
       line-height: 1.2;
     }
 
+    .title,
     .subtitle,
     .excerpt,
     & picture {
@@ -609,8 +599,6 @@
       line-height: 1;
       text-align: center;
       border: var(--space-3xs) solid black;
-      outline: calc(var(--space-3xs) * 0.5) solid black;
-      outline-offset: calc(var(--space-3xs) * 0.5);
     }
 
     .excerpt {
