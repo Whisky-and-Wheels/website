@@ -14,6 +14,8 @@ title: Armadale
 total_duration: '3:25:39'
 ---
 
+![profile](/maps/alt_dist_armadale.svg)
+
 Jack says it takes 15.5 days to kill him. He is dead.
 
 More accurately, he was dead about halfway through today’s ride but we managed to suffer through and catch the ferry anyway. I felt bad for him. I would have towed him if I could. I know things have gotten grim if he doesn’t even have the energy to complain. But we made it.

@@ -14,6 +14,10 @@ title: Elgol
 total_duration: '3:23:01'
 ---
 
+<figure class="center">
+{% image "maps/alt_dist_elgol.png", "Altitude vs distance plot." %}
+</figure>
+
 The ride from Sligachan to [Broadford](https://maps.app.goo.gl/UEBa45eQfuCBnB5Z8) is mostly good but busy. Weather great. Roads are relatively flat, if a little more single-track than I like.
 
 One section was very strange. A police car parked diagonally across the two lanes and started instructing every oncoming car to pull aside and wait. We were riding behind him, so it looked like we had a police escort. Jack found this hilarious. I was deeply unsettled. One car applauded for us.

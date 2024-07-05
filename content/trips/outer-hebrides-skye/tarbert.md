@@ -14,6 +14,10 @@ title: Tarbert
 total_duration: '3:00:06'
 ---
 
+<figure class="center">
+{% image "maps/alt_dist_tarbert.png", "Altitude vs distance plot." %}
+</figure>
+
 We had planned a longer stay in Leverburgh to leave time for the two-day window required when booking a St. Kilda trip. Unfortunately, the winds were too strong on both days, so the trip was canceled.
 
 After hearing the disappointing news, one of our B&B hosts, Polly, brought out a little Puffin stuffy, saying she wanted me to see a Puffin, which was very sweet. Apparently, her mum is puffin-mad and they have all sorts of Puffin-themed things about. As it happened, this was the only puffin I saw on the trip.
